@@ -1,8 +1,9 @@
 ---
 title: OCM Service Log API v0.0.1
 language_tabs:
+  - go: Go
+  - javascript: JavaScript
   - python: Python
-  - ruby: Ruby
 toc_footers: []
 includes: []
 search: true
@@ -12,6 +13,8 @@ headingLevel: 2
 ---
 
 # OCM Service Log API v0.0.1 {% #ocm-service-log-api %}
+
+> Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
 
 Receives and maintains logs from internal sources related to OpenShift clusters.
 
@@ -23,17 +26,86 @@ Base URLs:
 
 - [https://api.stage.openshift.com](https://api.stage.openshift.com)
 
-undefined
+# Authentication
+
+* API Key (AccessToken)
+    - Parameter Name: **Authorization**, in: header. Authorization: AccessToken {cluster-uuid}:{access-token}
+
+- HTTP Authentication, scheme: bearer
 
 # Default {% #ocm-service-log-api-default %}
 
 ## get__api_service_logs_v1_cluster_logs
 
+> Code samples
+{% codesamples %}
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "Authorization": []string{"Bearer {access-token}"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "http://localhost:8000/api/service_logs/v1/cluster_logs", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```javascript
+
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer {access-token}'
+};
+
+fetch('http://localhost:8000/api/service_logs/v1/cluster_logs',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer {access-token}'
+}
+
+r = requests.get('http://localhost:8000/api/service_logs/v1/cluster_logs', headers = headers)
+
+print(r.json())
+
+```
+
+{% /codesamples%}
+
 `GET /api/service_logs/v1/cluster_logs`
 
 *Get all service logs*
 
-<h3 id="get__api_service_logs_v1_cluster_logs-parameters">Parameters</h3>
+### Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -226,7 +298,7 @@ ocm get subscriptions --parameter fields=id,href,plan.id,plan.kind,labels.* --pa
 }
 ```
 
-<h3 id="get__api_service_logs_v1_cluster_logs-responses">Responses</h3>
+### Responses
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
@@ -241,6 +313,153 @@ Bearer, AccessToken
 </aside>
 
 ## post__api_service_logs_v1_cluster_logs
+
+> Code samples
+{% codesamples %}
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "Accept": []string{"application/json"},
+        "Authorization": []string{"Bearer {access-token}"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "http://localhost:8000/api/service_logs/v1/cluster_logs", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```javascript
+const inputBody = '{
+  "allOf": [
+    {
+      "properties": {
+        "href": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    {
+      "properties": {
+        "cluster_id": {
+          "type": "string"
+        },
+        "cluster_uuid": {
+          "type": "string"
+        },
+        "created_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "created_by": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "event_stream_id": {
+          "type": "string"
+        },
+        "first_name": {
+          "type": "string"
+        },
+        "internal_only": {
+          "default": false,
+          "type": "boolean"
+        },
+        "last_name": {
+          "type": "string"
+        },
+        "service_name": {
+          "type": "string"
+        },
+        "severity": {
+          "enum": [
+            "Debug",
+            "Info",
+            "Warning",
+            "Error",
+            "Fatal"
+          ],
+          "type": "string"
+        },
+        "subscription_id": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "timestamp": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  ]
+}';
+const headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json',
+  'Authorization':'Bearer {access-token}'
+};
+
+fetch('http://localhost:8000/api/service_logs/v1/cluster_logs',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer {access-token}'
+}
+
+r = requests.post('http://localhost:8000/api/service_logs/v1/cluster_logs', headers = headers)
+
+print(r.json())
+
+```
+
+{% /codesamples%}
 
 `POST /api/service_logs/v1/cluster_logs`
 
@@ -332,7 +551,7 @@ Bearer, AccessToken
 }
 ```
 
-<h3 id="post__api_service_logs_v1_cluster_logs-parameters">Parameters</h3>
+### Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -426,7 +645,7 @@ Bearer, AccessToken
 }
 ```
 
-<h3 id="post__api_service_logs_v1_cluster_logs-responses">Responses</h3>
+### Responses
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
@@ -443,11 +662,75 @@ Bearer, AccessToken
 
 ## delete__api_service_logs_v1_cluster_logs_{id}
 
+> Code samples
+{% codesamples %}
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "Authorization": []string{"Bearer {access-token}"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("DELETE", "http://localhost:8000/api/service_logs/v1/cluster_logs/{id}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```javascript
+
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer {access-token}'
+};
+
+fetch('http://localhost:8000/api/service_logs/v1/cluster_logs/{id}',
+{
+  method: 'DELETE',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer {access-token}'
+}
+
+r = requests.delete('http://localhost:8000/api/service_logs/v1/cluster_logs/{id}', headers = headers)
+
+print(r.json())
+
+```
+
+{% /codesamples%}
+
 `DELETE /api/service_logs/v1/cluster_logs/{id}`
 
 *Delete log record by record id*
 
-<h3 id="delete__api_service_logs_v1_cluster_logs_{id}-parameters">Parameters</h3>
+### Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -492,7 +775,7 @@ Bearer, AccessToken
 }
 ```
 
-<h3 id="delete__api_service_logs_v1_cluster_logs_{id}-responses">Responses</h3>
+### Responses
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
@@ -509,11 +792,75 @@ Bearer, AccessToken
 
 ## get__api_service_logs_v1_cluster_logs_{id}
 
+> Code samples
+{% codesamples %}
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "Authorization": []string{"Bearer {access-token}"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "http://localhost:8000/api/service_logs/v1/cluster_logs/{id}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```javascript
+
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer {access-token}'
+};
+
+fetch('http://localhost:8000/api/service_logs/v1/cluster_logs/{id}',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer {access-token}'
+}
+
+r = requests.get('http://localhost:8000/api/service_logs/v1/cluster_logs/{id}', headers = headers)
+
+print(r.json())
+
+```
+
+{% /codesamples%}
+
 `GET /api/service_logs/v1/cluster_logs/{id}`
 
 *Get log by record id*
 
-<h3 id="get__api_service_logs_v1_cluster_logs_{id}-parameters">Parameters</h3>
+### Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -607,7 +954,7 @@ Bearer, AccessToken
 }
 ```
 
-<h3 id="get__api_service_logs_v1_cluster_logs_{id}-responses">Responses</h3>
+### Responses
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
@@ -623,11 +970,75 @@ Bearer, AccessToken
 
 ## get__api_service_logs_v1_clusters_{uuid}_cluster_logs
 
+> Code samples
+{% codesamples %}
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "Authorization": []string{"Bearer {access-token}"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "http://localhost:8000/api/service_logs/v1/clusters/{uuid}/cluster_logs", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```javascript
+
+const headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer {access-token}'
+};
+
+fetch('http://localhost:8000/api/service_logs/v1/clusters/{uuid}/cluster_logs',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer {access-token}'
+}
+
+r = requests.get('http://localhost:8000/api/service_logs/v1/clusters/{uuid}/cluster_logs', headers = headers)
+
+print(r.json())
+
+```
+
+{% /codesamples%}
+
 `GET /api/service_logs/v1/clusters/{uuid}/cluster_logs`
 
 *Get all service logs for a specific cluster*
 
-<h3 id="get__api_service_logs_v1_clusters_{uuid}_cluster_logs-parameters">Parameters</h3>
+### Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -821,7 +1232,7 @@ ocm get subscriptions --parameter fields=id,href,plan.id,plan.kind,labels.* --pa
 }
 ```
 
-<h3 id="get__api_service_logs_v1_clusters_{uuid}_cluster_logs-responses">Responses</h3>
+### Responses
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
@@ -839,10 +1250,10 @@ Bearer
 
 ## ClusterLog {% #tocS_ClusterLog %}
 
-[]() {% #schemaclusterlog %}
-[]() {% #schema_ClusterLog %}
-[]() {% #tocSclusterlog %}
-[]() {% #tocsclusterlog %}
+{% span #schemaclusterlog /%}
+{% span #schema_ClusterLog /%}
+{% span #tocSclusterlog /%}
+{% span #tocsclusterlog /%}
 
 ```json
 {
@@ -971,10 +1382,10 @@ and
 
 ## ClusterLogList {% #tocS_ClusterLogList %}
 
-[]() {% #schemaclusterloglist %}
-[]() {% #schema_ClusterLogList %}
-[]() {% #tocSclusterloglist %}
-[]() {% #tocsclusterloglist %}
+{% span #schemaclusterloglist /%}
+{% span #schema_ClusterLogList /%}
+{% span #tocSclusterloglist /%}
+{% span #tocsclusterloglist /%}
 
 ```json
 {
@@ -1121,10 +1532,10 @@ and
 
 ## Error {% #tocS_Error %}
 
-[]() {% #schemaerror %}
-[]() {% #schema_Error %}
-[]() {% #tocSerror %}
-[]() {% #tocserror %}
+{% span #schemaerror /%}
+{% span #schema_Error /%}
+{% span #tocSerror /%}
+{% span #tocserror /%}
 
 ```json
 {
@@ -1181,10 +1592,10 @@ and
 
 ## ErrorList {% #tocS_ErrorList %}
 
-[]() {% #schemaerrorlist %}
-[]() {% #schema_ErrorList %}
-[]() {% #tocSerrorlist %}
-[]() {% #tocserrorlist %}
+{% span #schemaerrorlist /%}
+{% span #schema_ErrorList /%}
+{% span #tocSerrorlist /%}
+{% span #tocserrorlist /%}
 
 ```json
 {
@@ -1278,10 +1689,10 @@ and
 
 ## List {% #tocS_List %}
 
-[]() {% #schemalist %}
-[]() {% #schema_List %}
-[]() {% #tocSlist %}
-[]() {% #tocslist %}
+{% span #schemalist /%}
+{% span #schema_List /%}
+{% span #tocSlist /%}
+{% span #tocslist /%}
 
 ```json
 {
@@ -1325,10 +1736,10 @@ and
 
 ## ObjectReference {% #tocS_ObjectReference %}
 
-[]() {% #schemaobjectreference %}
-[]() {% #schema_ObjectReference %}
-[]() {% #tocSobjectreference %}
-[]() {% #tocsobjectreference %}
+{% span #schemaobjectreference /%}
+{% span #schema_ObjectReference /%}
+{% span #tocSobjectreference /%}
+{% span #tocsobjectreference /%}
 
 ```json
 {
@@ -1355,6 +1766,4 @@ and
 |href|string|false|none|none|
 |id|string|false|none|none|
 |kind|string|false|none|none|
-
-undefined
 

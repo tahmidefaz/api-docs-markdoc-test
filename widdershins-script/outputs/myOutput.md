@@ -95,196 +95,13 @@ print(r.json())
 
 Returns a list of Playbook runs for the given account. The list can be filtered using the `filter` parameter. The fields returned in the representation can be controller using `fields` parameter.
 
-### Parameters {% .parameters %}
+undefined
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|filter|query|object|false|Allows for filtering based on various criteria|
-|fields|query|object|false|Defines fields to be returned in the response.|
-|sort_by|query|string|false|Sort order|
-|limit|query|integer|false|Maximum number of results to return|
-|offset|query|integer|false|Indicates the starting position of the query relative to the complete set of items that match the query|
+undefined
 
-#### Detailed descriptions
+undefined
 
-**fields**: Defines fields to be returned in the response.
-
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|sort_by|created_at|
-|sort_by|created_at:asc|
-|sort_by|created_at:desc|
-
-> Example responses
-
-> 200 Response
-
-```json
-{
-  "type": "object",
-  "properties": {
-    "data": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "description": "Unique identifier of a Playbook run",
-            "type": "string",
-            "format": "uuid"
-          },
-          "account": {
-            "description": "Identifier of the tenant",
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 10,
-            "deprecated": true
-          },
-          "org_id": {
-            "description": "Identifier of the tenant",
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 10,
-            "example": "5318290"
-          },
-          "recipient": {
-            "description": "Identifier of the host to which a given Playbook is addressed",
-            "type": "string",
-            "format": "uuid"
-          },
-          "correlation_id": {
-            "description": "Unique identifier used to match work request with responses",
-            "type": "string"
-          },
-          "name": {
-            "description": "Human readable name of the playbook run. Used to present the given playbook run in external systems (Satellite).",
-            "type": "string",
-            "example": "Fix Critical CVEs",
-            "minLength": 1
-          },
-          "web_console_url": {
-            "description": "URL that points to the section of the web console where the user find more information about the playbook run. The field is optional but highly suggested.",
-            "type": "string",
-            "format": "url",
-            "minLength": 1
-          },
-          "service": {
-            "description": "Service that triggered the given Playbook run",
-            "type": "string",
-            "minLength": 1
-          },
-          "url": {
-            "description": "URL hosting the Playbook",
-            "type": "string",
-            "format": "url"
-          },
-          "labels": {
-            "description": "Additional metadata about the Playbook run. Can be used for filtering purposes.",
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            }
-          },
-          "timeout": {
-            "description": "Amount of seconds after which the run is considered failed due to timeout",
-            "type": "integer",
-            "default": 3600,
-            "minimum": 0,
-            "maximum": 604800
-          },
-          "status": {
-            "description": "Current status of a Playbook run",
-            "type": "string",
-            "enum": [
-              "running",
-              "success",
-              "failure",
-              "timeout",
-              "canceled"
-            ]
-          },
-          "created_at": {
-            "description": "A timestamp when the entry was created",
-            "type": "string",
-            "format": "date-time"
-          },
-          "updated_at": {
-            "description": "A timestamp when the entry was last updated",
-            "type": "string",
-            "format": "date-time"
-          }
-        }
-      }
-    },
-    "meta": {
-      "type": "object",
-      "additionalProperties": false,
-      "description": "Information about returned entities",
-      "properties": {
-        "count": {
-          "type": "integer",
-          "description": "number of results returned",
-          "example": 50
-        },
-        "total": {
-          "type": "integer",
-          "description": "total number of results matching the query",
-          "example": 114
-        }
-      },
-      "required": [
-        "count",
-        "total"
-      ]
-    },
-    "links": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "first",
-        "last"
-      ],
-      "properties": {
-        "first": {
-          "type": "string",
-          "description": "relative link to the first page of the query results"
-        },
-        "last": {
-          "type": "string",
-          "description": "relative link to the last page of the query results"
-        },
-        "next": {
-          "type": "string",
-          "description": "relative link to the next page of the query results"
-        },
-        "previous": {
-          "type": "string",
-          "description": "relative link to the previous page of the query results"
-        }
-      }
-    }
-  },
-  "required": [
-    "data",
-    "meta",
-    "links"
-  ]
-}
-```
-
-### Responses
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[Runs](#schemaruns)|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|[Error](#schemaerror)|
-|403|[Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3)|Access to the given resource is not allowed|[Error](#schemaerror)|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
+undefined
 
 ## api.run.hosts.list
 
@@ -355,233 +172,22 @@ print(r.json())
 
 Returns a list of objects representing hosts involved in Playbook runs. Unless restricted using filters the resources spread across multiple Playbook runs. No merging or deduplication is performed by this resource - i.e. if a host X is involved in playbook runs A and B then two subresources with exist, one representing X running A and one for B.
 
-### Parameters {% .parameters %}
+undefined
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|filter|query|object|false|Allows for filtering based on various criteria|
-|fields|query|object|false|Defines fields to be returned in the response.|
-|limit|query|integer|false|Maximum number of results to return|
-|offset|query|integer|false|Indicates the starting position of the query relative to the complete set of items that match the query|
+undefined
 
-#### Detailed descriptions
+undefined
 
-**fields**: Defines fields to be returned in the response.
-
-> Example responses
-
-> 200 Response
-
-```json
-{
-  "type": "object",
-  "properties": {
-    "data": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "host": {
-            "description": "Name used to identify a host within Ansible inventory",
-            "type": "string"
-          },
-          "stdout": {
-            "description": "Output produced by running Ansible Playbook on the given host",
-            "type": "string"
-          },
-          "status": {
-            "description": "Current status of a Playbook run",
-            "type": "string",
-            "enum": [
-              "running",
-              "success",
-              "failure",
-              "timeout",
-              "canceled"
-            ]
-          },
-          "run": {
-            "type": "object",
-            "properties": {
-              "id": {
-                "description": "Unique identifier of a Playbook run",
-                "type": "string",
-                "format": "uuid"
-              },
-              "account": {
-                "description": "Identifier of the tenant",
-                "type": "string",
-                "minLength": 1,
-                "maxLength": 10,
-                "deprecated": true
-              },
-              "org_id": {
-                "description": "Identifier of the tenant",
-                "type": "string",
-                "minLength": 1,
-                "maxLength": 10,
-                "example": "5318290"
-              },
-              "recipient": {
-                "description": "Identifier of the host to which a given Playbook is addressed",
-                "type": "string",
-                "format": "uuid"
-              },
-              "correlation_id": {
-                "description": "Unique identifier used to match work request with responses",
-                "type": "string"
-              },
-              "name": {
-                "description": "Human readable name of the playbook run. Used to present the given playbook run in external systems (Satellite).",
-                "type": "string",
-                "example": "Fix Critical CVEs",
-                "minLength": 1
-              },
-              "web_console_url": {
-                "description": "URL that points to the section of the web console where the user find more information about the playbook run. The field is optional but highly suggested.",
-                "type": "string",
-                "format": "url",
-                "minLength": 1
-              },
-              "service": {
-                "description": "Service that triggered the given Playbook run",
-                "type": "string",
-                "minLength": 1
-              },
-              "url": {
-                "description": "URL hosting the Playbook",
-                "type": "string",
-                "format": "url"
-              },
-              "labels": {
-                "description": "Additional metadata about the Playbook run. Can be used for filtering purposes.",
-                "type": "object",
-                "additionalProperties": {
-                  "type": "string"
-                }
-              },
-              "timeout": {
-                "description": "Amount of seconds after which the run is considered failed due to timeout",
-                "type": "integer",
-                "default": 3600,
-                "minimum": 0,
-                "maximum": 604800
-              },
-              "status": {
-                "description": "Current status of a Playbook run",
-                "type": "string",
-                "enum": [
-                  "running",
-                  "success",
-                  "failure",
-                  "timeout",
-                  "canceled"
-                ]
-              },
-              "created_at": {
-                "description": "A timestamp when the entry was created",
-                "type": "string",
-                "format": "date-time"
-              },
-              "updated_at": {
-                "description": "A timestamp when the entry was last updated",
-                "type": "string",
-                "format": "date-time"
-              }
-            }
-          },
-          "inventory_id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "links": {
-            "type": "object",
-            "properties": {
-              "inventory_host": {
-                "type": "string",
-                "nullable": true
-              }
-            }
-          }
-        }
-      }
-    },
-    "meta": {
-      "type": "object",
-      "additionalProperties": false,
-      "description": "Information about returned entities",
-      "properties": {
-        "count": {
-          "type": "integer",
-          "description": "number of results returned",
-          "example": 50
-        },
-        "total": {
-          "type": "integer",
-          "description": "total number of results matching the query",
-          "example": 114
-        }
-      },
-      "required": [
-        "count",
-        "total"
-      ]
-    },
-    "links": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "first",
-        "last"
-      ],
-      "properties": {
-        "first": {
-          "type": "string",
-          "description": "relative link to the first page of the query results"
-        },
-        "last": {
-          "type": "string",
-          "description": "relative link to the last page of the query results"
-        },
-        "next": {
-          "type": "string",
-          "description": "relative link to the next page of the query results"
-        },
-        "previous": {
-          "type": "string",
-          "description": "relative link to the previous page of the query results"
-        }
-      }
-    }
-  },
-  "required": [
-    "data",
-    "meta",
-    "links"
-  ]
-}
-```
-
-### Responses
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[RunHosts](#schemarunhosts)|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|[Error](#schemaerror)|
-|403|[Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3)|Access to the given resource is not allowed|[Error](#schemaerror)|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
+undefined
 
 # Schemas
 
 ## RunId {% #tocS_RunId %}
 
-{% span #schemarunid /%}
-{% span #schema_RunId /%}
-{% span #tocSrunid /%}
-{% span #tocsrunid /%}
+[]() {% #schemarunid %}
+[]() {% #schema_RunId %}
+[]() {% #tocSrunid %}
+[]() {% #tocsrunid %}
 
 ```json
 {
@@ -602,10 +208,10 @@ Unique identifier of a Playbook run
 
 ## RunRecipient {% #tocS_RunRecipient %}
 
-{% span #schemarunrecipient /%}
-{% span #schema_RunRecipient /%}
-{% span #tocSrunrecipient /%}
-{% span #tocsrunrecipient /%}
+[]() {% #schemarunrecipient %}
+[]() {% #schema_RunRecipient %}
+[]() {% #tocSrunrecipient %}
+[]() {% #tocsrunrecipient %}
 
 ```json
 {
@@ -626,10 +232,10 @@ Identifier of the host to which a given Playbook is addressed
 
 ## RunTimeout {% #tocS_RunTimeout %}
 
-{% span #schemaruntimeout /%}
-{% span #schema_RunTimeout /%}
-{% span #tocSruntimeout /%}
-{% span #tocsruntimeout /%}
+[]() {% #schemaruntimeout %}
+[]() {% #schema_RunTimeout %}
+[]() {% #tocSruntimeout %}
+[]() {% #tocsruntimeout %}
 
 ```json
 {
@@ -652,10 +258,10 @@ Amount of seconds after which the run is considered failed due to timeout
 
 ## RunCorrelationId {% #tocS_RunCorrelationId %}
 
-{% span #schemaruncorrelationid /%}
-{% span #schema_RunCorrelationId /%}
-{% span #tocSruncorrelationid /%}
-{% span #tocsruncorrelationid /%}
+[]() {% #schemaruncorrelationid %}
+[]() {% #schema_RunCorrelationId %}
+[]() {% #tocSruncorrelationid %}
+[]() {% #tocsruncorrelationid %}
 
 ```json
 {
@@ -675,10 +281,10 @@ Unique identifier used to match work request with responses
 
 ## Account {% #tocS_Account %}
 
-{% span #schemaaccount /%}
-{% span #schema_Account /%}
-{% span #tocSaccount /%}
-{% span #tocsaccount /%}
+[]() {% #schemaaccount %}
+[]() {% #schema_Account %}
+[]() {% #tocSaccount %}
+[]() {% #tocsaccount %}
 
 ```json
 {
@@ -701,10 +307,10 @@ Identifier of the tenant
 
 ## OrgId {% #tocS_OrgId %}
 
-{% span #schemaorgid /%}
-{% span #schema_OrgId /%}
-{% span #tocSorgid /%}
-{% span #tocsorgid /%}
+[]() {% #schemaorgid %}
+[]() {% #schema_OrgId %}
+[]() {% #tocSorgid %}
+[]() {% #tocsorgid %}
 
 ```json
 "5318290"
@@ -721,10 +327,10 @@ Identifier of the tenant
 
 ## PlaybookName {% #tocS_PlaybookName %}
 
-{% span #schemaplaybookname /%}
-{% span #schema_PlaybookName /%}
-{% span #tocSplaybookname /%}
-{% span #tocsplaybookname /%}
+[]() {% #schemaplaybookname %}
+[]() {% #schema_PlaybookName %}
+[]() {% #tocSplaybookname %}
+[]() {% #tocsplaybookname %}
 
 ```json
 "Fix Critical CVEs"
@@ -741,10 +347,10 @@ Human readable name of the playbook run. Used to present the given playbook run 
 
 ## WebConsoleUrl {% #tocS_WebConsoleUrl %}
 
-{% span #schemawebconsoleurl /%}
-{% span #schema_WebConsoleUrl /%}
-{% span #tocSwebconsoleurl /%}
-{% span #tocswebconsoleurl /%}
+[]() {% #schemawebconsoleurl %}
+[]() {% #schema_WebConsoleUrl %}
+[]() {% #tocSwebconsoleurl %}
+[]() {% #tocswebconsoleurl %}
 
 ```json
 {
@@ -766,10 +372,10 @@ URL that points to the section of the web console where the user find more infor
 
 ## Service {% #tocS_Service %}
 
-{% span #schemaservice /%}
-{% span #schema_Service /%}
-{% span #tocSservice /%}
-{% span #tocsservice /%}
+[]() {% #schemaservice %}
+[]() {% #schema_Service %}
+[]() {% #tocSservice %}
+[]() {% #tocsservice %}
 
 ```json
 {
@@ -790,10 +396,10 @@ Service that triggered the given Playbook run
 
 ## Url {% #tocS_Url %}
 
-{% span #schemaurl /%}
-{% span #schema_Url /%}
-{% span #tocSurl /%}
-{% span #tocsurl /%}
+[]() {% #schemaurl %}
+[]() {% #schema_Url %}
+[]() {% #tocSurl %}
+[]() {% #tocsurl %}
 
 ```json
 {
@@ -814,10 +420,10 @@ URL hosting the Playbook
 
 ## Labels {% #tocS_Labels %}
 
-{% span #schemalabels /%}
-{% span #schema_Labels /%}
-{% span #tocSlabels /%}
-{% span #tocslabels /%}
+[]() {% #schemalabels %}
+[]() {% #schema_Labels %}
+[]() {% #tocSlabels %}
+[]() {% #tocslabels %}
 
 ```json
 {
@@ -840,10 +446,10 @@ Additional metadata about the Playbook run. Can be used for filtering purposes.
 
 ## RunStatus {% #tocS_RunStatus %}
 
-{% span #schemarunstatus /%}
-{% span #schema_RunStatus /%}
-{% span #tocSrunstatus /%}
-{% span #tocsrunstatus /%}
+[]() {% #schemarunstatus %}
+[]() {% #schema_RunStatus %}
+[]() {% #tocSrunstatus %}
+[]() {% #tocsrunstatus %}
 
 ```json
 {
@@ -880,10 +486,10 @@ Current status of a Playbook run
 
 ## CreatedAt {% #tocS_CreatedAt %}
 
-{% span #schemacreatedat /%}
-{% span #schema_CreatedAt /%}
-{% span #tocScreatedat /%}
-{% span #tocscreatedat /%}
+[]() {% #schemacreatedat %}
+[]() {% #schema_CreatedAt %}
+[]() {% #tocScreatedat %}
+[]() {% #tocscreatedat %}
 
 ```json
 {
@@ -904,10 +510,10 @@ A timestamp when the entry was created
 
 ## UpdatedAt {% #tocS_UpdatedAt %}
 
-{% span #schemaupdatedat /%}
-{% span #schema_UpdatedAt /%}
-{% span #tocSupdatedat /%}
-{% span #tocsupdatedat /%}
+[]() {% #schemaupdatedat %}
+[]() {% #schema_UpdatedAt %}
+[]() {% #tocSupdatedat %}
+[]() {% #tocsupdatedat %}
 
 ```json
 {
@@ -928,10 +534,10 @@ A timestamp when the entry was last updated
 
 ## Runs {% #tocS_Runs %}
 
-{% span #schemaruns /%}
-{% span #schema_Runs /%}
-{% span #tocSruns /%}
-{% span #tocsruns /%}
+[]() {% #schemaruns %}
+[]() {% #schema_Runs %}
+[]() {% #tocSruns %}
+[]() {% #tocsruns %}
 
 ```json
 {
@@ -1097,10 +703,10 @@ A timestamp when the entry was last updated
 
 ## Run {% #tocS_Run %}
 
-{% span #schemarun /%}
-{% span #schema_Run /%}
-{% span #tocSrun /%}
-{% span #tocsrun /%}
+[]() {% #schemarun %}
+[]() {% #schema_Run %}
+[]() {% #tocSrun %}
+[]() {% #tocsrun %}
 
 ```json
 {
@@ -1217,10 +823,10 @@ A timestamp when the entry was last updated
 
 ## RunHosts {% #tocS_RunHosts %}
 
-{% span #schemarunhosts /%}
-{% span #schema_RunHosts /%}
-{% span #tocSrunhosts /%}
-{% span #tocsrunhosts /%}
+[]() {% #schemarunhosts %}
+[]() {% #schema_RunHosts %}
+[]() {% #tocSrunhosts %}
+[]() {% #tocsrunhosts %}
 
 ```json
 {
@@ -1423,10 +1029,10 @@ A timestamp when the entry was last updated
 
 ## RunHost {% #tocS_RunHost %}
 
-{% span #schemarunhost /%}
-{% span #schema_RunHost /%}
-{% span #tocSrunhost /%}
-{% span #tocsrunhost /%}
+[]() {% #schemarunhost %}
+[]() {% #schema_RunHost %}
+[]() {% #tocSrunhost %}
+[]() {% #tocsrunhost %}
 
 ```json
 {
@@ -1572,10 +1178,10 @@ A timestamp when the entry was last updated
 
 ## RunHostLinks {% #tocS_RunHostLinks %}
 
-{% span #schemarunhostlinks /%}
-{% span #schema_RunHostLinks /%}
-{% span #tocSrunhostlinks /%}
-{% span #tocsrunhostlinks /%}
+[]() {% #schemarunhostlinks %}
+[]() {% #schema_RunHostLinks %}
+[]() {% #tocSrunhostlinks %}
+[]() {% #tocsrunhostlinks %}
 
 ```json
 {
@@ -1598,10 +1204,10 @@ A timestamp when the entry was last updated
 
 ## Meta {% #tocS_Meta %}
 
-{% span #schemameta /%}
-{% span #schema_Meta /%}
-{% span #tocSmeta /%}
-{% span #tocsmeta /%}
+[]() {% #schemameta %}
+[]() {% #schema_Meta %}
+[]() {% #tocSmeta %}
+[]() {% #tocsmeta %}
 
 ```json
 {
@@ -1639,10 +1245,10 @@ Information about returned entities
 
 ## Links {% #tocS_Links %}
 
-{% span #schemalinks /%}
-{% span #schema_Links /%}
-{% span #tocSlinks /%}
-{% span #tocslinks /%}
+[]() {% #schemalinks %}
+[]() {% #schema_Links %}
+[]() {% #tocSlinks %}
+[]() {% #tocslinks %}
 
 ```json
 {
@@ -1685,10 +1291,10 @@ Information about returned entities
 
 ## Error {% #tocS_Error %}
 
-{% span #schemaerror /%}
-{% span #schema_Error /%}
-{% span #tocSerror /%}
-{% span #tocserror /%}
+[]() {% #schemaerror %}
+[]() {% #schema_Error %}
+[]() {% #tocSerror %}
+[]() {% #tocserror %}
 
 ```json
 {
@@ -1713,10 +1319,10 @@ Information about returned entities
 
 ## RunLabelsNullable {% #tocS_RunLabelsNullable %}
 
-{% span #schemarunlabelsnullable /%}
-{% span #schema_RunLabelsNullable /%}
-{% span #tocSrunlabelsnullable /%}
-{% span #tocsrunlabelsnullable /%}
+[]() {% #schemarunlabelsnullable %}
+[]() {% #schema_RunLabelsNullable %}
+[]() {% #tocSrunlabelsnullable %}
+[]() {% #tocsrunlabelsnullable %}
 
 ```json
 {
@@ -1737,10 +1343,10 @@ Information about returned entities
 
 ## StatusNullable {% #tocS_StatusNullable %}
 
-{% span #schemastatusnullable /%}
-{% span #schema_StatusNullable /%}
-{% span #tocSstatusnullable /%}
-{% span #tocsstatusnullable /%}
+[]() {% #schemastatusnullable %}
+[]() {% #schema_StatusNullable %}
+[]() {% #tocSstatusnullable %}
+[]() {% #tocsstatusnullable %}
 
 ```json
 {
@@ -1775,10 +1381,10 @@ Information about returned entities
 
 ## ServiceNullable {% #tocS_ServiceNullable %}
 
-{% span #schemaservicenullable /%}
-{% span #schema_ServiceNullable /%}
-{% span #tocSservicenullable /%}
-{% span #tocsservicenullable /%}
+[]() {% #schemaservicenullable %}
+[]() {% #schema_ServiceNullable %}
+[]() {% #tocSservicenullable %}
+[]() {% #tocsservicenullable %}
 
 ```json
 {
@@ -1797,10 +1403,10 @@ Information about returned entities
 
 ## InventoryIdNullable {% #tocS_InventoryIdNullable %}
 
-{% span #schemainventoryidnullable /%}
-{% span #schema_InventoryIdNullable /%}
-{% span #tocSinventoryidnullable /%}
-{% span #tocsinventoryidnullable /%}
+[]() {% #schemainventoryidnullable %}
+[]() {% #schema_InventoryIdNullable %}
+[]() {% #tocSinventoryidnullable %}
+[]() {% #tocsinventoryidnullable %}
 
 ```json
 {
@@ -1816,4 +1422,6 @@ Information about returned entities
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
 |*anonymous*|string(uuid)¦null|false|none|none|
+
+undefined
 
