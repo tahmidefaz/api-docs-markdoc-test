@@ -9,7 +9,7 @@ export default function CodeSamples({ children }) {
             <div className="code-sample-tabs">
                 { children.map((sample, i) => {
                         return(
-                            <div className="tab" onClick={() => setSelected(i)}>{sample.props['data-language']}</div>
+                            <div key={`tab-${i}`} className={`tab ${selected==i ? 'selected' : ''}`} onClick={() => setSelected(i)}>{sample.props['data-language']}</div>
                         )
                     })
                 }

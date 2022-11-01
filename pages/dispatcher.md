@@ -26,7 +26,7 @@ Base URLs:
 
 # Default {% #playbook-dispatcher-default %}
 
-## api.runs.list {% #api.runs.list %}
+## api.runs.list {% #apirunslist %}
 
 {% codesamples %}
 ```go
@@ -287,7 +287,7 @@ Returns a list of Playbook runs for the given account. The list can be filtered 
 This operation does not require authentication
 {% /paragraph %}
 
-## api.run.hosts.list {% #api.run.hosts.list %}
+## api.run.hosts.list {% #apirunhostslist %}
 
 {% codesamples %}
 ```go
