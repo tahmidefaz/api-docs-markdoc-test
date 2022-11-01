@@ -1,6 +1,8 @@
 {{= data.tags.section }}
 
-## {{= data.operationUniqueName}}
+{{ let operationId = data.operationUniqueName; }}
+{{ operationId = operationId.replace(/[{}]/g,''); }}
+## {{= data.operationUniqueName}} {% #{{= operationId }} %}
 
 {{? data.operation.operationId}}
 {{?}}

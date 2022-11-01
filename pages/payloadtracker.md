@@ -24,7 +24,7 @@ Base URLs:
 
 # Default {% #insights-platform-payload-tracker-api-default %}
 
-## get__payloads
+## get__payloads {% #get__payloads %}
 
 {% codesamples %}
 ```go
@@ -215,7 +215,7 @@ Status Code **200**
 This operation does not require authentication
 {% /paragraph %}
 
-## get__payloads_{request_id}
+## get__payloads_{request_id} {% #get__payloads_request_id %}
 
 {% codesamples %}
 ```go
@@ -441,7 +441,7 @@ Status Code **200**
 This operation does not require authentication
 {% /paragraph %}
 
-## get__payloads_{request_id}_archiveLink
+## get__payloads_{request_id}_archiveLink {% #get__payloads_request_id_archiveLink %}
 
 {% codesamples %}
 ```go
@@ -566,7 +566,7 @@ Status Code **200**
 This operation does not require authentication
 {% /paragraph %}
 
-## get__payloads_{request_id}_kibanaLink
+## get__payloads_{request_id}_kibanaLink {% #get__payloads_request_id_kibanaLink %}
 
 {% codesamples %}
 ```go
@@ -692,7 +692,7 @@ Status Code **200**
 This operation does not require authentication
 {% /paragraph %}
 
-## get__roles_archiveLink
+## get__roles_archiveLink {% #get__roles_archiveLink %}
 
 {% codesamples %}
 ```go
@@ -799,7 +799,7 @@ Status Code **200**
 This operation does not require authentication
 {% /paragraph %}
 
-## get__statuses
+## get__statuses {% #get__statuses %}
 
 {% codesamples %}
 ```go
@@ -1002,7 +1002,7 @@ Status Code **200**
 This operation does not require authentication
 {% /paragraph %}
 
-## get__health
+## get__health {% #get__health %}
 
 {% codesamples %}
 ```go
@@ -1106,7 +1106,7 @@ runs liveness checks for the api and service and returns 200 or 404
 This operation does not require authentication
 {% /paragraph %}
 
-## get__stats
+## get__stats {% #get__stats %}
 
 {% codesamples %}
 ```go

@@ -35,7 +35,7 @@ Base URLs:
 
 # Default {% #ocm-service-log-api-default %}
 
-## get__api_service_logs_v1_cluster_logs
+## get__api_service_logs_v1_cluster_logs {% #get__api_service_logs_v1_cluster_logs %}
 
 {% codesamples %}
 ```go
@@ -313,7 +313,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 Bearer, AccessToken
 {% /paragraph %}
 
-## post__api_service_logs_v1_cluster_logs
+## post__api_service_logs_v1_cluster_logs {% #post__api_service_logs_v1_cluster_logs %}
 
 {% codesamples %}
 ```go
@@ -665,7 +665,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 Bearer, AccessToken
 {% /paragraph %}
 
-## delete__api_service_logs_v1_cluster_logs_{id}
+## delete__api_service_logs_v1_cluster_logs_{id} {% #delete__api_service_logs_v1_cluster_logs_id %}
 
 {% codesamples %}
 ```go
@@ -796,7 +796,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 Bearer, AccessToken
 {% /paragraph %}
 
-## get__api_service_logs_v1_cluster_logs_{id}
+## get__api_service_logs_v1_cluster_logs_{id} {% #get__api_service_logs_v1_cluster_logs_id %}
 
 {% codesamples %}
 ```go
@@ -975,7 +975,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 Bearer, AccessToken
 {% /paragraph %}
 
-## get__api_service_logs_v1_clusters_{uuid}_cluster_logs
+## get__api_service_logs_v1_clusters_{uuid}_cluster_logs {% #get__api_service_logs_v1_clusters_uuid_cluster_logs %}
 
 {% codesamples %}
 ```go
