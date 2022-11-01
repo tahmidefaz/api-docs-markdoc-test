@@ -108,11 +108,11 @@ a {
 }
 
 .example-response {
-  width: 30%;
+  width: 40vw;
   max-height: 40vh;
   background-color: #eceff1;
   overflow-y: scroll;
-  overflow-x: hidden;
+  overflow-x: scroll;
   margin-top: 2%;
   border-radius: 30px;
 }
