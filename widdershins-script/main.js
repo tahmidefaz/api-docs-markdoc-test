@@ -8,34 +8,38 @@ options.user_templates = './widdershins-script/templates'
 options.codeSamples = true;
 options.language_tabs = [{ go: 'Go' }, { javascript: 'JavaScript' }, { python: 'Python' }];
 
-try {
-    let fileData = fs.readFileSync('./widdershins-script/specs/dispatcher.public.openapi.yaml', 'utf8');
-    let swaggerFile = yaml.load(fileData);
+const specsInfo = [
+    {
+        'loc': './widdershins-script/specs/dispatcher.public.openapi.yaml',
+        'type': 'yaml',
+        'page': 'dispatcher.md'
+    },
+    {
+        'loc': './widdershins-script/specs/ocm.service.log.openapi.json',
+        'type': 'json',
+        'page': 'servicelog.md'
+    },
+    {
+        'loc': './widdershins-script/specs/payloadtracker.openapi.yaml',
+        'type': 'yaml',
+        'page': 'payloadtracker.md'
+    }
+]
 
-    widdershins.convert(swaggerFile, options)
-    .then(markdownOutput => {
-    // markdownOutput contains the converted markdown
-    fs.writeFileSync('./pages/dispatcher.md', markdownOutput, 'utf8');
-    })
-    .catch(err => {
-    // handle errors
-    console.log(err)
-    });
+specsInfo.forEach((specInfo) => {
+    try {
+        const fileData = fs.readFileSync(specInfo.loc, 'utf-8');
+        const swaggerFile = specInfo.type === 'yaml' ? yaml.load(fileData) : JSON.parse(fileData)
 
-    fileData = fs.readFileSync('./widdershins-script/specs/ocm.service.log.openapi.json', 'utf8');
-    swaggerFile = JSON.parse(fileData);
-
-    widdershins.convert(swaggerFile, options)
-    .then(markdownOutput => {
-    // markdownOutput contains the converted markdown
-    fs.writeFileSync('./pages/servicelog.md', markdownOutput, 'utf8');
-    })
-    .catch(err => {
-    // handle errors
-    console.log(err)
-    });
-
-} catch (e) {
-    console.log(e)
-    return
-}
+        widdershins.convert(swaggerFile, options)
+        .then(markdownOutput => {
+            fs.writeFileSync(`./pages/${specInfo.page}`, markdownOutput, 'utf-8');
+        })
+        .catch(err => {
+            console.log(err)
+        });
+    } catch(e) {
+        console.log(e)
+        return
+    }
+})

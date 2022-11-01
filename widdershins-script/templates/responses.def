@@ -5,9 +5,10 @@
 {{~}}
 
 {{? data.responseSchemas }}
-> Example responses
+{% jsonsnippet title="Example Response" omitFirst=true %}
 
 {{= data.utils.getResponseExamples(data) }}
+{% /jsonsnippet %}
 {{?}}
 
 {{= data.tags.section }}

@@ -37,7 +37,6 @@ Base URLs:
 
 ## get__api_service_logs_v1_cluster_logs
 
-> Code samples
 {% codesamples %}
 ```go
 package main
@@ -99,7 +98,7 @@ print(r.json())
 
 ```
 
-{% /codesamples%}
+{% /codesamples %}
 
 `GET /api/service_logs/v1/cluster_logs`
 
@@ -167,7 +166,7 @@ Example: For each Subscription to get id, href, plan(id and kind) and labels (al
 ocm get subscriptions --parameter fields=id,href,plan.id,plan.kind,labels.* --parameter fetchLabels=true
 ```
 
-> Example responses
+{% jsonsnippet title="Example Response" omitFirst=true %}
 
 > 200 Response
 
@@ -298,6 +297,8 @@ ocm get subscriptions --parameter fields=id,href,plan.id,plan.kind,labels.* --pa
 }
 ```
 
+{% /jsonsnippet %}
+
 ### Responses
 
 |Status|Meaning|Description|Schema|
@@ -307,14 +308,13 @@ ocm get subscriptions --parameter fields=id,href,plan.id,plan.kind,labels.* --pa
 |403|[Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3)|Unauthorized to perform operation|[Error](#schemaerror)|
 |500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Unexpected error occurred|[Error](#schemaerror)|
 
-<aside class="warning">
+{% paragraph .warning %}
 To perform this operation, you must be authenticated by means of one of the following methods:
 Bearer, AccessToken
-</aside>
+{% /paragraph %}
 
 ## post__api_service_logs_v1_cluster_logs
 
-> Code samples
 {% codesamples %}
 ```go
 package main
@@ -459,14 +459,15 @@ print(r.json())
 
 ```
 
-{% /codesamples%}
+{% /codesamples %}
 
 `POST /api/service_logs/v1/cluster_logs`
 
 *Create a new log record*
 
-> Body parameter
+### Body parameter
 
+{% jsonsnippet title="Body parameters" %}
 ```json
 {
   "allOf": [
@@ -551,13 +552,15 @@ print(r.json())
 }
 ```
 
+{% /jsonsnippet %}
+
 ### Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |body|body|[ClusterLog](#schemaclusterlog)|true|Log record|
 
-> Example responses
+{% jsonsnippet title="Example Response" omitFirst=true %}
 
 > 201 Response
 
@@ -645,6 +648,8 @@ print(r.json())
 }
 ```
 
+{% /jsonsnippet %}
+
 ### Responses
 
 |Status|Meaning|Description|Schema|
@@ -655,14 +660,13 @@ print(r.json())
 |403|[Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3)|Unauthorized to perform operation|[Error](#schemaerror)|
 |500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|An unexpected error occurred creating the log|[Error](#schemaerror)|
 
-<aside class="warning">
+{% paragraph .warning %}
 To perform this operation, you must be authenticated by means of one of the following methods:
 Bearer, AccessToken
-</aside>
+{% /paragraph %}
 
 ## delete__api_service_logs_v1_cluster_logs_{id}
 
-> Code samples
 {% codesamples %}
 ```go
 package main
@@ -724,7 +728,7 @@ print(r.json())
 
 ```
 
-{% /codesamples%}
+{% /codesamples %}
 
 `DELETE /api/service_logs/v1/cluster_logs/{id}`
 
@@ -736,7 +740,7 @@ print(r.json())
 |---|---|---|---|---|
 |id|path|string|true|The id of the record|
 
-> Example responses
+{% jsonsnippet title="Example Response" omitFirst=true %}
 
 > 401 Response
 
@@ -775,6 +779,8 @@ print(r.json())
 }
 ```
 
+{% /jsonsnippet %}
+
 ### Responses
 
 |Status|Meaning|Description|Schema|
@@ -785,14 +791,13 @@ print(r.json())
 |404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|No log record with specified id exist|[Error](#schemaerror)|
 |500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|An unexpected error occurred deleting the log records|[Error](#schemaerror)|
 
-<aside class="warning">
+{% paragraph .warning %}
 To perform this operation, you must be authenticated by means of one of the following methods:
 Bearer, AccessToken
-</aside>
+{% /paragraph %}
 
 ## get__api_service_logs_v1_cluster_logs_{id}
 
-> Code samples
 {% codesamples %}
 ```go
 package main
@@ -854,7 +859,7 @@ print(r.json())
 
 ```
 
-{% /codesamples%}
+{% /codesamples %}
 
 `GET /api/service_logs/v1/cluster_logs/{id}`
 
@@ -866,7 +871,7 @@ print(r.json())
 |---|---|---|---|---|
 |id|path|string|true|The id of the record|
 
-> Example responses
+{% jsonsnippet title="Example Response" omitFirst=true %}
 
 > 200 Response
 
@@ -954,6 +959,8 @@ print(r.json())
 }
 ```
 
+{% /jsonsnippet %}
+
 ### Responses
 
 |Status|Meaning|Description|Schema|
@@ -963,14 +970,13 @@ print(r.json())
 |403|[Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3)|Unauthorized to perform operation|[Error](#schemaerror)|
 |500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Unexpected error occurred|[Error](#schemaerror)|
 
-<aside class="warning">
+{% paragraph .warning %}
 To perform this operation, you must be authenticated by means of one of the following methods:
 Bearer, AccessToken
-</aside>
+{% /paragraph %}
 
 ## get__api_service_logs_v1_clusters_{uuid}_cluster_logs
 
-> Code samples
 {% codesamples %}
 ```go
 package main
@@ -1032,7 +1038,7 @@ print(r.json())
 
 ```
 
-{% /codesamples%}
+{% /codesamples %}
 
 `GET /api/service_logs/v1/clusters/{uuid}/cluster_logs`
 
@@ -1101,7 +1107,7 @@ Example: For each Subscription to get id, href, plan(id and kind) and labels (al
 ocm get subscriptions --parameter fields=id,href,plan.id,plan.kind,labels.* --parameter fetchLabels=true
 ```
 
-> Example responses
+{% jsonsnippet title="Example Response" omitFirst=true %}
 
 > 200 Response
 
@@ -1232,6 +1238,8 @@ ocm get subscriptions --parameter fields=id,href,plan.id,plan.kind,labels.* --pa
 }
 ```
 
+{% /jsonsnippet %}
+
 ### Responses
 
 |Status|Meaning|Description|Schema|
@@ -1241,10 +1249,10 @@ ocm get subscriptions --parameter fields=id,href,plan.id,plan.kind,labels.* --pa
 |403|[Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3)|Unauthorized to perform operation|[Error](#schemaerror)|
 |500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|Unexpected error occurred|[Error](#schemaerror)|
 
-<aside class="warning">
+{% paragraph .warning %}
 To perform this operation, you must be authenticated by means of one of the following methods:
 Bearer
-</aside>
+{% /paragraph %}
 
 # Schemas
 
@@ -1255,6 +1263,7 @@ Bearer
 {% span #tocSclusterlog /%}
 {% span #tocsclusterlog /%}
 
+{% jsonsnippet title="Sample" %}
 ```json
 {
   "allOf": [
@@ -1339,6 +1348,7 @@ Bearer
 }
 
 ```
+{% /jsonsnippet %}
 
 ### Properties
 
@@ -1387,6 +1397,7 @@ and
 {% span #tocSclusterloglist /%}
 {% span #tocsclusterloglist /%}
 
+{% jsonsnippet title="Sample" %}
 ```json
 {
   "allOf": [
@@ -1514,6 +1525,7 @@ and
 }
 
 ```
+{% /jsonsnippet %}
 
 ### Properties
 
@@ -1537,6 +1549,7 @@ and
 {% span #tocSerror /%}
 {% span #tocserror /%}
 
+{% jsonsnippet title="Sample" %}
 ```json
 {
   "allOf": [
@@ -1572,6 +1585,7 @@ and
 }
 
 ```
+{% /jsonsnippet %}
 
 ### Properties
 
@@ -1597,6 +1611,7 @@ and
 {% span #tocSerrorlist /%}
 {% span #tocserrorlist /%}
 
+{% jsonsnippet title="Sample" %}
 ```json
 {
   "allOf": [
@@ -1671,6 +1686,7 @@ and
 }
 
 ```
+{% /jsonsnippet %}
 
 ### Properties
 
@@ -1694,6 +1710,7 @@ and
 {% span #tocSlist /%}
 {% span #tocslist /%}
 
+{% jsonsnippet title="Sample" %}
 ```json
 {
   "properties": {
@@ -1724,6 +1741,7 @@ and
 }
 
 ```
+{% /jsonsnippet %}
 
 ### Properties
 
@@ -1741,6 +1759,7 @@ and
 {% span #tocSobjectreference /%}
 {% span #tocsobjectreference /%}
 
+{% jsonsnippet title="Sample" %}
 ```json
 {
   "properties": {
@@ -1758,6 +1777,7 @@ and
 }
 
 ```
+{% /jsonsnippet %}
 
 ### Properties
 

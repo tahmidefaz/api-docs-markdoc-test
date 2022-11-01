@@ -15,10 +15,9 @@
 {{ data.utils.getParameters(data); }}
 
 {{? data.options.codeSamples || data.operation["x-code-samples"] }}
-> Code samples
 {% codesamples %}
 {{= data.utils.getCodeSamples(data) }}
-{% /codesamples%}
+{% /codesamples %}
 {{?}}
 
 `{{= data.methodUpper}} {{=data.method.path}}`
@@ -28,13 +27,15 @@
 {{? data.operation.description}}{{= data.operation.description }}{{?}}
 
 {{? data.operation.requestBody}}
-> Body parameter
+### Body parameter
 
 {{? data.bodyParameter.exampleValues.description }}
 > {{= data.bodyParameter.exampleValues.description }}
 {{?}}
 
+{% jsonsnippet title="Body parameters" %}
 {{= data.utils.getBodyParameterExamples(data) }}
+{% /jsonsnippet %}
 {{?}}
 
 {{? data.parameters && data.parameters.length }}

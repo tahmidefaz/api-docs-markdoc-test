@@ -1,12 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 
 export default function CodeSamples({ children }) {
     const [selected, setSelected] = useState(0)
 
-    children.forEach(element => {
-        console.log("child...", element.props)
-    });
     return (
         <div className="samples">
             <div className="code-sample-tabs">
@@ -21,7 +18,11 @@ export default function CodeSamples({ children }) {
                 { children.map((sample, i) => {
                     return(
                         selected == i && <div className="code-sample">
-                            {sample}
+                            <pre>
+                                <code className={`language-${sample.props['data-language']}`}>
+                                    {sample.props.children}
+                                </code>
+                            </pre>
                         </div>
                     )
                 })}

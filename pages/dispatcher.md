@@ -28,7 +28,6 @@ Base URLs:
 
 ## api.runs.list
 
-> Code samples
 {% codesamples %}
 ```go
 package main
@@ -87,7 +86,7 @@ print(r.json())
 
 ```
 
-{% /codesamples%}
+{% /codesamples %}
 
 `GET /api/playbook-dispatcher/v1/runs`
 
@@ -117,7 +116,7 @@ Returns a list of Playbook runs for the given account. The list can be filtered 
 |sort_by|created_at:asc|
 |sort_by|created_at:desc|
 
-> Example responses
+{% jsonsnippet title="Example Response" omitFirst=true %}
 
 > 200 Response
 
@@ -274,6 +273,8 @@ Returns a list of Playbook runs for the given account. The list can be filtered 
 }
 ```
 
+{% /jsonsnippet %}
+
 ### Responses
 
 |Status|Meaning|Description|Schema|
@@ -282,13 +283,12 @@ Returns a list of Playbook runs for the given account. The list can be filtered 
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|[Error](#schemaerror)|
 |403|[Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3)|Access to the given resource is not allowed|[Error](#schemaerror)|
 
-<aside class="success">
+{% paragraph .success %}
 This operation does not require authentication
-</aside>
+{% /paragraph %}
 
 ## api.run.hosts.list
 
-> Code samples
 {% codesamples %}
 ```go
 package main
@@ -347,7 +347,7 @@ print(r.json())
 
 ```
 
-{% /codesamples%}
+{% /codesamples %}
 
 `GET /api/playbook-dispatcher/v1/run_hosts`
 
@@ -368,7 +368,7 @@ Returns a list of objects representing hosts involved in Playbook runs. Unless r
 
 **fields**: Defines fields to be returned in the response.
 
-> Example responses
+{% jsonsnippet title="Example Response" omitFirst=true %}
 
 > 200 Response
 
@@ -562,6 +562,8 @@ Returns a list of objects representing hosts involved in Playbook runs. Unless r
 }
 ```
 
+{% /jsonsnippet %}
+
 ### Responses
 
 |Status|Meaning|Description|Schema|
@@ -570,9 +572,9 @@ Returns a list of objects representing hosts involved in Playbook runs. Unless r
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bad Request|[Error](#schemaerror)|
 |403|[Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3)|Access to the given resource is not allowed|[Error](#schemaerror)|
 
-<aside class="success">
+{% paragraph .success %}
 This operation does not require authentication
-</aside>
+{% /paragraph %}
 
 # Schemas
 
@@ -583,6 +585,7 @@ This operation does not require authentication
 {% span #tocSrunid /%}
 {% span #tocsrunid /%}
 
+{% jsonsnippet title="Sample" %}
 ```json
 {
   "description": "Unique identifier of a Playbook run",
@@ -591,6 +594,7 @@ This operation does not require authentication
 }
 
 ```
+{% /jsonsnippet %}
 
 Unique identifier of a Playbook run
 
@@ -607,6 +611,7 @@ Unique identifier of a Playbook run
 {% span #tocSrunrecipient /%}
 {% span #tocsrunrecipient /%}
 
+{% jsonsnippet title="Sample" %}
 ```json
 {
   "description": "Identifier of the host to which a given Playbook is addressed",
@@ -615,6 +620,7 @@ Unique identifier of a Playbook run
 }
 
 ```
+{% /jsonsnippet %}
 
 Identifier of the host to which a given Playbook is addressed
 
@@ -631,6 +637,7 @@ Identifier of the host to which a given Playbook is addressed
 {% span #tocSruntimeout /%}
 {% span #tocsruntimeout /%}
 
+{% jsonsnippet title="Sample" %}
 ```json
 {
   "description": "Amount of seconds after which the run is considered failed due to timeout",
@@ -641,6 +648,7 @@ Identifier of the host to which a given Playbook is addressed
 }
 
 ```
+{% /jsonsnippet %}
 
 Amount of seconds after which the run is considered failed due to timeout
 
@@ -657,6 +665,7 @@ Amount of seconds after which the run is considered failed due to timeout
 {% span #tocSruncorrelationid /%}
 {% span #tocsruncorrelationid /%}
 
+{% jsonsnippet title="Sample" %}
 ```json
 {
   "description": "Unique identifier used to match work request with responses",
@@ -664,6 +673,7 @@ Amount of seconds after which the run is considered failed due to timeout
 }
 
 ```
+{% /jsonsnippet %}
 
 Unique identifier used to match work request with responses
 
@@ -680,6 +690,7 @@ Unique identifier used to match work request with responses
 {% span #tocSaccount /%}
 {% span #tocsaccount /%}
 
+{% jsonsnippet title="Sample" %}
 ```json
 {
   "description": "Identifier of the tenant",
@@ -690,6 +701,7 @@ Unique identifier used to match work request with responses
 }
 
 ```
+{% /jsonsnippet %}
 
 Identifier of the tenant
 
@@ -706,10 +718,12 @@ Identifier of the tenant
 {% span #tocSorgid /%}
 {% span #tocsorgid /%}
 
+{% jsonsnippet title="Sample" %}
 ```json
 "5318290"
 
 ```
+{% /jsonsnippet %}
 
 Identifier of the tenant
 
@@ -726,10 +740,12 @@ Identifier of the tenant
 {% span #tocSplaybookname /%}
 {% span #tocsplaybookname /%}
 
+{% jsonsnippet title="Sample" %}
 ```json
 "Fix Critical CVEs"
 
 ```
+{% /jsonsnippet %}
 
 Human readable name of the playbook run. Used to present the given playbook run in external systems (Satellite).
 
@@ -746,6 +762,7 @@ Human readable name of the playbook run. Used to present the given playbook run 
 {% span #tocSwebconsoleurl /%}
 {% span #tocswebconsoleurl /%}
 
+{% jsonsnippet title="Sample" %}
 ```json
 {
   "description": "URL that points to the section of the web console where the user find more information about the playbook run. The field is optional but highly suggested.",
@@ -755,6 +772,7 @@ Human readable name of the playbook run. Used to present the given playbook run 
 }
 
 ```
+{% /jsonsnippet %}
 
 URL that points to the section of the web console where the user find more information about the playbook run. The field is optional but highly suggested.
 
@@ -771,6 +789,7 @@ URL that points to the section of the web console where the user find more infor
 {% span #tocSservice /%}
 {% span #tocsservice /%}
 
+{% jsonsnippet title="Sample" %}
 ```json
 {
   "description": "Service that triggered the given Playbook run",
@@ -779,6 +798,7 @@ URL that points to the section of the web console where the user find more infor
 }
 
 ```
+{% /jsonsnippet %}
 
 Service that triggered the given Playbook run
 
@@ -795,6 +815,7 @@ Service that triggered the given Playbook run
 {% span #tocSurl /%}
 {% span #tocsurl /%}
 
+{% jsonsnippet title="Sample" %}
 ```json
 {
   "description": "URL hosting the Playbook",
@@ -803,6 +824,7 @@ Service that triggered the given Playbook run
 }
 
 ```
+{% /jsonsnippet %}
 
 URL hosting the Playbook
 
@@ -819,6 +841,7 @@ URL hosting the Playbook
 {% span #tocSlabels /%}
 {% span #tocslabels /%}
 
+{% jsonsnippet title="Sample" %}
 ```json
 {
   "description": "Additional metadata about the Playbook run. Can be used for filtering purposes.",
@@ -829,6 +852,7 @@ URL hosting the Playbook
 }
 
 ```
+{% /jsonsnippet %}
 
 Additional metadata about the Playbook run. Can be used for filtering purposes.
 
@@ -845,6 +869,7 @@ Additional metadata about the Playbook run. Can be used for filtering purposes.
 {% span #tocSrunstatus /%}
 {% span #tocsrunstatus /%}
 
+{% jsonsnippet title="Sample" %}
 ```json
 {
   "description": "Current status of a Playbook run",
@@ -859,6 +884,7 @@ Additional metadata about the Playbook run. Can be used for filtering purposes.
 }
 
 ```
+{% /jsonsnippet %}
 
 Current status of a Playbook run
 
@@ -885,6 +911,7 @@ Current status of a Playbook run
 {% span #tocScreatedat /%}
 {% span #tocscreatedat /%}
 
+{% jsonsnippet title="Sample" %}
 ```json
 {
   "description": "A timestamp when the entry was created",
@@ -893,6 +920,7 @@ Current status of a Playbook run
 }
 
 ```
+{% /jsonsnippet %}
 
 A timestamp when the entry was created
 
@@ -909,6 +937,7 @@ A timestamp when the entry was created
 {% span #tocSupdatedat /%}
 {% span #tocsupdatedat /%}
 
+{% jsonsnippet title="Sample" %}
 ```json
 {
   "description": "A timestamp when the entry was last updated",
@@ -917,6 +946,7 @@ A timestamp when the entry was created
 }
 
 ```
+{% /jsonsnippet %}
 
 A timestamp when the entry was last updated
 
@@ -933,6 +963,7 @@ A timestamp when the entry was last updated
 {% span #tocSruns /%}
 {% span #tocsruns /%}
 
+{% jsonsnippet title="Sample" %}
 ```json
 {
   "type": "object",
@@ -1086,6 +1117,7 @@ A timestamp when the entry was last updated
 }
 
 ```
+{% /jsonsnippet %}
 
 ### Properties
 
@@ -1102,6 +1134,7 @@ A timestamp when the entry was last updated
 {% span #tocSrun /%}
 {% span #tocsrun /%}
 
+{% jsonsnippet title="Sample" %}
 ```json
 {
   "type": "object",
@@ -1195,6 +1228,7 @@ A timestamp when the entry was last updated
 }
 
 ```
+{% /jsonsnippet %}
 
 ### Properties
 
@@ -1222,6 +1256,7 @@ A timestamp when the entry was last updated
 {% span #tocSrunhosts /%}
 {% span #tocsrunhosts /%}
 
+{% jsonsnippet title="Sample" %}
 ```json
 {
   "type": "object",
@@ -1412,6 +1447,7 @@ A timestamp when the entry was last updated
 }
 
 ```
+{% /jsonsnippet %}
 
 ### Properties
 
@@ -1428,6 +1464,7 @@ A timestamp when the entry was last updated
 {% span #tocSrunhost /%}
 {% span #tocsrunhost /%}
 
+{% jsonsnippet title="Sample" %}
 ```json
 {
   "type": "object",
@@ -1558,6 +1595,7 @@ A timestamp when the entry was last updated
 }
 
 ```
+{% /jsonsnippet %}
 
 ### Properties
 
@@ -1577,6 +1615,7 @@ A timestamp when the entry was last updated
 {% span #tocSrunhostlinks /%}
 {% span #tocsrunhostlinks /%}
 
+{% jsonsnippet title="Sample" %}
 ```json
 {
   "type": "object",
@@ -1589,6 +1628,7 @@ A timestamp when the entry was last updated
 }
 
 ```
+{% /jsonsnippet %}
 
 ### Properties
 
@@ -1603,6 +1643,7 @@ A timestamp when the entry was last updated
 {% span #tocSmeta /%}
 {% span #tocsmeta /%}
 
+{% jsonsnippet title="Sample" %}
 ```json
 {
   "type": "object",
@@ -1627,6 +1668,7 @@ A timestamp when the entry was last updated
 }
 
 ```
+{% /jsonsnippet %}
 
 Information about returned entities
 
@@ -1644,6 +1686,7 @@ Information about returned entities
 {% span #tocSlinks /%}
 {% span #tocslinks /%}
 
+{% jsonsnippet title="Sample" %}
 ```json
 {
   "type": "object",
@@ -1673,6 +1716,7 @@ Information about returned entities
 }
 
 ```
+{% /jsonsnippet %}
 
 ### Properties
 
@@ -1690,6 +1734,7 @@ Information about returned entities
 {% span #tocSerror /%}
 {% span #tocserror /%}
 
+{% jsonsnippet title="Sample" %}
 ```json
 {
   "type": "object",
@@ -1704,6 +1749,7 @@ Information about returned entities
 }
 
 ```
+{% /jsonsnippet %}
 
 ### Properties
 
@@ -1718,6 +1764,7 @@ Information about returned entities
 {% span #tocSrunlabelsnullable /%}
 {% span #tocsrunlabelsnullable /%}
 
+{% jsonsnippet title="Sample" %}
 ```json
 {
   "type": "object",
@@ -1728,6 +1775,7 @@ Information about returned entities
 }
 
 ```
+{% /jsonsnippet %}
 
 ### Properties
 
@@ -1742,6 +1790,7 @@ Information about returned entities
 {% span #tocSstatusnullable /%}
 {% span #tocsstatusnullable /%}
 
+{% jsonsnippet title="Sample" %}
 ```json
 {
   "type": "string",
@@ -1756,6 +1805,7 @@ Information about returned entities
 }
 
 ```
+{% /jsonsnippet %}
 
 ### Properties
 
@@ -1780,6 +1830,7 @@ Information about returned entities
 {% span #tocSservicenullable /%}
 {% span #tocsservicenullable /%}
 
+{% jsonsnippet title="Sample" %}
 ```json
 {
   "nullable": true,
@@ -1788,6 +1839,7 @@ Information about returned entities
 }
 
 ```
+{% /jsonsnippet %}
 
 ### Properties
 
@@ -1802,6 +1854,7 @@ Information about returned entities
 {% span #tocSinventoryidnullable /%}
 {% span #tocsinventoryidnullable /%}
 
+{% jsonsnippet title="Sample" %}
 ```json
 {
   "nullable": true,
@@ -1810,6 +1863,7 @@ Information about returned entities
 }
 
 ```
+{% /jsonsnippet %}
 
 ### Properties
 
