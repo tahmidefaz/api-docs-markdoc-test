@@ -23,6 +23,11 @@ const specsInfo = [
         'loc': './widdershins-script/specs/payloadtracker.openapi.yaml',
         'type': 'yaml',
         'page': 'payloadtracker.md'
+    },
+    {
+        'loc': './widdershins-script/specs/rbac.openapi.json',
+        'type': 'json',
+        'page': 'rbac.md'
     }
 ]
 
