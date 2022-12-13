@@ -28,6 +28,11 @@ const specsInfo = [
         'loc': './widdershins-script/specs/rbac.openapi.json',
         'type': 'json',
         'page': 'rbac.md'
+    },
+    {
+        'loc': './widdershins-script/specs/system-baseline.openapi.json',
+        'type': 'json',
+        'page': 'system_baseline.md'
     }
 ]
 

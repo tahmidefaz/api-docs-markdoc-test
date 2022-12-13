@@ -16,6 +16,7 @@ function MyApp({ Component, pageProps }) {
         <h4 onClick={()=> router.push("/devarticle")} className="tocContent">Developer Article</h4>
         <h4 onClick={()=> router.push("/payloadtracker")} className="tocContent">Payload Tracker</h4>
         <h4 onClick={()=> router.push("/rbac")} className="tocContent">RBAC</h4>
+        <h4 onClick={()=> router.push("/system_baseline")} className="tocContent">System Baseline</h4>
       </div>
       <div id="page">
         <Component {...pageProps} />
