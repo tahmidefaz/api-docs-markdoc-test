@@ -14,8 +14,6 @@ headingLevel: 2
 
 # Playbook Dispatcher v1.0.0 {% #playbook-dispatcher %}
 
-> Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
-
 Playbook Dispatcher is a service for running Ansible Playbooks on hosts connected via Cloud Connector.
 
 Base URLs:
@@ -26,7 +24,7 @@ Base URLs:
 
 # Default {% #playbook-dispatcher-default %}
 
-## api.runs.list {% #apirunslist %}
+##  List Playbook runs 
 
 {% codesamples %}
 ```go
@@ -90,11 +88,9 @@ print(r.json())
 
 `GET /api/playbook-dispatcher/v1/runs`
 
-*List Playbook runs*
-
 Returns a list of Playbook runs for the given account. The list can be filtered using the `filter` parameter. The fields returned in the representation can be controller using `fields` parameter.
 
-### Parameters {% .parameters %}
+### Query Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -287,7 +283,7 @@ Returns a list of Playbook runs for the given account. The list can be filtered 
 This operation does not require authentication
 {% /paragraph %}
 
-## api.run.hosts.list {% #apirunhostslist %}
+##  List hosts involved in Playbook runs 
 
 {% codesamples %}
 ```go
@@ -351,11 +347,9 @@ print(r.json())
 
 `GET /api/playbook-dispatcher/v1/run_hosts`
 
-*List hosts involved in Playbook runs*
-
 Returns a list of objects representing hosts involved in Playbook runs. Unless restricted using filters the resources spread across multiple Playbook runs. No merging or deduplication is performed by this resource - i.e. if a host X is involved in playbook runs A and B then two subresources with exist, one representing X running A and one for B.
 
-### Parameters {% .parameters %}
+### Query Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -585,17 +579,6 @@ This operation does not require authentication
 {% span #tocSrunid /%}
 {% span #tocsrunid /%}
 
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "description": "Unique identifier of a Playbook run",
-  "type": "string",
-  "format": "uuid"
-}
-
-```
-{% /jsonsnippet %}
-
 Unique identifier of a Playbook run
 
 ### Properties
@@ -610,17 +593,6 @@ Unique identifier of a Playbook run
 {% span #schema_RunRecipient /%}
 {% span #tocSrunrecipient /%}
 {% span #tocsrunrecipient /%}
-
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "description": "Identifier of the host to which a given Playbook is addressed",
-  "type": "string",
-  "format": "uuid"
-}
-
-```
-{% /jsonsnippet %}
 
 Identifier of the host to which a given Playbook is addressed
 
@@ -637,19 +609,6 @@ Identifier of the host to which a given Playbook is addressed
 {% span #tocSruntimeout /%}
 {% span #tocsruntimeout /%}
 
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "description": "Amount of seconds after which the run is considered failed due to timeout",
-  "type": "integer",
-  "default": 3600,
-  "minimum": 0,
-  "maximum": 604800
-}
-
-```
-{% /jsonsnippet %}
-
 Amount of seconds after which the run is considered failed due to timeout
 
 ### Properties
@@ -664,16 +623,6 @@ Amount of seconds after which the run is considered failed due to timeout
 {% span #schema_RunCorrelationId /%}
 {% span #tocSruncorrelationid /%}
 {% span #tocsruncorrelationid /%}
-
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "description": "Unique identifier used to match work request with responses",
-  "type": "string"
-}
-
-```
-{% /jsonsnippet %}
 
 Unique identifier used to match work request with responses
 
@@ -690,19 +639,6 @@ Unique identifier used to match work request with responses
 {% span #tocSaccount /%}
 {% span #tocsaccount /%}
 
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "description": "Identifier of the tenant",
-  "type": "string",
-  "minLength": 1,
-  "maxLength": 10,
-  "deprecated": true
-}
-
-```
-{% /jsonsnippet %}
-
 Identifier of the tenant
 
 ### Properties
@@ -717,13 +653,6 @@ Identifier of the tenant
 {% span #schema_OrgId /%}
 {% span #tocSorgid /%}
 {% span #tocsorgid /%}
-
-{% jsonsnippet title="Sample" %}
-```json
-"5318290"
-
-```
-{% /jsonsnippet %}
 
 Identifier of the tenant
 
@@ -740,13 +669,6 @@ Identifier of the tenant
 {% span #tocSplaybookname /%}
 {% span #tocsplaybookname /%}
 
-{% jsonsnippet title="Sample" %}
-```json
-"Fix Critical CVEs"
-
-```
-{% /jsonsnippet %}
-
 Human readable name of the playbook run. Used to present the given playbook run in external systems (Satellite).
 
 ### Properties
@@ -761,18 +683,6 @@ Human readable name of the playbook run. Used to present the given playbook run 
 {% span #schema_WebConsoleUrl /%}
 {% span #tocSwebconsoleurl /%}
 {% span #tocswebconsoleurl /%}
-
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "description": "URL that points to the section of the web console where the user find more information about the playbook run. The field is optional but highly suggested.",
-  "type": "string",
-  "format": "url",
-  "minLength": 1
-}
-
-```
-{% /jsonsnippet %}
 
 URL that points to the section of the web console where the user find more information about the playbook run. The field is optional but highly suggested.
 
@@ -789,17 +699,6 @@ URL that points to the section of the web console where the user find more infor
 {% span #tocSservice /%}
 {% span #tocsservice /%}
 
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "description": "Service that triggered the given Playbook run",
-  "type": "string",
-  "minLength": 1
-}
-
-```
-{% /jsonsnippet %}
-
 Service that triggered the given Playbook run
 
 ### Properties
@@ -814,17 +713,6 @@ Service that triggered the given Playbook run
 {% span #schema_Url /%}
 {% span #tocSurl /%}
 {% span #tocsurl /%}
-
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "description": "URL hosting the Playbook",
-  "type": "string",
-  "format": "url"
-}
-
-```
-{% /jsonsnippet %}
 
 URL hosting the Playbook
 
@@ -841,19 +729,6 @@ URL hosting the Playbook
 {% span #tocSlabels /%}
 {% span #tocslabels /%}
 
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "description": "Additional metadata about the Playbook run. Can be used for filtering purposes.",
-  "type": "object",
-  "additionalProperties": {
-    "type": "string"
-  }
-}
-
-```
-{% /jsonsnippet %}
-
 Additional metadata about the Playbook run. Can be used for filtering purposes.
 
 ### Properties
@@ -868,23 +743,6 @@ Additional metadata about the Playbook run. Can be used for filtering purposes.
 {% span #schema_RunStatus /%}
 {% span #tocSrunstatus /%}
 {% span #tocsrunstatus /%}
-
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "description": "Current status of a Playbook run",
-  "type": "string",
-  "enum": [
-    "running",
-    "success",
-    "failure",
-    "timeout",
-    "canceled"
-  ]
-}
-
-```
-{% /jsonsnippet %}
 
 Current status of a Playbook run
 
@@ -911,17 +769,6 @@ Current status of a Playbook run
 {% span #tocScreatedat /%}
 {% span #tocscreatedat /%}
 
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "description": "A timestamp when the entry was created",
-  "type": "string",
-  "format": "date-time"
-}
-
-```
-{% /jsonsnippet %}
-
 A timestamp when the entry was created
 
 ### Properties
@@ -936,17 +783,6 @@ A timestamp when the entry was created
 {% span #schema_UpdatedAt /%}
 {% span #tocSupdatedat /%}
 {% span #tocsupdatedat /%}
-
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "description": "A timestamp when the entry was last updated",
-  "type": "string",
-  "format": "date-time"
-}
-
-```
-{% /jsonsnippet %}
 
 A timestamp when the entry was last updated
 
@@ -963,162 +799,6 @@ A timestamp when the entry was last updated
 {% span #tocSruns /%}
 {% span #tocsruns /%}
 
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "type": "object",
-  "properties": {
-    "data": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "description": "Unique identifier of a Playbook run",
-            "type": "string",
-            "format": "uuid"
-          },
-          "account": {
-            "description": "Identifier of the tenant",
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 10,
-            "deprecated": true
-          },
-          "org_id": {
-            "description": "Identifier of the tenant",
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 10,
-            "example": "5318290"
-          },
-          "recipient": {
-            "description": "Identifier of the host to which a given Playbook is addressed",
-            "type": "string",
-            "format": "uuid"
-          },
-          "correlation_id": {
-            "description": "Unique identifier used to match work request with responses",
-            "type": "string"
-          },
-          "name": {
-            "description": "Human readable name of the playbook run. Used to present the given playbook run in external systems (Satellite).",
-            "type": "string",
-            "example": "Fix Critical CVEs",
-            "minLength": 1
-          },
-          "web_console_url": {
-            "description": "URL that points to the section of the web console where the user find more information about the playbook run. The field is optional but highly suggested.",
-            "type": "string",
-            "format": "url",
-            "minLength": 1
-          },
-          "service": {
-            "description": "Service that triggered the given Playbook run",
-            "type": "string",
-            "minLength": 1
-          },
-          "url": {
-            "description": "URL hosting the Playbook",
-            "type": "string",
-            "format": "url"
-          },
-          "labels": {
-            "description": "Additional metadata about the Playbook run. Can be used for filtering purposes.",
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            }
-          },
-          "timeout": {
-            "description": "Amount of seconds after which the run is considered failed due to timeout",
-            "type": "integer",
-            "default": 3600,
-            "minimum": 0,
-            "maximum": 604800
-          },
-          "status": {
-            "description": "Current status of a Playbook run",
-            "type": "string",
-            "enum": [
-              "running",
-              "success",
-              "failure",
-              "timeout",
-              "canceled"
-            ]
-          },
-          "created_at": {
-            "description": "A timestamp when the entry was created",
-            "type": "string",
-            "format": "date-time"
-          },
-          "updated_at": {
-            "description": "A timestamp when the entry was last updated",
-            "type": "string",
-            "format": "date-time"
-          }
-        }
-      }
-    },
-    "meta": {
-      "type": "object",
-      "additionalProperties": false,
-      "description": "Information about returned entities",
-      "properties": {
-        "count": {
-          "type": "integer",
-          "description": "number of results returned",
-          "example": 50
-        },
-        "total": {
-          "type": "integer",
-          "description": "total number of results matching the query",
-          "example": 114
-        }
-      },
-      "required": [
-        "count",
-        "total"
-      ]
-    },
-    "links": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "first",
-        "last"
-      ],
-      "properties": {
-        "first": {
-          "type": "string",
-          "description": "relative link to the first page of the query results"
-        },
-        "last": {
-          "type": "string",
-          "description": "relative link to the last page of the query results"
-        },
-        "next": {
-          "type": "string",
-          "description": "relative link to the next page of the query results"
-        },
-        "previous": {
-          "type": "string",
-          "description": "relative link to the previous page of the query results"
-        }
-      }
-    }
-  },
-  "required": [
-    "data",
-    "meta",
-    "links"
-  ]
-}
-
-```
-{% /jsonsnippet %}
-
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
@@ -1133,102 +813,6 @@ A timestamp when the entry was last updated
 {% span #schema_Run /%}
 {% span #tocSrun /%}
 {% span #tocsrun /%}
-
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "description": "Unique identifier of a Playbook run",
-      "type": "string",
-      "format": "uuid"
-    },
-    "account": {
-      "description": "Identifier of the tenant",
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 10,
-      "deprecated": true
-    },
-    "org_id": {
-      "description": "Identifier of the tenant",
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 10,
-      "example": "5318290"
-    },
-    "recipient": {
-      "description": "Identifier of the host to which a given Playbook is addressed",
-      "type": "string",
-      "format": "uuid"
-    },
-    "correlation_id": {
-      "description": "Unique identifier used to match work request with responses",
-      "type": "string"
-    },
-    "name": {
-      "description": "Human readable name of the playbook run. Used to present the given playbook run in external systems (Satellite).",
-      "type": "string",
-      "example": "Fix Critical CVEs",
-      "minLength": 1
-    },
-    "web_console_url": {
-      "description": "URL that points to the section of the web console where the user find more information about the playbook run. The field is optional but highly suggested.",
-      "type": "string",
-      "format": "url",
-      "minLength": 1
-    },
-    "service": {
-      "description": "Service that triggered the given Playbook run",
-      "type": "string",
-      "minLength": 1
-    },
-    "url": {
-      "description": "URL hosting the Playbook",
-      "type": "string",
-      "format": "url"
-    },
-    "labels": {
-      "description": "Additional metadata about the Playbook run. Can be used for filtering purposes.",
-      "type": "object",
-      "additionalProperties": {
-        "type": "string"
-      }
-    },
-    "timeout": {
-      "description": "Amount of seconds after which the run is considered failed due to timeout",
-      "type": "integer",
-      "default": 3600,
-      "minimum": 0,
-      "maximum": 604800
-    },
-    "status": {
-      "description": "Current status of a Playbook run",
-      "type": "string",
-      "enum": [
-        "running",
-        "success",
-        "failure",
-        "timeout",
-        "canceled"
-      ]
-    },
-    "created_at": {
-      "description": "A timestamp when the entry was created",
-      "type": "string",
-      "format": "date-time"
-    },
-    "updated_at": {
-      "description": "A timestamp when the entry was last updated",
-      "type": "string",
-      "format": "date-time"
-    }
-  }
-}
-
-```
-{% /jsonsnippet %}
 
 ### Properties
 
@@ -1256,199 +840,6 @@ A timestamp when the entry was last updated
 {% span #tocSrunhosts /%}
 {% span #tocsrunhosts /%}
 
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "type": "object",
-  "properties": {
-    "data": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "host": {
-            "description": "Name used to identify a host within Ansible inventory",
-            "type": "string"
-          },
-          "stdout": {
-            "description": "Output produced by running Ansible Playbook on the given host",
-            "type": "string"
-          },
-          "status": {
-            "description": "Current status of a Playbook run",
-            "type": "string",
-            "enum": [
-              "running",
-              "success",
-              "failure",
-              "timeout",
-              "canceled"
-            ]
-          },
-          "run": {
-            "type": "object",
-            "properties": {
-              "id": {
-                "description": "Unique identifier of a Playbook run",
-                "type": "string",
-                "format": "uuid"
-              },
-              "account": {
-                "description": "Identifier of the tenant",
-                "type": "string",
-                "minLength": 1,
-                "maxLength": 10,
-                "deprecated": true
-              },
-              "org_id": {
-                "description": "Identifier of the tenant",
-                "type": "string",
-                "minLength": 1,
-                "maxLength": 10,
-                "example": "5318290"
-              },
-              "recipient": {
-                "description": "Identifier of the host to which a given Playbook is addressed",
-                "type": "string",
-                "format": "uuid"
-              },
-              "correlation_id": {
-                "description": "Unique identifier used to match work request with responses",
-                "type": "string"
-              },
-              "name": {
-                "description": "Human readable name of the playbook run. Used to present the given playbook run in external systems (Satellite).",
-                "type": "string",
-                "example": "Fix Critical CVEs",
-                "minLength": 1
-              },
-              "web_console_url": {
-                "description": "URL that points to the section of the web console where the user find more information about the playbook run. The field is optional but highly suggested.",
-                "type": "string",
-                "format": "url",
-                "minLength": 1
-              },
-              "service": {
-                "description": "Service that triggered the given Playbook run",
-                "type": "string",
-                "minLength": 1
-              },
-              "url": {
-                "description": "URL hosting the Playbook",
-                "type": "string",
-                "format": "url"
-              },
-              "labels": {
-                "description": "Additional metadata about the Playbook run. Can be used for filtering purposes.",
-                "type": "object",
-                "additionalProperties": {
-                  "type": "string"
-                }
-              },
-              "timeout": {
-                "description": "Amount of seconds after which the run is considered failed due to timeout",
-                "type": "integer",
-                "default": 3600,
-                "minimum": 0,
-                "maximum": 604800
-              },
-              "status": {
-                "description": "Current status of a Playbook run",
-                "type": "string",
-                "enum": [
-                  "running",
-                  "success",
-                  "failure",
-                  "timeout",
-                  "canceled"
-                ]
-              },
-              "created_at": {
-                "description": "A timestamp when the entry was created",
-                "type": "string",
-                "format": "date-time"
-              },
-              "updated_at": {
-                "description": "A timestamp when the entry was last updated",
-                "type": "string",
-                "format": "date-time"
-              }
-            }
-          },
-          "inventory_id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "links": {
-            "type": "object",
-            "properties": {
-              "inventory_host": {
-                "type": "string",
-                "nullable": true
-              }
-            }
-          }
-        }
-      }
-    },
-    "meta": {
-      "type": "object",
-      "additionalProperties": false,
-      "description": "Information about returned entities",
-      "properties": {
-        "count": {
-          "type": "integer",
-          "description": "number of results returned",
-          "example": 50
-        },
-        "total": {
-          "type": "integer",
-          "description": "total number of results matching the query",
-          "example": 114
-        }
-      },
-      "required": [
-        "count",
-        "total"
-      ]
-    },
-    "links": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "first",
-        "last"
-      ],
-      "properties": {
-        "first": {
-          "type": "string",
-          "description": "relative link to the first page of the query results"
-        },
-        "last": {
-          "type": "string",
-          "description": "relative link to the last page of the query results"
-        },
-        "next": {
-          "type": "string",
-          "description": "relative link to the next page of the query results"
-        },
-        "previous": {
-          "type": "string",
-          "description": "relative link to the previous page of the query results"
-        }
-      }
-    }
-  },
-  "required": [
-    "data",
-    "meta",
-    "links"
-  ]
-}
-
-```
-{% /jsonsnippet %}
-
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
@@ -1463,139 +854,6 @@ A timestamp when the entry was last updated
 {% span #schema_RunHost /%}
 {% span #tocSrunhost /%}
 {% span #tocsrunhost /%}
-
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "type": "object",
-  "properties": {
-    "host": {
-      "description": "Name used to identify a host within Ansible inventory",
-      "type": "string"
-    },
-    "stdout": {
-      "description": "Output produced by running Ansible Playbook on the given host",
-      "type": "string"
-    },
-    "status": {
-      "description": "Current status of a Playbook run",
-      "type": "string",
-      "enum": [
-        "running",
-        "success",
-        "failure",
-        "timeout",
-        "canceled"
-      ]
-    },
-    "run": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "description": "Unique identifier of a Playbook run",
-          "type": "string",
-          "format": "uuid"
-        },
-        "account": {
-          "description": "Identifier of the tenant",
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 10,
-          "deprecated": true
-        },
-        "org_id": {
-          "description": "Identifier of the tenant",
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 10,
-          "example": "5318290"
-        },
-        "recipient": {
-          "description": "Identifier of the host to which a given Playbook is addressed",
-          "type": "string",
-          "format": "uuid"
-        },
-        "correlation_id": {
-          "description": "Unique identifier used to match work request with responses",
-          "type": "string"
-        },
-        "name": {
-          "description": "Human readable name of the playbook run. Used to present the given playbook run in external systems (Satellite).",
-          "type": "string",
-          "example": "Fix Critical CVEs",
-          "minLength": 1
-        },
-        "web_console_url": {
-          "description": "URL that points to the section of the web console where the user find more information about the playbook run. The field is optional but highly suggested.",
-          "type": "string",
-          "format": "url",
-          "minLength": 1
-        },
-        "service": {
-          "description": "Service that triggered the given Playbook run",
-          "type": "string",
-          "minLength": 1
-        },
-        "url": {
-          "description": "URL hosting the Playbook",
-          "type": "string",
-          "format": "url"
-        },
-        "labels": {
-          "description": "Additional metadata about the Playbook run. Can be used for filtering purposes.",
-          "type": "object",
-          "additionalProperties": {
-            "type": "string"
-          }
-        },
-        "timeout": {
-          "description": "Amount of seconds after which the run is considered failed due to timeout",
-          "type": "integer",
-          "default": 3600,
-          "minimum": 0,
-          "maximum": 604800
-        },
-        "status": {
-          "description": "Current status of a Playbook run",
-          "type": "string",
-          "enum": [
-            "running",
-            "success",
-            "failure",
-            "timeout",
-            "canceled"
-          ]
-        },
-        "created_at": {
-          "description": "A timestamp when the entry was created",
-          "type": "string",
-          "format": "date-time"
-        },
-        "updated_at": {
-          "description": "A timestamp when the entry was last updated",
-          "type": "string",
-          "format": "date-time"
-        }
-      }
-    },
-    "inventory_id": {
-      "type": "string",
-      "format": "uuid"
-    },
-    "links": {
-      "type": "object",
-      "properties": {
-        "inventory_host": {
-          "type": "string",
-          "nullable": true
-        }
-      }
-    }
-  }
-}
-
-```
-{% /jsonsnippet %}
 
 ### Properties
 
@@ -1615,21 +873,6 @@ A timestamp when the entry was last updated
 {% span #tocSrunhostlinks /%}
 {% span #tocsrunhostlinks /%}
 
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "type": "object",
-  "properties": {
-    "inventory_host": {
-      "type": "string",
-      "nullable": true
-    }
-  }
-}
-
-```
-{% /jsonsnippet %}
-
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
@@ -1642,33 +885,6 @@ A timestamp when the entry was last updated
 {% span #schema_Meta /%}
 {% span #tocSmeta /%}
 {% span #tocsmeta /%}
-
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "type": "object",
-  "additionalProperties": false,
-  "description": "Information about returned entities",
-  "properties": {
-    "count": {
-      "type": "integer",
-      "description": "number of results returned",
-      "example": 50
-    },
-    "total": {
-      "type": "integer",
-      "description": "total number of results matching the query",
-      "example": 114
-    }
-  },
-  "required": [
-    "count",
-    "total"
-  ]
-}
-
-```
-{% /jsonsnippet %}
 
 Information about returned entities
 
@@ -1686,38 +902,6 @@ Information about returned entities
 {% span #tocSlinks /%}
 {% span #tocslinks /%}
 
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "type": "object",
-  "additionalProperties": false,
-  "required": [
-    "first",
-    "last"
-  ],
-  "properties": {
-    "first": {
-      "type": "string",
-      "description": "relative link to the first page of the query results"
-    },
-    "last": {
-      "type": "string",
-      "description": "relative link to the last page of the query results"
-    },
-    "next": {
-      "type": "string",
-      "description": "relative link to the next page of the query results"
-    },
-    "previous": {
-      "type": "string",
-      "description": "relative link to the previous page of the query results"
-    }
-  }
-}
-
-```
-{% /jsonsnippet %}
-
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
@@ -1734,23 +918,6 @@ Information about returned entities
 {% span #tocSerror /%}
 {% span #tocserror /%}
 
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "type": "object",
-  "properties": {
-    "message": {
-      "type": "string"
-    }
-  },
-  "required": [
-    "message"
-  ]
-}
-
-```
-{% /jsonsnippet %}
-
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
@@ -1764,19 +931,6 @@ Information about returned entities
 {% span #tocSrunlabelsnullable /%}
 {% span #tocsrunlabelsnullable /%}
 
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "type": "object",
-  "nullable": true,
-  "additionalProperties": {
-    "type": "string"
-  }
-}
-
-```
-{% /jsonsnippet %}
-
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
@@ -1789,23 +943,6 @@ Information about returned entities
 {% span #schema_StatusNullable /%}
 {% span #tocSstatusnullable /%}
 {% span #tocsstatusnullable /%}
-
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "type": "string",
-  "nullable": true,
-  "enum": [
-    "running",
-    "success",
-    "failure",
-    "timeout",
-    "canceled"
-  ]
-}
-
-```
-{% /jsonsnippet %}
 
 ### Properties
 
@@ -1830,17 +967,6 @@ Information about returned entities
 {% span #tocSservicenullable /%}
 {% span #tocsservicenullable /%}
 
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "nullable": true,
-  "type": "string",
-  "minLength": 1
-}
-
-```
-{% /jsonsnippet %}
-
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
@@ -1853,17 +979,6 @@ Information about returned entities
 {% span #schema_InventoryIdNullable /%}
 {% span #tocSinventoryidnullable /%}
 {% span #tocsinventoryidnullable /%}
-
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "nullable": true,
-  "type": "string",
-  "format": "uuid"
-}
-
-```
-{% /jsonsnippet %}
 
 ### Properties
 

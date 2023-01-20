@@ -2,7 +2,8 @@
 
 {{ let operationId = data.operationUniqueName; }}
 {{ operationId = operationId.replace(/[{}.]/g,''); }}
-## {{= data.operationUniqueName}} {% #{{= operationId }} %}
+
+## {{? data.operation.summary && !data.options.tocSummary}} {{= data.operation.summary }} {{?}}
 
 {{? data.operation.operationId}}
 {{?}}
@@ -24,18 +25,16 @@
 
 `{{= data.methodUpper}} {{=data.method.path}}`
 
-{{? data.operation.summary && !data.options.tocSummary}}*{{= data.operation.summary }}*{{?}}
-
 {{? data.operation.description}}{{= data.operation.description }}{{?}}
 
 {{? data.operation.requestBody}}
-### Body parameter
+### Request Body Schema
 
 {{? data.bodyParameter.exampleValues.description }}
 > {{= data.bodyParameter.exampleValues.description }}
 {{?}}
 
-{% jsonsnippet title="Body parameters" %}
+{% jsonsnippet title="Request Body Schema" %}
 {{= data.utils.getBodyParameterExamples(data) }}
 {% /jsonsnippet %}
 {{?}}

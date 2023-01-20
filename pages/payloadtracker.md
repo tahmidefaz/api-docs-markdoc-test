@@ -14,8 +14,6 @@ headingLevel: 2
 
 # Insights Platform Payload Tracker API v1 {% #insights-platform-payload-tracker-api %}
 
-> Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
-
 A REST API to track payloads in the Insights Platform.
 
 Base URLs:
@@ -24,7 +22,7 @@ Base URLs:
 
 # Default {% #insights-platform-payload-tracker-api-default %}
 
-## get__payloads {% #get__payloads %}
+## 
 
 {% codesamples %}
 ```go
@@ -88,7 +86,7 @@ print(r.json())
 
 `GET /payloads`
 
-### Parameters {% .parameters %}
+### Query Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -215,7 +213,7 @@ Status Code **200**
 This operation does not require authentication
 {% /paragraph %}
 
-## get__payloads_{request_id} {% #get__payloads_request_id %}
+## 
 
 {% codesamples %}
 ```go
@@ -279,7 +277,7 @@ print(r.json())
 
 `GET /payloads/{request_id}`
 
-### Parameters {% .parameters %}
+### Query Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -441,7 +439,7 @@ Status Code **200**
 This operation does not require authentication
 {% /paragraph %}
 
-## get__payloads_{request_id}_archiveLink {% #get__payloads_request_id_archiveLink %}
+## 
 
 {% codesamples %}
 ```go
@@ -507,7 +505,7 @@ print(r.json())
 
 Get the download URL for a payload's archive
 
-### Parameters {% .parameters %}
+### Query Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -566,7 +564,7 @@ Status Code **200**
 This operation does not require authentication
 {% /paragraph %}
 
-## get__payloads_{request_id}_kibanaLink {% #get__payloads_request_id_kibanaLink %}
+## 
 
 {% codesamples %}
 ```go
@@ -632,7 +630,7 @@ print(r.json())
 
 Get the URL for a payload's Kibana dashboard
 
-### Parameters {% .parameters %}
+### Query Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -692,7 +690,7 @@ Status Code **200**
 This operation does not require authentication
 {% /paragraph %}
 
-## get__roles_archiveLink {% #get__roles_archiveLink %}
+## 
 
 {% codesamples %}
 ```go
@@ -799,7 +797,7 @@ Status Code **200**
 This operation does not require authentication
 {% /paragraph %}
 
-## get__statuses {% #get__statuses %}
+## 
 
 {% codesamples %}
 ```go
@@ -865,7 +863,7 @@ print(r.json())
 
 Get individual payload statuses for payloads.
 
-### Parameters {% .parameters %}
+### Query Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -1002,7 +1000,7 @@ Status Code **200**
 This operation does not require authentication
 {% /paragraph %}
 
-## get__health {% #get__health %}
+## 
 
 {% codesamples %}
 ```go
@@ -1106,7 +1104,7 @@ runs liveness checks for the api and service and returns 200 or 404
 This operation does not require authentication
 {% /paragraph %}
 
-## get__stats {% #get__stats %}
+## 
 
 {% codesamples %}
 ```go
@@ -1170,7 +1168,7 @@ print(r.json())
 
 `GET /stats`
 
-### Parameters {% .parameters %}
+### Query Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -1222,23 +1220,6 @@ This operation does not require authentication
 {% span #tocSerror /%}
 {% span #tocserror /%}
 
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "type": "object",
-  "properties": {
-    "message": {
-      "type": "string"
-    }
-  },
-  "required": [
-    "message"
-  ]
-}
-
-```
-{% /jsonsnippet %}
-
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
@@ -1252,23 +1233,6 @@ This operation does not require authentication
 {% span #tocSsuccess /%}
 {% span #tocssuccess /%}
 
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "type": "object",
-  "properties": {
-    "message": {
-      "type": "string"
-    }
-  },
-  "required": [
-    "message"
-  ]
-}
-
-```
-{% /jsonsnippet %}
-
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
@@ -1281,78 +1245,6 @@ This operation does not require authentication
 {% span #schema_PayloadRetrieveByID /%}
 {% span #tocSpayloadretrievebyid /%}
 {% span #tocspayloadretrievebyid /%}
-
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "required": [
-    "service",
-    "status"
-  ],
-  "type": "object",
-  "properties": {
-    "id": {
-      "title": "Id",
-      "type": "integer"
-    },
-    "service": {
-      "title": "Service",
-      "type": "string"
-    },
-    "source": {
-      "title": "Source",
-      "type": "string"
-    },
-    "account": {
-      "title": "Account",
-      "type": "string"
-    },
-    "org_id": {
-      "title": "Org ID",
-      "description": "Identifies the organization that the given resource belongs to",
-      "type": "string"
-    },
-    "request_id": {
-      "title": "Request ID",
-      "type": "string",
-      "minLength": 1,
-      "format": "uuid"
-    },
-    "inventory_id": {
-      "title": "Inventory ID",
-      "type": "string",
-      "format": "uuid"
-    },
-    "system_id": {
-      "title": "System ID",
-      "type": "string",
-      "format": "uuid"
-    },
-    "status": {
-      "title": "Status",
-      "type": "string"
-    },
-    "status_msg": {
-      "title": "Status Message",
-      "type": "string"
-    },
-    "date": {
-      "title": "Status Date",
-      "type": "string",
-      "format": "date-time",
-      "readOnly": true
-    },
-    "created_at": {
-      "title": "Created at",
-      "type": "string",
-      "format": "date-time",
-      "readOnly": true
-    }
-  }
-}
-
-```
-{% /jsonsnippet %}
 
 ### Properties
 
@@ -1378,51 +1270,6 @@ This operation does not require authentication
 {% span #tocSpayloadretrieve /%}
 {% span #tocspayloadretrieve /%}
 
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "title": "ID",
-      "type": "integer"
-    },
-    "request_id": {
-      "title": "Request ID",
-      "type": "string",
-      "minLength": 1,
-      "format": "uuid"
-    },
-    "account": {
-      "title": "Account",
-      "type": "string"
-    },
-    "org_id": {
-      "title": "Org ID",
-      "type": "string"
-    },
-    "inventory_id": {
-      "title": "Inventory ID",
-      "type": "string",
-      "format": "uuid"
-    },
-    "system_id": {
-      "title": "System ID",
-      "type": "string",
-      "format": "uuid"
-    },
-    "created_at": {
-      "title": "Created at",
-      "type": "string",
-      "format": "date-time",
-      "readOnly": true
-    }
-  }
-}
-
-```
-{% /jsonsnippet %}
-
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
@@ -1441,55 +1288,6 @@ This operation does not require authentication
 {% span #schema_StatusRetrieve /%}
 {% span #tocSstatusretrieve /%}
 {% span #tocsstatusretrieve /%}
-
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "title": "Id",
-      "type": "string"
-    },
-    "service": {
-      "title": "Service",
-      "type": "string"
-    },
-    "source": {
-      "title": "Source",
-      "type": "string"
-    },
-    "request_id": {
-      "title": "Request ID",
-      "type": "string",
-      "minLength": 1,
-      "format": "uuid"
-    },
-    "status": {
-      "title": "Status",
-      "type": "string"
-    },
-    "status_msg": {
-      "title": "Status Message",
-      "type": "string"
-    },
-    "date": {
-      "title": "Status Date",
-      "type": "string",
-      "format": "date-time",
-      "readOnly": true
-    },
-    "created_at": {
-      "title": "Created at",
-      "type": "string",
-      "format": "date-time",
-      "readOnly": true
-    }
-  }
-}
-
-```
-{% /jsonsnippet %}
 
 ### Properties
 
@@ -1511,23 +1309,6 @@ This operation does not require authentication
 {% span #tocSdurationsretrieve /%}
 {% span #tocsdurationsretrieve /%}
 
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "type": "object",
-  "properties": {
-    "service": {
-      "type": "string"
-    },
-    "timedelta": {
-      "type": "string"
-    }
-  }
-}
-
-```
-{% /jsonsnippet %}
-
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
@@ -1541,23 +1322,6 @@ This operation does not require authentication
 {% span #schema_StatsRetrieve /%}
 {% span #tocSstatsretrieve /%}
 {% span #tocsstatsretrieve /%}
-
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "required": [
-    "message"
-  ],
-  "type": "object",
-  "properties": {
-    "message": {
-      "type": "string"
-    }
-  }
-}
-
-```
-{% /jsonsnippet %}
 
 ### Properties
 

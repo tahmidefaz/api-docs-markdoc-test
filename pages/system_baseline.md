@@ -14,8 +14,6 @@ headingLevel: 2
 
 # System Baseline Backend Service v1.0 {% #system-baseline-backend-service %}
 
-> Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
-
 Service that returns system baselines
 
 Base URLs:
@@ -29,7 +27,7 @@ Base URLs:
 
 # Default {% #system-baseline-backend-service-default %}
 
-## system_baseline.views.v1.get_baselines {% #system_baselineviewsv1get_baselines %}
+##  fetch list of Baseline IDs 
 
 {% codesamples %}
 ```go
@@ -93,11 +91,9 @@ print(r.json())
 
 `GET /baselines`
 
-*fetch list of Baseline IDs*
-
 Fetch the list of Baseline IDs
 
-### Parameters {% .parameters %}
+### Query Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -297,7 +293,7 @@ Fetch the list of Baseline IDs
 This operation does not require authentication
 {% /paragraph %}
 
-## system_baseline.views.v1.create_baseline {% #system_baselineviewsv1create_baseline %}
+##  create a baseline 
 
 {% codesamples %}
 ```go
@@ -440,13 +436,11 @@ print(r.json())
 
 `POST /baselines`
 
-*create a baseline*
-
 create a baseline
 
-### Body parameter
+### Request Body Schema
 
-{% jsonsnippet title="Body parameters" %}
+{% jsonsnippet title="Request Body Schema" %}
 ```json
 {
   "additionalProperties": false,
@@ -529,7 +523,7 @@ create a baseline
 
 {% /jsonsnippet %}
 
-### Parameters {% .parameters %}
+### Query Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -660,7 +654,7 @@ create a baseline
 This operation does not require authentication
 {% /paragraph %}
 
-## system_baseline.views.v1.create_deletion_request {% #system_baselineviewsv1create_deletion_request %}
+##  create a request to delete one or more baselines 
 
 {% codesamples %}
 ```go
@@ -743,13 +737,11 @@ print(r.json())
 
 `POST /baselines/deletion_request`
 
-*create a request to delete one or more baselines*
-
 create a request to delete one or more baselines
 
-### Body parameter
+### Request Body Schema
 
-{% jsonsnippet title="Body parameters" %}
+{% jsonsnippet title="Request Body Schema" %}
 ```json
 {
   "additionalProperties": false,
@@ -772,7 +764,7 @@ create a request to delete one or more baselines
 
 {% /jsonsnippet %}
 
-### Parameters {% .parameters %}
+### Query Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -803,7 +795,7 @@ create a request to delete one or more baselines
 This operation does not require authentication
 {% /paragraph %}
 
-## system_baseline.views.v1.delete_baselines_by_ids {% #system_baselineviewsv1delete_baselines_by_ids %}
+##  delete one or more baselines 
 
 {% codesamples %}
 ```go
@@ -867,11 +859,9 @@ print(r.json())
 
 `DELETE /baselines/{baseline_ids}`
 
-*delete one or more baselines*
-
 delete one or more baselines
 
-### Parameters {% .parameters %}
+### Query Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -902,7 +892,7 @@ delete one or more baselines
 This operation does not require authentication
 {% /paragraph %}
 
-## system_baseline.views.v1.get_baselines_by_ids {% #system_baselineviewsv1get_baselines_by_ids %}
+##  fetch one or more Baseline objects 
 
 {% codesamples %}
 ```go
@@ -966,11 +956,9 @@ print(r.json())
 
 `GET /baselines/{baseline_ids}`
 
-*fetch one or more Baseline objects*
-
 Fetch one or more Baseline objects
 
-### Parameters {% .parameters %}
+### Query Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -1170,7 +1158,7 @@ Fetch one or more Baseline objects
 This operation does not require authentication
 {% /paragraph %}
 
-## system_baseline.views.v1.update_baseline {% #system_baselineviewsv1update_baseline %}
+##  update a baseline 
 
 {% codesamples %}
 ```go
@@ -1262,13 +1250,11 @@ print(r.json())
 
 `PATCH /baselines/{baseline_id}`
 
-*update a baseline*
-
 update a baseline
 
-### Body parameter
+### Request Body Schema
 
-{% jsonsnippet title="Body parameters" %}
+{% jsonsnippet title="Request Body Schema" %}
 ```json
 {
   "properties": {
@@ -1300,7 +1286,7 @@ update a baseline
 
 {% /jsonsnippet %}
 
-### Parameters {% .parameters %}
+### Query Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -1495,7 +1481,7 @@ Status Code **200**
 This operation does not require authentication
 {% /paragraph %}
 
-## system_baseline.views.v1.copy_baseline_by_id {% #system_baselineviewsv1copy_baseline_by_id %}
+##  copy a baseline 
 
 {% codesamples %}
 ```go
@@ -1566,11 +1552,9 @@ print(r.json())
 
 `POST /baselines/{baseline_id}`
 
-*copy a baseline*
-
 copy a baseline, returning a new ID
 
-### Parameters {% .parameters %}
+### Query Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -1702,7 +1686,7 @@ copy a baseline, returning a new ID
 This operation does not require authentication
 {% /paragraph %}
 
-## system_baseline.views.v1.list_systems_with_baseline {% #system_baselineviewsv1list_systems_with_baseline %}
+##  list systems with baseline 
 
 {% codesamples %}
 ```go
@@ -1766,11 +1750,9 @@ print(r.json())
 
 `GET /baselines/{baseline_id}/systems`
 
-*list systems with baseline*
-
 list systems with baseline
 
-### Parameters {% .parameters %}
+### Query Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -1814,7 +1796,7 @@ list systems with baseline
 This operation does not require authentication
 {% /paragraph %}
 
-## system_baseline.views.v1.create_systems_with_baseline {% #system_baselineviewsv1create_systems_with_baseline %}
+##  add systems with baseline 
 
 {% codesamples %}
 ```go
@@ -1896,13 +1878,11 @@ print(r.json())
 
 `POST /baselines/{baseline_id}/systems`
 
-*add systems with baseline*
-
 add systems with baseline
 
-### Body parameter
+### Request Body Schema
 
-{% jsonsnippet title="Body parameters" %}
+{% jsonsnippet title="Request Body Schema" %}
 ```json
 {
   "additionalProperties": false,
@@ -1924,7 +1904,7 @@ add systems with baseline
 
 {% /jsonsnippet %}
 
-### Parameters {% .parameters %}
+### Query Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -1969,7 +1949,7 @@ add systems with baseline
 This operation does not require authentication
 {% /paragraph %}
 
-## system_baseline.views.v1.create_deletion_request_for_systems {% #system_baselineviewsv1create_deletion_request_for_systems %}
+##  delete systems with baseline 
 
 {% codesamples %}
 ```go
@@ -2051,13 +2031,11 @@ print(r.json())
 
 `POST /baselines/{baseline_id}/systems/deletion_request`
 
-*delete systems with baseline*
-
 delete systems with baseline
 
-### Body parameter
+### Request Body Schema
 
-{% jsonsnippet title="Body parameters" %}
+{% jsonsnippet title="Request Body Schema" %}
 ```json
 {
   "additionalProperties": false,
@@ -2079,7 +2057,7 @@ delete systems with baseline
 
 {% /jsonsnippet %}
 
-### Parameters {% .parameters %}
+### Query Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -2111,7 +2089,7 @@ delete systems with baseline
 This operation does not require authentication
 {% /paragraph %}
 
-## system_baseline.views.v1.delete_systems_with_baseline {% #system_baselineviewsv1delete_systems_with_baseline %}
+##  delete one or more systems with baseline 
 
 {% codesamples %}
 ```go
@@ -2175,11 +2153,9 @@ print(r.json())
 
 `DELETE /baselines/{baseline_id}/systems/{system_ids}`
 
-*delete one or more systems with baseline*
-
 delete one or more systems with baselines
 
-### Parameters {% .parameters %}
+### Query Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -2211,7 +2187,7 @@ delete one or more systems with baselines
 This operation does not require authentication
 {% /paragraph %}
 
-## system_baseline.views.v1.get_version {% #system_baselineviewsv1get_version %}
+##  get the service version 
 
 {% codesamples %}
 ```go
@@ -2275,8 +2251,6 @@ print(r.json())
 
 `GET /version`
 
-*get the service version*
-
 get the service version
 
 {% jsonsnippet title="Example Response" omitFirst=true %}
@@ -2317,115 +2291,6 @@ This operation does not require authentication
 {% span #tocSbaseline /%}
 {% span #tocsbaseline /%}
 
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "properties": {
-    "account": {
-      "type": "string"
-    },
-    "baseline_facts": {
-      "items": {
-        "additionalProperties": false,
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "value": {
-            "oneOf": [
-              {
-                "type": "string"
-              },
-              {
-                "items": {
-                  "type": "string"
-                },
-                "type": "array"
-              }
-            ]
-          },
-          "values": {
-            "items": {
-              "properties": {
-                "name": {
-                  "type": "string"
-                },
-                "value": {
-                  "oneOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "items": {
-                        "type": "string"
-                      },
-                      "type": "array"
-                    }
-                  ]
-                }
-              },
-              "required": [
-                "name",
-                "value"
-              ],
-              "type": "object"
-            },
-            "type": "array"
-          }
-        },
-        "required": [
-          "name"
-        ],
-        "type": "object"
-      },
-      "type": "array"
-    },
-    "created": {
-      "format": "date",
-      "type": "string"
-    },
-    "display_name": {
-      "description": "the baseline display name",
-      "maxLength": 200,
-      "minLength": 1,
-      "type": "string"
-    },
-    "fact_count": {
-      "type": "integer"
-    },
-    "id": {
-      "format": "uuid",
-      "type": "string"
-    },
-    "mapped_system_count": {
-      "type": "integer"
-    },
-    "notifications_enabled": {
-      "type": "boolean"
-    },
-    "org_id": {
-      "type": "string"
-    },
-    "updated": {
-      "format": "date",
-      "type": "string"
-    }
-  },
-  "required": [
-    "account",
-    "org_id",
-    "created",
-    "display_name",
-    "id",
-    "updated",
-    "notifications_enabled"
-  ],
-  "type": "object"
-}
-
-```
-{% /jsonsnippet %}
-
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
@@ -2447,65 +2312,6 @@ This operation does not require authentication
 {% span #schema_BaselineFact /%}
 {% span #tocSbaselinefact /%}
 {% span #tocsbaselinefact /%}
-
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "additionalProperties": false,
-  "properties": {
-    "name": {
-      "type": "string"
-    },
-    "value": {
-      "oneOf": [
-        {
-          "type": "string"
-        },
-        {
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        }
-      ]
-    },
-    "values": {
-      "items": {
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "value": {
-            "oneOf": [
-              {
-                "type": "string"
-              },
-              {
-                "items": {
-                  "type": "string"
-                },
-                "type": "array"
-              }
-            ]
-          }
-        },
-        "required": [
-          "name",
-          "value"
-        ],
-        "type": "object"
-      },
-      "type": "array"
-    }
-  },
-  "required": [
-    "name"
-  ],
-  "type": "object"
-}
-
-```
-{% /jsonsnippet %}
 
 ### Properties
 
@@ -2553,29 +2359,6 @@ xor
 {% span #tocSbaselineidslist /%}
 {% span #tocsbaselineidslist /%}
 
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "additionalProperties": false,
-  "properties": {
-    "baseline_ids": {
-      "items": {
-        "maxLength": 36,
-        "minLength": 32,
-        "type": "string"
-      },
-      "type": "array"
-    }
-  },
-  "required": [
-    "baseline_ids"
-  ],
-  "type": "object"
-}
-
-```
-{% /jsonsnippet %}
-
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
@@ -2588,89 +2371,6 @@ xor
 {% span #schema_BaselineIn /%}
 {% span #tocSbaselinein /%}
 {% span #tocsbaselinein /%}
-
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "additionalProperties": false,
-  "properties": {
-    "baseline_facts": {
-      "items": {
-        "additionalProperties": false,
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "value": {
-            "oneOf": [
-              {
-                "type": "string"
-              },
-              {
-                "items": {
-                  "type": "string"
-                },
-                "type": "array"
-              }
-            ]
-          },
-          "values": {
-            "items": {
-              "properties": {
-                "name": {
-                  "type": "string"
-                },
-                "value": {
-                  "oneOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "items": {
-                        "type": "string"
-                      },
-                      "type": "array"
-                    }
-                  ]
-                }
-              },
-              "required": [
-                "name",
-                "value"
-              ],
-              "type": "object"
-            },
-            "type": "array"
-          }
-        },
-        "required": [
-          "name"
-        ],
-        "type": "object"
-      },
-      "type": "array"
-    },
-    "display_name": {
-      "description": "the baseline display name",
-      "maxLength": 200,
-      "minLength": 1,
-      "type": "string"
-    },
-    "hsp_uuid": {
-      "type": "string"
-    },
-    "inventory_uuid": {
-      "type": "string"
-    }
-  },
-  "required": [
-    "display_name"
-  ],
-  "type": "object"
-}
-
-```
-{% /jsonsnippet %}
 
 ### Properties
 
@@ -2687,170 +2387,6 @@ xor
 {% span #schema_DataPage /%}
 {% span #tocSdatapage /%}
 {% span #tocsdatapage /%}
-
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "properties": {
-          "account": {
-            "type": "string"
-          },
-          "baseline_facts": {
-            "items": {
-              "additionalProperties": false,
-              "properties": {
-                "name": {
-                  "type": "string"
-                },
-                "value": {
-                  "oneOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "items": {
-                        "type": "string"
-                      },
-                      "type": "array"
-                    }
-                  ]
-                },
-                "values": {
-                  "items": {
-                    "properties": {
-                      "name": {
-                        "type": "string"
-                      },
-                      "value": {
-                        "oneOf": [
-                          {
-                            "type": "string"
-                          },
-                          {
-                            "items": {
-                              "type": "string"
-                            },
-                            "type": "array"
-                          }
-                        ]
-                      }
-                    },
-                    "required": [
-                      "name",
-                      "value"
-                    ],
-                    "type": "object"
-                  },
-                  "type": "array"
-                }
-              },
-              "required": [
-                "name"
-              ],
-              "type": "object"
-            },
-            "type": "array"
-          },
-          "created": {
-            "format": "date",
-            "type": "string"
-          },
-          "display_name": {
-            "description": "the baseline display name",
-            "maxLength": 200,
-            "minLength": 1,
-            "type": "string"
-          },
-          "fact_count": {
-            "type": "integer"
-          },
-          "id": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "mapped_system_count": {
-            "type": "integer"
-          },
-          "notifications_enabled": {
-            "type": "boolean"
-          },
-          "org_id": {
-            "type": "string"
-          },
-          "updated": {
-            "format": "date",
-            "type": "string"
-          }
-        },
-        "required": [
-          "account",
-          "org_id",
-          "created",
-          "display_name",
-          "id",
-          "updated",
-          "notifications_enabled"
-        ],
-        "type": "object"
-      },
-      "type": "array"
-    },
-    "links": {
-      "properties": {
-        "first": {
-          "format": "url",
-          "type": "string"
-        },
-        "last": {
-          "format": "url",
-          "type": "string"
-        },
-        "next": {
-          "format": "url",
-          "type": "string"
-        },
-        "previous": {
-          "format": "url",
-          "type": "string"
-        }
-      },
-      "required": [
-        "first",
-        "last",
-        "next",
-        "previous"
-      ],
-      "type": "object"
-    },
-    "meta": {
-      "properties": {
-        "count": {
-          "type": "integer"
-        },
-        "total_available": {
-          "type": "integer"
-        }
-      },
-      "required": [
-        "count",
-        "total_available"
-      ],
-      "type": "object"
-    }
-  },
-  "required": [
-    "data",
-    "links",
-    "meta"
-  ],
-  "type": "object"
-}
-
-```
-{% /jsonsnippet %}
 
 ### Properties
 
@@ -2873,18 +2409,6 @@ xor
 {% span #tocSdisplayname /%}
 {% span #tocsdisplayname /%}
 
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "description": "the baseline display name",
-  "maxLength": 200,
-  "minLength": 1,
-  "type": "string"
-}
-
-```
-{% /jsonsnippet %}
-
 the baseline display name
 
 ### Properties
@@ -2899,36 +2423,6 @@ the baseline display name
 {% span #schema_Error /%}
 {% span #tocSerror /%}
 {% span #tocserror /%}
-
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "additionalProperties": false,
-  "properties": {
-    "detail": {
-      "type": "string"
-    },
-    "status": {
-      "type": "integer"
-    },
-    "title": {
-      "type": "string"
-    },
-    "type": {
-      "type": "string"
-    }
-  },
-  "required": [
-    "detail",
-    "status",
-    "title",
-    "type"
-  ],
-  "type": "object"
-}
-
-```
-{% /jsonsnippet %}
 
 ### Properties
 
@@ -2946,16 +2440,6 @@ the baseline display name
 {% span #tocSjsonpatch /%}
 {% span #tocsjsonpatch /%}
 
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "description": "a JSON patch",
-  "type": "object"
-}
-
-```
-{% /jsonsnippet %}
-
 a JSON patch
 
 ### Properties
@@ -2969,28 +2453,6 @@ a JSON patch
 {% span #tocSsystemidslist /%}
 {% span #tocssystemidslist /%}
 
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "additionalProperties": false,
-  "properties": {
-    "system_ids": {
-      "items": {
-        "format": "uuid",
-        "type": "string"
-      },
-      "type": "array"
-    }
-  },
-  "required": [
-    "system_ids"
-  ],
-  "type": "object"
-}
-
-```
-{% /jsonsnippet %}
-
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
@@ -3003,22 +2465,6 @@ a JSON patch
 {% span #schema_Version /%}
 {% span #tocSversion /%}
 {% span #tocsversion /%}
-
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "properties": {
-    "version": {
-      "type": "string"
-    }
-  },
-  "required": [
-    "version"
-  ]
-}
-
-```
-{% /jsonsnippet %}
 
 ### Properties
 

@@ -14,8 +14,6 @@ headingLevel: 2
 
 # Role Based Access Control v1.0.0 {% #role-based-access-control %}
 
-> Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
-
 The API for Role Based Access Control.
 
 Base URLs:
@@ -30,7 +28,7 @@ Base URLs:
 
 Operations about principals
 
-## listPrincipals {% #listPrincipals %}
+##  List the principals for a tenant 
 
 {% codesamples %}
 ```go
@@ -94,11 +92,9 @@ print(r.json())
 
 `GET /principals/`
 
-*List the principals for a tenant*
-
 By default, responses are sorted in ascending order by username
 
-### Parameters {% .parameters %}
+### Query Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -255,7 +251,7 @@ basic_auth
 
 Operations about groups
 
-## createGroup {% #createGroup %}
+##  Create a group in a tenant 
 
 {% codesamples %}
 ```go
@@ -336,11 +332,9 @@ print(r.json())
 
 `POST /groups/`
 
-*Create a group in a tenant*
+### Request Body Schema
 
-### Body parameter
-
-{% jsonsnippet title="Body parameters" %}
+{% jsonsnippet title="Request Body Schema" %}
 ```json
 {
   "required": [
@@ -361,7 +355,7 @@ print(r.json())
 
 {% /jsonsnippet %}
 
-### Parameters {% .parameters %}
+### Query Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -465,7 +459,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 basic_auth
 {% /paragraph %}
 
-## listGroups {% #listGroups %}
+##  List the groups for a tenant 
 
 {% codesamples %}
 ```go
@@ -529,11 +523,9 @@ print(r.json())
 
 `GET /groups/`
 
-*List the groups for a tenant*
-
 By default, responses are sorted in ascending order by group name
 
-### Parameters {% .parameters %}
+### Query Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -716,7 +708,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 basic_auth
 {% /paragraph %}
 
-## getGroup {% #getGroup %}
+##  Get a group in the tenant 
 
 {% codesamples %}
 ```go
@@ -780,9 +772,7 @@ print(r.json())
 
 `GET /groups/{uuid}/`
 
-*Get a group in the tenant*
-
-### Parameters {% .parameters %}
+### Query Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -1003,7 +993,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 basic_auth
 {% /paragraph %}
 
-## updateGroup {% #updateGroup %}
+##  Update a group in the tenant 
 
 {% codesamples %}
 ```go
@@ -1084,11 +1074,9 @@ print(r.json())
 
 `PUT /groups/{uuid}/`
 
-*Update a group in the tenant*
+### Request Body Schema
 
-### Body parameter
-
-{% jsonsnippet title="Body parameters" %}
+{% jsonsnippet title="Request Body Schema" %}
 ```json
 {
   "required": [
@@ -1109,7 +1097,7 @@ print(r.json())
 
 {% /jsonsnippet %}
 
-### Parameters {% .parameters %}
+### Query Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -1217,7 +1205,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 basic_auth
 {% /paragraph %}
 
-## deleteGroup {% #deleteGroup %}
+##  Delete a group in the tenant 
 
 {% codesamples %}
 ```go
@@ -1281,9 +1269,7 @@ print(r.json())
 
 `DELETE /groups/{uuid}/`
 
-*Delete a group in the tenant*
-
-### Parameters {% .parameters %}
+### Query Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -1342,7 +1328,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 basic_auth
 {% /paragraph %}
 
-## addPrincipalToGroup {% #addPrincipalToGroup %}
+##  Add a principal to a group in the tenant 
 
 {% codesamples %}
 ```go
@@ -1429,11 +1415,9 @@ print(r.json())
 
 `POST /groups/{uuid}/principals/`
 
-*Add a principal to a group in the tenant*
+### Request Body Schema
 
-### Body parameter
-
-{% jsonsnippet title="Body parameters" %}
+{% jsonsnippet title="Request Body Schema" %}
 ```json
 {
   "required": [
@@ -1460,7 +1444,7 @@ print(r.json())
 
 {% /jsonsnippet %}
 
-### Parameters {% .parameters %}
+### Query Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -1683,7 +1667,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 basic_auth
 {% /paragraph %}
 
-## getPrincipalsFromGroup {% #getPrincipalsFromGroup %}
+##  Get a list of principals from a group in the tenant 
 
 {% codesamples %}
 ```go
@@ -1747,11 +1731,9 @@ print(r.json())
 
 `GET /groups/{uuid}/principals/`
 
-*Get a list of principals from a group in the tenant*
-
 By default, responses are sorted in ascending order by username
 
-### Parameters {% .parameters %}
+### Query Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -1892,7 +1874,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 basic_auth
 {% /paragraph %}
 
-## deletePrincipalFromGroup {% #deletePrincipalFromGroup %}
+##  Remove a principal from a group in the tenant 
 
 {% codesamples %}
 ```go
@@ -1960,9 +1942,7 @@ print(r.json())
 
 `DELETE /groups/{uuid}/principals/`
 
-*Remove a principal from a group in the tenant*
-
-### Parameters {% .parameters %}
+### Query Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -2021,7 +2001,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 basic_auth
 {% /paragraph %}
 
-## listRolesForGroup {% #listRolesForGroup %}
+##  List the roles for a group in the tenant 
 
 {% codesamples %}
 ```go
@@ -2085,11 +2065,9 @@ print(r.json())
 
 `GET /groups/{uuid}/roles/`
 
-*List the roles for a group in the tenant*
-
 By default, responses are sorted in ascending order by role name
 
-### Parameters {% .parameters %}
+### Query Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -2282,7 +2260,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 basic_auth
 {% /paragraph %}
 
-## addRoleToGroup {% #addRoleToGroup %}
+##  Add a role to a group in the tenant 
 
 {% codesamples %}
 ```go
@@ -2363,11 +2341,9 @@ print(r.json())
 
 `POST /groups/{uuid}/roles/`
 
-*Add a role to a group in the tenant*
+### Request Body Schema
 
-### Body parameter
-
-{% jsonsnippet title="Body parameters" %}
+{% jsonsnippet title="Request Body Schema" %}
 ```json
 {
   "required": [
@@ -2388,7 +2364,7 @@ print(r.json())
 
 {% /jsonsnippet %}
 
-### Parameters {% .parameters %}
+### Query Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -2571,7 +2547,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 basic_auth
 {% /paragraph %}
 
-## deleteRoleFromGroup {% #deleteRoleFromGroup %}
+##  Remove a role from a group in the tenant 
 
 {% codesamples %}
 ```go
@@ -2639,9 +2615,7 @@ print(r.json())
 
 `DELETE /groups/{uuid}/roles/`
 
-*Remove a role from a group in the tenant*
-
-### Parameters {% .parameters %}
+### Query Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -2704,7 +2678,7 @@ basic_auth
 
 Operations about roles
 
-## createRoles {% #createRoles %}
+##  Create a roles for a tenant 
 
 {% codesamples %}
 ```go
@@ -2850,11 +2824,9 @@ print(r.json())
 
 `POST /roles/`
 
-*Create a roles for a tenant*
+### Request Body Schema
 
-### Body parameter
-
-{% jsonsnippet title="Body parameters" %}
+{% jsonsnippet title="Request Body Schema" %}
 ```json
 {
   "allOf": [
@@ -2940,7 +2912,7 @@ print(r.json())
 
 {% /jsonsnippet %}
 
-### Parameters {% .parameters %}
+### Query Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -3124,7 +3096,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 basic_auth
 {% /paragraph %}
 
-## listRoles {% #listRoles %}
+##  List the roles for a tenant 
 
 {% codesamples %}
 ```go
@@ -3188,11 +3160,9 @@ print(r.json())
 
 `GET /roles/`
 
-*List the roles for a tenant*
-
 By default, responses are sorted in ascending order by role name
 
-### Parameters {% .parameters %}
+### Query Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -3426,7 +3396,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 basic_auth
 {% /paragraph %}
 
-## getRole {% #getRole %}
+##  Get a role in the tenant 
 
 {% codesamples %}
 ```go
@@ -3490,9 +3460,7 @@ print(r.json())
 
 `GET /roles/{uuid}/`
 
-*Get a role in the tenant*
-
-### Parameters {% .parameters %}
+### Query Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -3685,7 +3653,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 basic_auth
 {% /paragraph %}
 
-## deleteRole {% #deleteRole %}
+##  Delete a role in the tenant 
 
 {% codesamples %}
 ```go
@@ -3749,9 +3717,7 @@ print(r.json())
 
 `DELETE /roles/{uuid}/`
 
-*Delete a role in the tenant*
-
-### Parameters {% .parameters %}
+### Query Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -3808,7 +3774,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 basic_auth
 {% /paragraph %}
 
-## updateRole {% #updateRole %}
+##  Update a Role in the tenant 
 
 {% codesamples %}
 ```go
@@ -4029,11 +3995,9 @@ print(r.json())
 
 `PUT /roles/{uuid}/`
 
-*Update a Role in the tenant*
+### Request Body Schema
 
-### Body parameter
-
-{% jsonsnippet title="Body parameters" %}
+{% jsonsnippet title="Request Body Schema" %}
 ```json
 {
   "allOf": [
@@ -4194,7 +4158,7 @@ print(r.json())
 
 {% /jsonsnippet %}
 
-### Parameters {% .parameters %}
+### Query Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -4252,7 +4216,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 basic_auth
 {% /paragraph %}
 
-## patchRole {% #patchRole %}
+##  Patch a Role in the tenant 
 
 {% codesamples %}
 ```go
@@ -4334,11 +4298,9 @@ print(r.json())
 
 `PATCH /roles/{uuid}/`
 
-*Patch a Role in the tenant*
+### Request Body Schema
 
-### Body parameter
-
-{% jsonsnippet title="Body parameters" %}
+{% jsonsnippet title="Request Body Schema" %}
 ```json
 {
   "properties": {
@@ -4360,7 +4322,7 @@ print(r.json())
 
 {% /jsonsnippet %}
 
-### Parameters {% .parameters %}
+### Query Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -4546,7 +4508,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 basic_auth
 {% /paragraph %}
 
-## getRoleAccess {% #getRoleAccess %}
+##  Get access for a role in the tenant 
 
 {% codesamples %}
 ```go
@@ -4610,9 +4572,7 @@ print(r.json())
 
 `GET /roles/{uuid}/access/`
 
-*Get access for a role in the tenant*
-
-### Parameters {% .parameters %}
+### Query Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -4746,7 +4706,7 @@ basic_auth
 
 Operations about policies
 
-## createPolicies {% #createPolicies %}
+##  Create a policy in a tenant 
 
 {% codesamples %}
 ```go
@@ -4853,11 +4813,9 @@ print(r.json())
 
 `POST /policies/`
 
-*Create a policy in a tenant*
+### Request Body Schema
 
-### Body parameter
-
-{% jsonsnippet title="Body parameters" %}
+{% jsonsnippet title="Request Body Schema" %}
 ```json
 {
   "allOf": [
@@ -4904,7 +4862,7 @@ print(r.json())
 
 {% /jsonsnippet %}
 
-### Parameters {% .parameters %}
+### Query Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -5164,7 +5122,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 basic_auth
 {% /paragraph %}
 
-## listPolicies {% #listPolicies %}
+##  List the policies in the tenant 
 
 {% codesamples %}
 ```go
@@ -5228,11 +5186,9 @@ print(r.json())
 
 `GET /policies/`
 
-*List the policies in the tenant*
-
 By default, responses are sorted in ascending order by policy name
 
-### Parameters {% .parameters %}
+### Query Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -5559,7 +5515,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 basic_auth
 {% /paragraph %}
 
-## getPolicy {% #getPolicy %}
+##  Get a policy in the tenant 
 
 {% codesamples %}
 ```go
@@ -5623,9 +5579,7 @@ print(r.json())
 
 `GET /policies/{uuid}/`
 
-*Get a policy in the tenant*
-
-### Parameters {% .parameters %}
+### Query Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -5886,7 +5840,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 basic_auth
 {% /paragraph %}
 
-## updatePolicy {% #updatePolicy %}
+##  Update a policy in the tenant 
 
 {% codesamples %}
 ```go
@@ -5993,11 +5947,9 @@ print(r.json())
 
 `PUT /policies/{uuid}/`
 
-*Update a policy in the tenant*
+### Request Body Schema
 
-### Body parameter
-
-{% jsonsnippet title="Body parameters" %}
+{% jsonsnippet title="Request Body Schema" %}
 ```json
 {
   "allOf": [
@@ -6044,7 +5996,7 @@ print(r.json())
 
 {% /jsonsnippet %}
 
-### Parameters {% .parameters %}
+### Query Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -6306,7 +6258,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 basic_auth
 {% /paragraph %}
 
-## deletePolicy {% #deletePolicy %}
+##  Delete a policy in the tenant 
 
 {% codesamples %}
 ```go
@@ -6370,9 +6322,7 @@ print(r.json())
 
 `DELETE /policies/{uuid}/`
 
-*Delete a policy in the tenant*
-
-### Parameters {% .parameters %}
+### Query Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -6428,7 +6378,7 @@ basic_auth
 
 Operations about access
 
-## getPrincipalAccess {% #getPrincipalAccess %}
+##  Get the permitted access for a principal in the tenant (defaults to principal from the identity header) 
 
 {% codesamples %}
 ```go
@@ -6496,11 +6446,9 @@ print(r.json())
 
 `GET /access/`
 
-*Get the permitted access for a principal in the tenant (defaults to principal from the identity header)*
-
 Access responses are sorted in ascending order by an ID internal to the database
 
-### Parameters {% .parameters %}
+### Query Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -6643,7 +6591,7 @@ basic_auth
 
 Operations about status
 
-## getStatus {% #getStatus %}
+##  Obtain server status 
 
 {% codesamples %}
 ```go
@@ -6707,8 +6655,6 @@ print(r.json())
 
 `GET /status/`
 
-*Obtain server status*
-
 {% jsonsnippet title="Example Response" omitFirst=true %}
 
 > 200 Response
@@ -6750,7 +6696,7 @@ basic_auth
 
 Operations about cross account requests
 
-## listCrossAccountRequests {% #listCrossAccountRequests %}
+##  List the cross account requests for a user or account 
 
 {% codesamples %}
 ```go
@@ -6814,11 +6760,9 @@ print(r.json())
 
 `GET /cross-account-requests/`
 
-*List the cross account requests for a user or account*
-
 By default, responses are sorted in ascending order by created_at
 
-### Parameters {% .parameters %}
+### Query Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -7031,7 +6975,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 basic_auth
 {% /paragraph %}
 
-## createCrossAccountRequests {% #createCrossAccountRequests %}
+##  Create a cross account request 
 
 {% codesamples %}
 ```go
@@ -7130,11 +7074,9 @@ print(r.json())
 
 `POST /cross-account-requests/`
 
-*Create a cross account request*
+### Request Body Schema
 
-### Body parameter
-
-{% jsonsnippet title="Body parameters" %}
+{% jsonsnippet title="Request Body Schema" %}
 ```json
 {
   "required": [
@@ -7173,7 +7115,7 @@ print(r.json())
 
 {% /jsonsnippet %}
 
-### Parameters {% .parameters %}
+### Query Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -7292,7 +7234,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 basic_auth
 {% /paragraph %}
 
-## getCrossAccountRequest {% #getCrossAccountRequest %}
+##  Get a cross account request 
 
 {% codesamples %}
 ```go
@@ -7356,9 +7298,7 @@ print(r.json())
 
 `GET /cross-account-requests/{uuid}/`
 
-*Get a cross account request*
-
-### Parameters {% .parameters %}
+### Query Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -7591,7 +7531,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 basic_auth
 {% /paragraph %}
 
-## putCrossAccountRequest {% #putCrossAccountRequest %}
+##  Update a cross account request 
 
 {% codesamples %}
 ```go
@@ -7681,13 +7621,11 @@ print(r.json())
 
 `PUT /cross-account-requests/{uuid}/`
 
-*Update a cross account request*
-
 For TAM requestor to update the start_date/end_date/roles of an existing cross account request.
 
-### Body parameter
+### Request Body Schema
 
-{% jsonsnippet title="Body parameters" %}
+{% jsonsnippet title="Request Body Schema" %}
 ```json
 {
   "required": [
@@ -7717,7 +7655,7 @@ For TAM requestor to update the start_date/end_date/roles of an existing cross a
 
 {% /jsonsnippet %}
 
-### Parameters {% .parameters %}
+### Query Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -7941,7 +7879,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 basic_auth
 {% /paragraph %}
 
-## patchCrossAccountRequest {% #patchCrossAccountRequest %}
+##  Patch a cross account request 
 
 {% codesamples %}
 ```go
@@ -8036,13 +7974,11 @@ print(r.json())
 
 `PATCH /cross-account-requests/{uuid}/`
 
-*Patch a cross account request*
-
 Patch the start_date/end_date/roles of an existing request. Could be used by TAM requestor to cancel request or target account admin to approve/deny request.
 
-### Body parameter
+### Request Body Schema
 
-{% jsonsnippet title="Body parameters" %}
+{% jsonsnippet title="Request Body Schema" %}
 ```json
 {
   "properties": {
@@ -8077,7 +8013,7 @@ Patch the start_date/end_date/roles of an existing request. Could be used by TAM
 
 {% /jsonsnippet %}
 
-### Parameters {% .parameters %}
+### Query Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -8303,7 +8239,7 @@ basic_auth
 
 # Permission {% #role-based-access-control-permission %}
 
-## listPermissions {% #listPermissions %}
+##  List the permissions for a tenant 
 
 {% codesamples %}
 ```go
@@ -8367,11 +8303,9 @@ print(r.json())
 
 `GET /permissions/`
 
-*List the permissions for a tenant*
-
 By default, responses are sorted in ascending order by permission application.
 
-### Parameters {% .parameters %}
+### Query Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -8498,7 +8432,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 basic_auth
 {% /paragraph %}
 
-## listPermissionOptions {% #listPermissionOptions %}
+##  List the available options for fields of permissions for a tenant 
 
 {% codesamples %}
 ```go
@@ -8571,11 +8505,9 @@ print(r.json())
 
 `GET /permissions/options/`
 
-*List the available options for fields of permissions for a tenant*
-
 By default, options of application is returned. And could be resource_type or verb on demand.
 
-### Parameters {% .parameters %}
+### Query Parameters {% .parameters %}
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -8687,35 +8619,6 @@ basic_auth
 {% span #tocSerror /%}
 {% span #tocserror /%}
 
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "required": [
-    "errors"
-  ],
-  "properties": {
-    "errors": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "detail": {
-            "type": "string",
-            "example": "Not found."
-          },
-          "status": {
-            "type": "string",
-            "example": "403"
-          }
-        }
-      }
-    }
-  }
-}
-
-```
-{% /jsonsnippet %}
-
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
@@ -8730,39 +8633,6 @@ basic_auth
 {% span #schema_Error403 /%}
 {% span #tocSerror403 /%}
 {% span #tocserror403 /%}
-
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "required": [
-    "errors"
-  ],
-  "properties": {
-    "errors": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "detail": {
-            "type": "string",
-            "example": "You do not have permission to perform this action."
-          },
-          "source": {
-            "type": "string",
-            "example": "detail"
-          },
-          "status": {
-            "type": "string",
-            "example": "403"
-          }
-        }
-      }
-    }
-  }
-}
-
-```
-{% /jsonsnippet %}
 
 ### Properties
 
@@ -8780,25 +8650,6 @@ basic_auth
 {% span #tocSuuid /%}
 {% span #tocsuuid /%}
 
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "type": "object",
-  "required": [
-    "uuid"
-  ],
-  "properties": {
-    "uuid": {
-      "type": "string",
-      "format": "uuid",
-      "example": "57e60f90-8c0c-4bd1-87a0-2143759aae1c"
-    }
-  }
-}
-
-```
-{% /jsonsnippet %}
-
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
@@ -8811,31 +8662,6 @@ basic_auth
 {% span #schema_Timestamped /%}
 {% span #tocStimestamped /%}
 {% span #tocstimestamped /%}
-
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "type": "object",
-  "required": [
-    "created",
-    "modified"
-  ],
-  "properties": {
-    "created": {
-      "type": "string",
-      "format": "date-time",
-      "example": "2019-01-21T17:32:28Z"
-    },
-    "modified": {
-      "type": "string",
-      "format": "date-time",
-      "example": "2019-03-04T07:25:58Z"
-    }
-  }
-}
-
-```
-{% /jsonsnippet %}
 
 ### Properties
 
@@ -8851,21 +8677,6 @@ basic_auth
 {% span #tocSpaginationmeta /%}
 {% span #tocspaginationmeta /%}
 
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "properties": {
-    "count": {
-      "type": "integer",
-      "format": "int64",
-      "example": 30
-    }
-  }
-}
-
-```
-{% /jsonsnippet %}
-
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
@@ -8878,36 +8689,6 @@ basic_auth
 {% span #schema_PaginationLinks /%}
 {% span #tocSpaginationlinks /%}
 {% span #tocspaginationlinks /%}
-
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "properties": {
-    "first": {
-      "type": "string",
-      "format": "uri",
-      "example": "/api/v1/(resources)/?offset=0&limit=10"
-    },
-    "previous": {
-      "type": "string",
-      "format": "uri",
-      "example": "/api/v1/(resources)/?offset=20&limit=10"
-    },
-    "next": {
-      "type": "string",
-      "format": "uri",
-      "example": "/api/v1/(resources)/?offset=40&limit=10"
-    },
-    "last": {
-      "type": "string",
-      "format": "uri",
-      "example": "/api/v1/(resources)/?offset=90&limit=10"
-    }
-  }
-}
-
-```
-{% /jsonsnippet %}
 
 ### Properties
 
@@ -8925,49 +8706,6 @@ basic_auth
 {% span #tocSlistpagination /%}
 {% span #tocslistpagination /%}
 
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "properties": {
-    "meta": {
-      "properties": {
-        "count": {
-          "type": "integer",
-          "format": "int64",
-          "example": 30
-        }
-      }
-    },
-    "links": {
-      "properties": {
-        "first": {
-          "type": "string",
-          "format": "uri",
-          "example": "/api/v1/(resources)/?offset=0&limit=10"
-        },
-        "previous": {
-          "type": "string",
-          "format": "uri",
-          "example": "/api/v1/(resources)/?offset=20&limit=10"
-        },
-        "next": {
-          "type": "string",
-          "format": "uri",
-          "example": "/api/v1/(resources)/?offset=40&limit=10"
-        },
-        "last": {
-          "type": "string",
-          "format": "uri",
-          "example": "/api/v1/(resources)/?offset=90&limit=10"
-        }
-      }
-    }
-  }
-}
-
-```
-{% /jsonsnippet %}
-
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
@@ -8981,43 +8719,6 @@ basic_auth
 {% span #schema_Principal /%}
 {% span #tocSprincipal /%}
 {% span #tocsprincipal /%}
-
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "required": [
-    "username",
-    "email"
-  ],
-  "properties": {
-    "username": {
-      "type": "string",
-      "example": "smithj"
-    },
-    "email": {
-      "type": "string",
-      "format": "email",
-      "example": "smithj@mytechco.com"
-    },
-    "first_name": {
-      "type": "string",
-      "example": "John"
-    },
-    "last_name": {
-      "type": "string",
-      "example": "Smith"
-    },
-    "is_active": {
-      "type": "boolean"
-    },
-    "is_org_admin": {
-      "type": "boolean"
-    }
-  }
-}
-
-```
-{% /jsonsnippet %}
 
 ### Properties
 
@@ -9037,23 +8738,6 @@ basic_auth
 {% span #tocSprincipalminimal /%}
 {% span #tocsprincipalminimal /%}
 
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "required": [
-    "username"
-  ],
-  "properties": {
-    "username": {
-      "type": "string",
-      "example": "smithj"
-    }
-  }
-}
-
-```
-{% /jsonsnippet %}
-
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
@@ -9067,23 +8751,6 @@ basic_auth
 {% span #tocSprincipalin /%}
 {% span #tocsprincipalin /%}
 
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "required": [
-    "username"
-  ],
-  "properties": {
-    "username": {
-      "type": "string",
-      "example": "smithj"
-    }
-  }
-}
-
-```
-{% /jsonsnippet %}
-
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
@@ -9096,60 +8763,6 @@ basic_auth
 {% span #schema_PrincipalOut /%}
 {% span #tocSprincipalout /%}
 {% span #tocsprincipalout /%}
-
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "allOf": [
-    {
-      "required": [
-        "username",
-        "email"
-      ],
-      "properties": {
-        "username": {
-          "type": "string",
-          "example": "smithj"
-        },
-        "email": {
-          "type": "string",
-          "format": "email",
-          "example": "smithj@mytechco.com"
-        },
-        "first_name": {
-          "type": "string",
-          "example": "John"
-        },
-        "last_name": {
-          "type": "string",
-          "example": "Smith"
-        },
-        "is_active": {
-          "type": "boolean"
-        },
-        "is_org_admin": {
-          "type": "boolean"
-        }
-      }
-    },
-    {
-      "type": "object",
-      "required": [
-        "uuid"
-      ],
-      "properties": {
-        "uuid": {
-          "type": "string",
-          "format": "uuid",
-          "example": "57e60f90-8c0c-4bd1-87a0-2143759aae1c"
-        }
-      }
-    }
-  ]
-}
-
-```
-{% /jsonsnippet %}
 
 ### Properties
 
@@ -9171,110 +8784,6 @@ and
 {% span #schema_PrincipalPagination /%}
 {% span #tocSprincipalpagination /%}
 {% span #tocsprincipalpagination /%}
-
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "allOf": [
-    {
-      "properties": {
-        "meta": {
-          "properties": {
-            "count": {
-              "type": "integer",
-              "format": "int64",
-              "example": 30
-            }
-          }
-        },
-        "links": {
-          "properties": {
-            "first": {
-              "type": "string",
-              "format": "uri",
-              "example": "/api/v1/(resources)/?offset=0&limit=10"
-            },
-            "previous": {
-              "type": "string",
-              "format": "uri",
-              "example": "/api/v1/(resources)/?offset=20&limit=10"
-            },
-            "next": {
-              "type": "string",
-              "format": "uri",
-              "example": "/api/v1/(resources)/?offset=40&limit=10"
-            },
-            "last": {
-              "type": "string",
-              "format": "uri",
-              "example": "/api/v1/(resources)/?offset=90&limit=10"
-            }
-          }
-        }
-      }
-    },
-    {
-      "type": "object",
-      "required": [
-        "data"
-      ],
-      "properties": {
-        "data": {
-          "type": "array",
-          "items": {
-            "oneOf": [
-              {
-                "required": [
-                  "username",
-                  "email"
-                ],
-                "properties": {
-                  "username": {
-                    "type": "string",
-                    "example": "smithj"
-                  },
-                  "email": {
-                    "type": "string",
-                    "format": "email",
-                    "example": "smithj@mytechco.com"
-                  },
-                  "first_name": {
-                    "type": "string",
-                    "example": "John"
-                  },
-                  "last_name": {
-                    "type": "string",
-                    "example": "Smith"
-                  },
-                  "is_active": {
-                    "type": "boolean"
-                  },
-                  "is_org_admin": {
-                    "type": "boolean"
-                  }
-                }
-              },
-              {
-                "required": [
-                  "username"
-                ],
-                "properties": {
-                  "username": {
-                    "type": "string",
-                    "example": "smithj"
-                  }
-                }
-              }
-            ]
-          }
-        }
-      }
-    }
-  ]
-}
-
-```
-{% /jsonsnippet %}
 
 ### Properties
 
@@ -9310,27 +8819,6 @@ xor
 {% span #tocSgroup /%}
 {% span #tocsgroup /%}
 
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "required": [
-    "name"
-  ],
-  "properties": {
-    "name": {
-      "type": "string",
-      "example": "GroupA"
-    },
-    "description": {
-      "type": "string",
-      "example": "A description of GroupA"
-    }
-  }
-}
-
-```
-{% /jsonsnippet %}
-
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
@@ -9344,28 +8832,6 @@ xor
 {% span #schema_AdditionalGroup /%}
 {% span #tocSadditionalgroup /%}
 {% span #tocsadditionalgroup /%}
-
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "properties": {
-    "name": {
-      "type": "string",
-      "example": "GroupA"
-    },
-    "description": {
-      "type": "string",
-      "example": "GroupA Description"
-    },
-    "uuid": {
-      "type": "string",
-      "example": "234df936-abb4-4238-a1c9-d91fc540c702"
-    }
-  }
-}
-
-```
-{% /jsonsnippet %}
 
 ### Properties
 
@@ -9381,87 +8847,6 @@ xor
 {% span #schema_GroupOut /%}
 {% span #tocSgroupout /%}
 {% span #tocsgroupout /%}
-
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "allOf": [
-    {
-      "required": [
-        "name"
-      ],
-      "properties": {
-        "name": {
-          "type": "string",
-          "example": "GroupA"
-        },
-        "description": {
-          "type": "string",
-          "example": "A description of GroupA"
-        }
-      }
-    },
-    {
-      "type": "object",
-      "required": [
-        "uuid"
-      ],
-      "properties": {
-        "uuid": {
-          "type": "string",
-          "format": "uuid",
-          "example": "57e60f90-8c0c-4bd1-87a0-2143759aae1c"
-        }
-      }
-    },
-    {
-      "type": "object",
-      "required": [
-        "created",
-        "modified"
-      ],
-      "properties": {
-        "created": {
-          "type": "string",
-          "format": "date-time",
-          "example": "2019-01-21T17:32:28Z"
-        },
-        "modified": {
-          "type": "string",
-          "format": "date-time",
-          "example": "2019-03-04T07:25:58Z"
-        }
-      }
-    },
-    {
-      "properties": {
-        "principalCount": {
-          "type": "integer",
-          "minimum": 0
-        },
-        "roleCount": {
-          "type": "integer",
-          "minimum": 0
-        },
-        "system": {
-          "type": "boolean",
-          "default": false
-        },
-        "platform_default": {
-          "type": "boolean",
-          "default": false
-        },
-        "admin_default": {
-          "type": "boolean",
-          "default": false
-        }
-      }
-    }
-  ]
-}
-
-```
-{% /jsonsnippet %}
 
 ### Properties
 
@@ -9501,33 +8886,6 @@ and
 {% span #tocSgroupprincipalin /%}
 {% span #tocsgroupprincipalin /%}
 
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "required": [
-    "principals"
-  ],
-  "properties": {
-    "principals": {
-      "type": "array",
-      "items": {
-        "required": [
-          "username"
-        ],
-        "properties": {
-          "username": {
-            "type": "string",
-            "example": "smithj"
-          }
-        }
-      }
-    }
-  }
-}
-
-```
-{% /jsonsnippet %}
-
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
@@ -9541,27 +8899,6 @@ and
 {% span #tocSgrouprolein /%}
 {% span #tocsgrouprolein /%}
 
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "required": [
-    "roles"
-  ],
-  "properties": {
-    "roles": {
-      "type": "array",
-      "items": {
-        "type": "string",
-        "format": "uuid",
-        "example": "94846f2f-cced-474f-b7f3-47e2ec51dd11"
-      }
-    }
-  }
-}
-
-```
-{% /jsonsnippet %}
-
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
@@ -9574,105 +8911,6 @@ and
 {% span #schema_GroupWithPrincipals /%}
 {% span #tocSgroupwithprincipals /%}
 {% span #tocsgroupwithprincipals /%}
-
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "allOf": [
-    {
-      "required": [
-        "name"
-      ],
-      "properties": {
-        "name": {
-          "type": "string",
-          "example": "GroupA"
-        },
-        "description": {
-          "type": "string",
-          "example": "A description of GroupA"
-        }
-      }
-    },
-    {
-      "type": "object",
-      "required": [
-        "uuid"
-      ],
-      "properties": {
-        "uuid": {
-          "type": "string",
-          "format": "uuid",
-          "example": "57e60f90-8c0c-4bd1-87a0-2143759aae1c"
-        }
-      }
-    },
-    {
-      "type": "object",
-      "required": [
-        "created",
-        "modified"
-      ],
-      "properties": {
-        "created": {
-          "type": "string",
-          "format": "date-time",
-          "example": "2019-01-21T17:32:28Z"
-        },
-        "modified": {
-          "type": "string",
-          "format": "date-time",
-          "example": "2019-03-04T07:25:58Z"
-        }
-      }
-    },
-    {
-      "type": "object",
-      "required": [
-        "principals"
-      ],
-      "properties": {
-        "principals": {
-          "type": "array",
-          "items": {
-            "required": [
-              "username",
-              "email"
-            ],
-            "properties": {
-              "username": {
-                "type": "string",
-                "example": "smithj"
-              },
-              "email": {
-                "type": "string",
-                "format": "email",
-                "example": "smithj@mytechco.com"
-              },
-              "first_name": {
-                "type": "string",
-                "example": "John"
-              },
-              "last_name": {
-                "type": "string",
-                "example": "Smith"
-              },
-              "is_active": {
-                "type": "boolean"
-              },
-              "is_org_admin": {
-                "type": "boolean"
-              }
-            }
-          }
-        }
-      }
-    }
-  ]
-}
-
-```
-{% /jsonsnippet %}
 
 ### Properties
 
@@ -9707,203 +8945,6 @@ and
 {% span #schema_GroupWithPrincipalsAndRoles /%}
 {% span #tocSgroupwithprincipalsandroles /%}
 {% span #tocsgroupwithprincipalsandroles /%}
-
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "allOf": [
-    {
-      "required": [
-        "name"
-      ],
-      "properties": {
-        "name": {
-          "type": "string",
-          "example": "GroupA"
-        },
-        "description": {
-          "type": "string",
-          "example": "A description of GroupA"
-        }
-      }
-    },
-    {
-      "type": "object",
-      "required": [
-        "uuid"
-      ],
-      "properties": {
-        "uuid": {
-          "type": "string",
-          "format": "uuid",
-          "example": "57e60f90-8c0c-4bd1-87a0-2143759aae1c"
-        }
-      }
-    },
-    {
-      "type": "object",
-      "required": [
-        "created",
-        "modified"
-      ],
-      "properties": {
-        "created": {
-          "type": "string",
-          "format": "date-time",
-          "example": "2019-01-21T17:32:28Z"
-        },
-        "modified": {
-          "type": "string",
-          "format": "date-time",
-          "example": "2019-03-04T07:25:58Z"
-        }
-      }
-    },
-    {
-      "type": "object",
-      "required": [
-        "principals",
-        "roles"
-      ],
-      "properties": {
-        "principals": {
-          "type": "array",
-          "items": {
-            "required": [
-              "username",
-              "email"
-            ],
-            "properties": {
-              "username": {
-                "type": "string",
-                "example": "smithj"
-              },
-              "email": {
-                "type": "string",
-                "format": "email",
-                "example": "smithj@mytechco.com"
-              },
-              "first_name": {
-                "type": "string",
-                "example": "John"
-              },
-              "last_name": {
-                "type": "string",
-                "example": "Smith"
-              },
-              "is_active": {
-                "type": "boolean"
-              },
-              "is_org_admin": {
-                "type": "boolean"
-              }
-            }
-          }
-        },
-        "roles": {
-          "type": "array",
-          "items": {
-            "allOf": [
-              {
-                "required": [
-                  "name"
-                ],
-                "properties": {
-                  "name": {
-                    "type": "string",
-                    "example": "RoleA"
-                  },
-                  "display_name": {
-                    "type": "string",
-                    "example": "ARoleName"
-                  },
-                  "description": {
-                    "type": "string",
-                    "example": "A description of RoleA"
-                  }
-                }
-              },
-              {
-                "type": "object",
-                "required": [
-                  "uuid"
-                ],
-                "properties": {
-                  "uuid": {
-                    "type": "string",
-                    "format": "uuid",
-                    "example": "57e60f90-8c0c-4bd1-87a0-2143759aae1c"
-                  }
-                }
-              },
-              {
-                "type": "object",
-                "required": [
-                  "created",
-                  "modified"
-                ],
-                "properties": {
-                  "created": {
-                    "type": "string",
-                    "format": "date-time",
-                    "example": "2019-01-21T17:32:28Z"
-                  },
-                  "modified": {
-                    "type": "string",
-                    "format": "date-time",
-                    "example": "2019-03-04T07:25:58Z"
-                  }
-                }
-              },
-              {
-                "properties": {
-                  "policyCount": {
-                    "type": "integer",
-                    "minimum": 0
-                  },
-                  "accessCount": {
-                    "type": "integer",
-                    "minimum": 0
-                  },
-                  "applications": {
-                    "type": "array",
-                    "items": {
-                      "type": "string",
-                      "example": "catalog"
-                    }
-                  },
-                  "system": {
-                    "type": "boolean",
-                    "default": false
-                  },
-                  "platform_default": {
-                    "type": "boolean",
-                    "default": false
-                  },
-                  "admin_default": {
-                    "type": "boolean",
-                    "default": false
-                  },
-                  "external_role_id": {
-                    "type": "string",
-                    "example": "ExternalRoleId"
-                  },
-                  "external_tenant": {
-                    "type": "string",
-                    "example": "ExternalTenant"
-                  }
-                }
-              }
-            ]
-          }
-        }
-      }
-    }
-  ]
-}
-
-```
-{% /jsonsnippet %}
 
 ### Properties
 
@@ -9940,158 +8981,6 @@ and
 {% span #tocSgrouprolespagination /%}
 {% span #tocsgrouprolespagination /%}
 
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "allOf": [
-    {
-      "properties": {
-        "meta": {
-          "properties": {
-            "count": {
-              "type": "integer",
-              "format": "int64",
-              "example": 30
-            }
-          }
-        },
-        "links": {
-          "properties": {
-            "first": {
-              "type": "string",
-              "format": "uri",
-              "example": "/api/v1/(resources)/?offset=0&limit=10"
-            },
-            "previous": {
-              "type": "string",
-              "format": "uri",
-              "example": "/api/v1/(resources)/?offset=20&limit=10"
-            },
-            "next": {
-              "type": "string",
-              "format": "uri",
-              "example": "/api/v1/(resources)/?offset=40&limit=10"
-            },
-            "last": {
-              "type": "string",
-              "format": "uri",
-              "example": "/api/v1/(resources)/?offset=90&limit=10"
-            }
-          }
-        }
-      }
-    },
-    {
-      "type": "object",
-      "required": [
-        "data"
-      ],
-      "properties": {
-        "data": {
-          "type": "array",
-          "items": {
-            "allOf": [
-              {
-                "required": [
-                  "name"
-                ],
-                "properties": {
-                  "name": {
-                    "type": "string",
-                    "example": "RoleA"
-                  },
-                  "display_name": {
-                    "type": "string",
-                    "example": "ARoleName"
-                  },
-                  "description": {
-                    "type": "string",
-                    "example": "A description of RoleA"
-                  }
-                }
-              },
-              {
-                "type": "object",
-                "required": [
-                  "uuid"
-                ],
-                "properties": {
-                  "uuid": {
-                    "type": "string",
-                    "format": "uuid",
-                    "example": "57e60f90-8c0c-4bd1-87a0-2143759aae1c"
-                  }
-                }
-              },
-              {
-                "type": "object",
-                "required": [
-                  "created",
-                  "modified"
-                ],
-                "properties": {
-                  "created": {
-                    "type": "string",
-                    "format": "date-time",
-                    "example": "2019-01-21T17:32:28Z"
-                  },
-                  "modified": {
-                    "type": "string",
-                    "format": "date-time",
-                    "example": "2019-03-04T07:25:58Z"
-                  }
-                }
-              },
-              {
-                "properties": {
-                  "policyCount": {
-                    "type": "integer",
-                    "minimum": 0
-                  },
-                  "accessCount": {
-                    "type": "integer",
-                    "minimum": 0
-                  },
-                  "applications": {
-                    "type": "array",
-                    "items": {
-                      "type": "string",
-                      "example": "catalog"
-                    }
-                  },
-                  "system": {
-                    "type": "boolean",
-                    "default": false
-                  },
-                  "platform_default": {
-                    "type": "boolean",
-                    "default": false
-                  },
-                  "admin_default": {
-                    "type": "boolean",
-                    "default": false
-                  },
-                  "external_role_id": {
-                    "type": "string",
-                    "example": "ExternalRoleId"
-                  },
-                  "external_tenant": {
-                    "type": "string",
-                    "example": "ExternalTenant"
-                  }
-                }
-              }
-            ]
-          }
-        }
-      }
-    }
-  ]
-}
-
-```
-{% /jsonsnippet %}
-
 ### Properties
 
 allOf
@@ -10113,139 +9002,6 @@ and
 {% span #schema_GroupPagination /%}
 {% span #tocSgrouppagination /%}
 {% span #tocsgrouppagination /%}
-
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "allOf": [
-    {
-      "properties": {
-        "meta": {
-          "properties": {
-            "count": {
-              "type": "integer",
-              "format": "int64",
-              "example": 30
-            }
-          }
-        },
-        "links": {
-          "properties": {
-            "first": {
-              "type": "string",
-              "format": "uri",
-              "example": "/api/v1/(resources)/?offset=0&limit=10"
-            },
-            "previous": {
-              "type": "string",
-              "format": "uri",
-              "example": "/api/v1/(resources)/?offset=20&limit=10"
-            },
-            "next": {
-              "type": "string",
-              "format": "uri",
-              "example": "/api/v1/(resources)/?offset=40&limit=10"
-            },
-            "last": {
-              "type": "string",
-              "format": "uri",
-              "example": "/api/v1/(resources)/?offset=90&limit=10"
-            }
-          }
-        }
-      }
-    },
-    {
-      "type": "object",
-      "required": [
-        "data"
-      ],
-      "properties": {
-        "data": {
-          "type": "array",
-          "items": {
-            "allOf": [
-              {
-                "required": [
-                  "name"
-                ],
-                "properties": {
-                  "name": {
-                    "type": "string",
-                    "example": "GroupA"
-                  },
-                  "description": {
-                    "type": "string",
-                    "example": "A description of GroupA"
-                  }
-                }
-              },
-              {
-                "type": "object",
-                "required": [
-                  "uuid"
-                ],
-                "properties": {
-                  "uuid": {
-                    "type": "string",
-                    "format": "uuid",
-                    "example": "57e60f90-8c0c-4bd1-87a0-2143759aae1c"
-                  }
-                }
-              },
-              {
-                "type": "object",
-                "required": [
-                  "created",
-                  "modified"
-                ],
-                "properties": {
-                  "created": {
-                    "type": "string",
-                    "format": "date-time",
-                    "example": "2019-01-21T17:32:28Z"
-                  },
-                  "modified": {
-                    "type": "string",
-                    "format": "date-time",
-                    "example": "2019-03-04T07:25:58Z"
-                  }
-                }
-              },
-              {
-                "properties": {
-                  "principalCount": {
-                    "type": "integer",
-                    "minimum": 0
-                  },
-                  "roleCount": {
-                    "type": "integer",
-                    "minimum": 0
-                  },
-                  "system": {
-                    "type": "boolean",
-                    "default": false
-                  },
-                  "platform_default": {
-                    "type": "boolean",
-                    "default": false
-                  },
-                  "admin_default": {
-                    "type": "boolean",
-                    "default": false
-                  }
-                }
-              }
-            ]
-          }
-        }
-      }
-    }
-  ]
-}
-
-```
-{% /jsonsnippet %}
 
 ### Properties
 
@@ -10269,204 +9025,6 @@ and
 {% span #tocScrossaccountrequestdetail /%}
 {% span #tocscrossaccountrequestdetail /%}
 
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "oneOf": [
-    {
-      "allOf": [
-        {
-          "properties": {
-            "request_id": {
-              "type": "string",
-              "format": "uuid",
-              "example": "2ad8cac5-336e-44c6-9b16-15ac84224d4b"
-            },
-            "target_account": {
-              "type": "string",
-              "example": "12345"
-            },
-            "target_org": {
-              "type": "string",
-              "example": "12345"
-            },
-            "start_date": {
-              "type": "string",
-              "example": "01/01/2021"
-            },
-            "end_date": {
-              "type": "string",
-              "example": "01/01/2021"
-            },
-            "status": {
-              "type": "string",
-              "example": "pending"
-            },
-            "created": {
-              "type": "string",
-              "format": "date-time",
-              "example": "2019-01-21T17:32:28Z"
-            },
-            "roles": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "display_name": {
-                    "type": "string",
-                    "example": "display_name"
-                  },
-                  "description": {
-                    "type": "string",
-                    "example": "description"
-                  },
-                  "permissions": {
-                    "type": "array",
-                    "items": {
-                      "properties": {
-                        "application": {
-                          "type": "string",
-                          "example": "rbac"
-                        },
-                        "resource_type": {
-                          "type": "string",
-                          "example": "group"
-                        },
-                        "verb": {
-                          "type": "string",
-                          "example": "read"
-                        },
-                        "permission": {
-                          "type": "string",
-                          "example": "rbac:group:read"
-                        },
-                        "description": {
-                          "type": "string",
-                          "example": "Describe the usage of permission."
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        {
-          "type": "object",
-          "properties": {
-            "first_name": {
-              "format": "string",
-              "example": "first_name"
-            },
-            "last_name": {
-              "format": "string",
-              "example": "last_name"
-            },
-            "email": {
-              "format": "string",
-              "example": "email"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "allOf": [
-        {
-          "properties": {
-            "request_id": {
-              "type": "string",
-              "format": "uuid",
-              "example": "2ad8cac5-336e-44c6-9b16-15ac84224d4b"
-            },
-            "target_account": {
-              "type": "string",
-              "example": "12345"
-            },
-            "target_org": {
-              "type": "string",
-              "example": "12345"
-            },
-            "start_date": {
-              "type": "string",
-              "example": "01/01/2021"
-            },
-            "end_date": {
-              "type": "string",
-              "example": "01/01/2021"
-            },
-            "status": {
-              "type": "string",
-              "example": "pending"
-            },
-            "created": {
-              "type": "string",
-              "format": "date-time",
-              "example": "2019-01-21T17:32:28Z"
-            },
-            "roles": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "display_name": {
-                    "type": "string",
-                    "example": "display_name"
-                  },
-                  "description": {
-                    "type": "string",
-                    "example": "description"
-                  },
-                  "permissions": {
-                    "type": "array",
-                    "items": {
-                      "properties": {
-                        "application": {
-                          "type": "string",
-                          "example": "rbac"
-                        },
-                        "resource_type": {
-                          "type": "string",
-                          "example": "group"
-                        },
-                        "verb": {
-                          "type": "string",
-                          "example": "read"
-                        },
-                        "permission": {
-                          "type": "string",
-                          "example": "rbac:group:read"
-                        },
-                        "description": {
-                          "type": "string",
-                          "example": "Describe the usage of permission."
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        {
-          "type": "object",
-          "properties": {
-            "user_id": {
-              "format": "string",
-              "example": "1234"
-            }
-          }
-        }
-      ]
-    }
-  ]
-}
-
-```
-{% /jsonsnippet %}
-
 ### Properties
 
 oneOf
@@ -10487,110 +9045,6 @@ xor
 {% span #schema_CrossAccountRequestDetailByAccount /%}
 {% span #tocScrossaccountrequestdetailbyaccount /%}
 {% span #tocscrossaccountrequestdetailbyaccount /%}
-
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "allOf": [
-    {
-      "properties": {
-        "request_id": {
-          "type": "string",
-          "format": "uuid",
-          "example": "2ad8cac5-336e-44c6-9b16-15ac84224d4b"
-        },
-        "target_account": {
-          "type": "string",
-          "example": "12345"
-        },
-        "target_org": {
-          "type": "string",
-          "example": "12345"
-        },
-        "start_date": {
-          "type": "string",
-          "example": "01/01/2021"
-        },
-        "end_date": {
-          "type": "string",
-          "example": "01/01/2021"
-        },
-        "status": {
-          "type": "string",
-          "example": "pending"
-        },
-        "created": {
-          "type": "string",
-          "format": "date-time",
-          "example": "2019-01-21T17:32:28Z"
-        },
-        "roles": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "display_name": {
-                "type": "string",
-                "example": "display_name"
-              },
-              "description": {
-                "type": "string",
-                "example": "description"
-              },
-              "permissions": {
-                "type": "array",
-                "items": {
-                  "properties": {
-                    "application": {
-                      "type": "string",
-                      "example": "rbac"
-                    },
-                    "resource_type": {
-                      "type": "string",
-                      "example": "group"
-                    },
-                    "verb": {
-                      "type": "string",
-                      "example": "read"
-                    },
-                    "permission": {
-                      "type": "string",
-                      "example": "rbac:group:read"
-                    },
-                    "description": {
-                      "type": "string",
-                      "example": "Describe the usage of permission."
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    {
-      "type": "object",
-      "properties": {
-        "first_name": {
-          "format": "string",
-          "example": "first_name"
-        },
-        "last_name": {
-          "format": "string",
-          "example": "last_name"
-        },
-        "email": {
-          "format": "string",
-          "example": "email"
-        }
-      }
-    }
-  ]
-}
-
-```
-{% /jsonsnippet %}
 
 ### Properties
 
@@ -10616,102 +9070,6 @@ and
 {% span #tocScrossaccountrequestdetailbyuseid /%}
 {% span #tocscrossaccountrequestdetailbyuseid /%}
 
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "allOf": [
-    {
-      "properties": {
-        "request_id": {
-          "type": "string",
-          "format": "uuid",
-          "example": "2ad8cac5-336e-44c6-9b16-15ac84224d4b"
-        },
-        "target_account": {
-          "type": "string",
-          "example": "12345"
-        },
-        "target_org": {
-          "type": "string",
-          "example": "12345"
-        },
-        "start_date": {
-          "type": "string",
-          "example": "01/01/2021"
-        },
-        "end_date": {
-          "type": "string",
-          "example": "01/01/2021"
-        },
-        "status": {
-          "type": "string",
-          "example": "pending"
-        },
-        "created": {
-          "type": "string",
-          "format": "date-time",
-          "example": "2019-01-21T17:32:28Z"
-        },
-        "roles": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "display_name": {
-                "type": "string",
-                "example": "display_name"
-              },
-              "description": {
-                "type": "string",
-                "example": "description"
-              },
-              "permissions": {
-                "type": "array",
-                "items": {
-                  "properties": {
-                    "application": {
-                      "type": "string",
-                      "example": "rbac"
-                    },
-                    "resource_type": {
-                      "type": "string",
-                      "example": "group"
-                    },
-                    "verb": {
-                      "type": "string",
-                      "example": "read"
-                    },
-                    "permission": {
-                      "type": "string",
-                      "example": "rbac:group:read"
-                    },
-                    "description": {
-                      "type": "string",
-                      "example": "Describe the usage of permission."
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    {
-      "type": "object",
-      "properties": {
-        "user_id": {
-          "format": "string",
-          "example": "1234"
-        }
-      }
-    }
-  ]
-}
-
-```
-{% /jsonsnippet %}
-
 ### Properties
 
 allOf
@@ -10733,170 +9091,6 @@ and
 {% span #schema_CrossAccountRequestPagination /%}
 {% span #tocScrossaccountrequestpagination /%}
 {% span #tocscrossaccountrequestpagination /%}
-
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "allOf": [
-    {
-      "properties": {
-        "meta": {
-          "properties": {
-            "count": {
-              "type": "integer",
-              "format": "int64",
-              "example": 30
-            }
-          }
-        },
-        "links": {
-          "properties": {
-            "first": {
-              "type": "string",
-              "format": "uri",
-              "example": "/api/v1/(resources)/?offset=0&limit=10"
-            },
-            "previous": {
-              "type": "string",
-              "format": "uri",
-              "example": "/api/v1/(resources)/?offset=20&limit=10"
-            },
-            "next": {
-              "type": "string",
-              "format": "uri",
-              "example": "/api/v1/(resources)/?offset=40&limit=10"
-            },
-            "last": {
-              "type": "string",
-              "format": "uri",
-              "example": "/api/v1/(resources)/?offset=90&limit=10"
-            }
-          }
-        }
-      }
-    },
-    {
-      "type": "object",
-      "required": [
-        "data"
-      ],
-      "properties": {
-        "data": {
-          "type": "array",
-          "items": {
-            "oneOf": [
-              {
-                "allOf": [
-                  {
-                    "properties": {
-                      "request_id": {
-                        "type": "string",
-                        "format": "uuid",
-                        "example": "2ad8cac5-336e-44c6-9b16-15ac84224d4b"
-                      },
-                      "target_account": {
-                        "type": "string",
-                        "example": "12345"
-                      },
-                      "target_org": {
-                        "type": "string",
-                        "example": "12345"
-                      },
-                      "status": {
-                        "type": "string",
-                        "example": "pending"
-                      },
-                      "created": {
-                        "type": "string",
-                        "format": "date-time",
-                        "example": "2019-01-21T17:32:28Z"
-                      },
-                      "start_date": {
-                        "format": "date-time",
-                        "example": "2019-01-21T17:32:28Z"
-                      },
-                      "end_date": {
-                        "format": "date-time",
-                        "example": "2019-01-21T17:32:28Z"
-                      }
-                    }
-                  },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "first_name": {
-                        "type": "string",
-                        "example": "Jane"
-                      },
-                      "last_name": {
-                        "type": "string",
-                        "example": "Doe"
-                      },
-                      "email": {
-                        "type": "string",
-                        "example": "test@redhat.com"
-                      }
-                    }
-                  }
-                ]
-              },
-              {
-                "allOf": [
-                  {
-                    "properties": {
-                      "request_id": {
-                        "type": "string",
-                        "format": "uuid",
-                        "example": "2ad8cac5-336e-44c6-9b16-15ac84224d4b"
-                      },
-                      "target_account": {
-                        "type": "string",
-                        "example": "12345"
-                      },
-                      "target_org": {
-                        "type": "string",
-                        "example": "12345"
-                      },
-                      "status": {
-                        "type": "string",
-                        "example": "pending"
-                      },
-                      "created": {
-                        "type": "string",
-                        "format": "date-time",
-                        "example": "2019-01-21T17:32:28Z"
-                      },
-                      "start_date": {
-                        "format": "date-time",
-                        "example": "2019-01-21T17:32:28Z"
-                      },
-                      "end_date": {
-                        "format": "date-time",
-                        "example": "2019-01-21T17:32:28Z"
-                      }
-                    }
-                  },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "user_id": {
-                        "type": "string",
-                        "example": "1234"
-                      }
-                    }
-                  }
-                ]
-              }
-            ]
-          }
-        }
-      }
-    }
-  ]
-}
-
-```
-{% /jsonsnippet %}
 
 ### Properties
 
@@ -10932,45 +9126,6 @@ xor
 {% span #tocScrossaccountrequestin /%}
 {% span #tocscrossaccountrequestin /%}
 
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "required": [
-    "target_account",
-    "start_date",
-    "end_date",
-    "roles"
-  ],
-  "properties": {
-    "target_account": {
-      "type": "string",
-      "example": "12345"
-    },
-    "target_org": {
-      "type": "string",
-      "example": "12345"
-    },
-    "start_date": {
-      "type": "string",
-      "example": "01/01/2021"
-    },
-    "end_date": {
-      "type": "string",
-      "example": "01/01/2021"
-    },
-    "roles": {
-      "type": "array",
-      "items": {
-        "type": "string",
-        "example": "Role Name"
-      }
-    }
-  }
-}
-
-```
-{% /jsonsnippet %}
-
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
@@ -10988,36 +9143,6 @@ xor
 {% span #tocScrossaccountrequestupdatein /%}
 {% span #tocscrossaccountrequestupdatein /%}
 
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "required": [
-    "start_date",
-    "end_date",
-    "roles"
-  ],
-  "properties": {
-    "start_date": {
-      "type": "string",
-      "example": "01/01/2021"
-    },
-    "end_date": {
-      "type": "string",
-      "example": "01/01/2021"
-    },
-    "roles": {
-      "type": "array",
-      "items": {
-        "type": "string",
-        "example": "Role Name"
-      }
-    }
-  }
-}
-
-```
-{% /jsonsnippet %}
-
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
@@ -11032,41 +9157,6 @@ xor
 {% span #schema_CrossAccountRequestPatch /%}
 {% span #tocScrossaccountrequestpatch /%}
 {% span #tocscrossaccountrequestpatch /%}
-
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "properties": {
-    "start_date": {
-      "type": "string",
-      "example": "01/01/2021"
-    },
-    "end_date": {
-      "type": "string",
-      "example": "01/01/2021"
-    },
-    "roles": {
-      "type": "array",
-      "items": {
-        "type": "string",
-        "example": "Role Name"
-      }
-    },
-    "status": {
-      "type": "string",
-      "enum": [
-        "pending",
-        "approved",
-        "expired",
-        "cancelled",
-        "denied"
-      ]
-    }
-  }
-}
-
-```
-{% /jsonsnippet %}
 
 ### Properties
 
@@ -11094,67 +9184,6 @@ xor
 {% span #tocScrossaccountrequestbyaccount /%}
 {% span #tocscrossaccountrequestbyaccount /%}
 
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "allOf": [
-    {
-      "properties": {
-        "request_id": {
-          "type": "string",
-          "format": "uuid",
-          "example": "2ad8cac5-336e-44c6-9b16-15ac84224d4b"
-        },
-        "target_account": {
-          "type": "string",
-          "example": "12345"
-        },
-        "target_org": {
-          "type": "string",
-          "example": "12345"
-        },
-        "status": {
-          "type": "string",
-          "example": "pending"
-        },
-        "created": {
-          "type": "string",
-          "format": "date-time",
-          "example": "2019-01-21T17:32:28Z"
-        },
-        "start_date": {
-          "format": "date-time",
-          "example": "2019-01-21T17:32:28Z"
-        },
-        "end_date": {
-          "format": "date-time",
-          "example": "2019-01-21T17:32:28Z"
-        }
-      }
-    },
-    {
-      "type": "object",
-      "properties": {
-        "first_name": {
-          "type": "string",
-          "example": "Jane"
-        },
-        "last_name": {
-          "type": "string",
-          "example": "Doe"
-        },
-        "email": {
-          "type": "string",
-          "example": "test@redhat.com"
-        }
-      }
-    }
-  ]
-}
-
-```
-{% /jsonsnippet %}
-
 ### Properties
 
 allOf
@@ -11179,59 +9208,6 @@ and
 {% span #tocScrossaccountrequestbyuserid /%}
 {% span #tocscrossaccountrequestbyuserid /%}
 
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "allOf": [
-    {
-      "properties": {
-        "request_id": {
-          "type": "string",
-          "format": "uuid",
-          "example": "2ad8cac5-336e-44c6-9b16-15ac84224d4b"
-        },
-        "target_account": {
-          "type": "string",
-          "example": "12345"
-        },
-        "target_org": {
-          "type": "string",
-          "example": "12345"
-        },
-        "status": {
-          "type": "string",
-          "example": "pending"
-        },
-        "created": {
-          "type": "string",
-          "format": "date-time",
-          "example": "2019-01-21T17:32:28Z"
-        },
-        "start_date": {
-          "format": "date-time",
-          "example": "2019-01-21T17:32:28Z"
-        },
-        "end_date": {
-          "format": "date-time",
-          "example": "2019-01-21T17:32:28Z"
-        }
-      }
-    },
-    {
-      "type": "object",
-      "properties": {
-        "user_id": {
-          "type": "string",
-          "example": "1234"
-        }
-      }
-    }
-  ]
-}
-
-```
-{% /jsonsnippet %}
-
 ### Properties
 
 allOf
@@ -11254,46 +9230,6 @@ and
 {% span #tocScrossaccountrequest /%}
 {% span #tocscrossaccountrequest /%}
 
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "properties": {
-    "request_id": {
-      "type": "string",
-      "format": "uuid",
-      "example": "2ad8cac5-336e-44c6-9b16-15ac84224d4b"
-    },
-    "target_account": {
-      "type": "string",
-      "example": "12345"
-    },
-    "target_org": {
-      "type": "string",
-      "example": "12345"
-    },
-    "status": {
-      "type": "string",
-      "example": "pending"
-    },
-    "created": {
-      "type": "string",
-      "format": "date-time",
-      "example": "2019-01-21T17:32:28Z"
-    },
-    "start_date": {
-      "format": "date-time",
-      "example": "2019-01-21T17:32:28Z"
-    },
-    "end_date": {
-      "format": "date-time",
-      "example": "2019-01-21T17:32:28Z"
-    }
-  }
-}
-
-```
-{% /jsonsnippet %}
-
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
@@ -11312,89 +9248,6 @@ and
 {% span #schema_CrossAccountRequestWithRoles /%}
 {% span #tocScrossaccountrequestwithroles /%}
 {% span #tocscrossaccountrequestwithroles /%}
-
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "properties": {
-    "request_id": {
-      "type": "string",
-      "format": "uuid",
-      "example": "2ad8cac5-336e-44c6-9b16-15ac84224d4b"
-    },
-    "target_account": {
-      "type": "string",
-      "example": "12345"
-    },
-    "target_org": {
-      "type": "string",
-      "example": "12345"
-    },
-    "start_date": {
-      "type": "string",
-      "example": "01/01/2021"
-    },
-    "end_date": {
-      "type": "string",
-      "example": "01/01/2021"
-    },
-    "status": {
-      "type": "string",
-      "example": "pending"
-    },
-    "created": {
-      "type": "string",
-      "format": "date-time",
-      "example": "2019-01-21T17:32:28Z"
-    },
-    "roles": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "display_name": {
-            "type": "string",
-            "example": "display_name"
-          },
-          "description": {
-            "type": "string",
-            "example": "description"
-          },
-          "permissions": {
-            "type": "array",
-            "items": {
-              "properties": {
-                "application": {
-                  "type": "string",
-                  "example": "rbac"
-                },
-                "resource_type": {
-                  "type": "string",
-                  "example": "group"
-                },
-                "verb": {
-                  "type": "string",
-                  "example": "read"
-                },
-                "permission": {
-                  "type": "string",
-                  "example": "rbac:group:read"
-                },
-                "description": {
-                  "type": "string",
-                  "example": "Describe the usage of permission."
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-```
-{% /jsonsnippet %}
 
 ### Properties
 
@@ -11419,102 +9272,6 @@ and
 {% span #tocScrossaccountrequestout /%}
 {% span #tocscrossaccountrequestout /%}
 
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "allOf": [
-    {
-      "properties": {
-        "request_id": {
-          "type": "string",
-          "format": "uuid",
-          "example": "2ad8cac5-336e-44c6-9b16-15ac84224d4b"
-        },
-        "target_account": {
-          "type": "string",
-          "example": "12345"
-        },
-        "target_org": {
-          "type": "string",
-          "example": "12345"
-        },
-        "start_date": {
-          "type": "string",
-          "example": "01/01/2021"
-        },
-        "end_date": {
-          "type": "string",
-          "example": "01/01/2021"
-        },
-        "status": {
-          "type": "string",
-          "example": "pending"
-        },
-        "created": {
-          "type": "string",
-          "format": "date-time",
-          "example": "2019-01-21T17:32:28Z"
-        },
-        "roles": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "display_name": {
-                "type": "string",
-                "example": "display_name"
-              },
-              "description": {
-                "type": "string",
-                "example": "description"
-              },
-              "permissions": {
-                "type": "array",
-                "items": {
-                  "properties": {
-                    "application": {
-                      "type": "string",
-                      "example": "rbac"
-                    },
-                    "resource_type": {
-                      "type": "string",
-                      "example": "group"
-                    },
-                    "verb": {
-                      "type": "string",
-                      "example": "read"
-                    },
-                    "permission": {
-                      "type": "string",
-                      "example": "rbac:group:read"
-                    },
-                    "description": {
-                      "type": "string",
-                      "example": "Describe the usage of permission."
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    {
-      "type": "object",
-      "properties": {
-        "user_id": {
-          "type": "string",
-          "example": "1234"
-        }
-      }
-    }
-  ]
-}
-
-```
-{% /jsonsnippet %}
-
 ### Properties
 
 allOf
@@ -11536,36 +9293,6 @@ and
 {% span #schema_ResourceDefinitionFilter /%}
 {% span #tocSresourcedefinitionfilter /%}
 {% span #tocsresourcedefinitionfilter /%}
-
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "required": [
-    "key",
-    "operation",
-    "value"
-  ],
-  "properties": {
-    "key": {
-      "type": "string",
-      "example": "cost-management.aws.account"
-    },
-    "operation": {
-      "type": "string",
-      "enum": [
-        "equal",
-        "in"
-      ]
-    },
-    "value": {
-      "type": "string",
-      "example": "123456"
-    }
-  }
-}
-
-```
-{% /jsonsnippet %}
 
 ### Properties
 
@@ -11589,43 +9316,6 @@ and
 {% span #tocSresourcedefinition /%}
 {% span #tocsresourcedefinition /%}
 
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "required": [
-    "attributeFilter"
-  ],
-  "properties": {
-    "attributeFilter": {
-      "required": [
-        "key",
-        "operation",
-        "value"
-      ],
-      "properties": {
-        "key": {
-          "type": "string",
-          "example": "cost-management.aws.account"
-        },
-        "operation": {
-          "type": "string",
-          "enum": [
-            "equal",
-            "in"
-          ]
-        },
-        "value": {
-          "type": "string",
-          "example": "123456"
-        }
-      }
-    }
-  }
-}
-
-```
-{% /jsonsnippet %}
-
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
@@ -11638,58 +9328,6 @@ and
 {% span #schema_Access /%}
 {% span #tocSaccess /%}
 {% span #tocsaccess /%}
-
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "required": [
-    "permission",
-    "resourceDefinitions"
-  ],
-  "properties": {
-    "permission": {
-      "type": "string",
-      "example": "cost-management:*:read"
-    },
-    "resourceDefinitions": {
-      "type": "array",
-      "items": {
-        "required": [
-          "attributeFilter"
-        ],
-        "properties": {
-          "attributeFilter": {
-            "required": [
-              "key",
-              "operation",
-              "value"
-            ],
-            "properties": {
-              "key": {
-                "type": "string",
-                "example": "cost-management.aws.account"
-              },
-              "operation": {
-                "type": "string",
-                "enum": [
-                  "equal",
-                  "in"
-                ]
-              },
-              "value": {
-                "type": "string",
-                "example": "123456"
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-```
-{% /jsonsnippet %}
 
 ### Properties
 
@@ -11705,31 +9343,6 @@ and
 {% span #tocSrole /%}
 {% span #tocsrole /%}
 
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "required": [
-    "name"
-  ],
-  "properties": {
-    "name": {
-      "type": "string",
-      "example": "RoleA"
-    },
-    "display_name": {
-      "type": "string",
-      "example": "ARoleName"
-    },
-    "description": {
-      "type": "string",
-      "example": "A description of RoleA"
-    }
-  }
-}
-
-```
-{% /jsonsnippet %}
-
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
@@ -11744,92 +9357,6 @@ and
 {% span #schema_RoleIn /%}
 {% span #tocSrolein /%}
 {% span #tocsrolein /%}
-
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "allOf": [
-    {
-      "required": [
-        "name"
-      ],
-      "properties": {
-        "name": {
-          "type": "string",
-          "example": "RoleA"
-        },
-        "display_name": {
-          "type": "string",
-          "example": "ARoleName"
-        },
-        "description": {
-          "type": "string",
-          "example": "A description of RoleA"
-        }
-      }
-    },
-    {
-      "type": "object",
-      "required": [
-        "access"
-      ],
-      "properties": {
-        "access": {
-          "type": "array",
-          "items": {
-            "required": [
-              "permission",
-              "resourceDefinitions"
-            ],
-            "properties": {
-              "permission": {
-                "type": "string",
-                "example": "cost-management:*:read"
-              },
-              "resourceDefinitions": {
-                "type": "array",
-                "items": {
-                  "required": [
-                    "attributeFilter"
-                  ],
-                  "properties": {
-                    "attributeFilter": {
-                      "required": [
-                        "key",
-                        "operation",
-                        "value"
-                      ],
-                      "properties": {
-                        "key": {
-                          "type": "string",
-                          "example": "cost-management.aws.account"
-                        },
-                        "operation": {
-                          "type": "string",
-                          "enum": [
-                            "equal",
-                            "in"
-                          ]
-                        },
-                        "value": {
-                          "type": "string",
-                          "example": "123456"
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  ]
-}
-
-```
-{% /jsonsnippet %}
 
 ### Properties
 
@@ -11853,158 +9380,6 @@ and
 {% span #tocSrolepagination /%}
 {% span #tocsrolepagination /%}
 
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "allOf": [
-    {
-      "properties": {
-        "meta": {
-          "properties": {
-            "count": {
-              "type": "integer",
-              "format": "int64",
-              "example": 30
-            }
-          }
-        },
-        "links": {
-          "properties": {
-            "first": {
-              "type": "string",
-              "format": "uri",
-              "example": "/api/v1/(resources)/?offset=0&limit=10"
-            },
-            "previous": {
-              "type": "string",
-              "format": "uri",
-              "example": "/api/v1/(resources)/?offset=20&limit=10"
-            },
-            "next": {
-              "type": "string",
-              "format": "uri",
-              "example": "/api/v1/(resources)/?offset=40&limit=10"
-            },
-            "last": {
-              "type": "string",
-              "format": "uri",
-              "example": "/api/v1/(resources)/?offset=90&limit=10"
-            }
-          }
-        }
-      }
-    },
-    {
-      "type": "object",
-      "required": [
-        "data"
-      ],
-      "properties": {
-        "data": {
-          "type": "array",
-          "items": {
-            "allOf": [
-              {
-                "required": [
-                  "name"
-                ],
-                "properties": {
-                  "name": {
-                    "type": "string",
-                    "example": "RoleA"
-                  },
-                  "display_name": {
-                    "type": "string",
-                    "example": "ARoleName"
-                  },
-                  "description": {
-                    "type": "string",
-                    "example": "A description of RoleA"
-                  }
-                }
-              },
-              {
-                "type": "object",
-                "required": [
-                  "uuid"
-                ],
-                "properties": {
-                  "uuid": {
-                    "type": "string",
-                    "format": "uuid",
-                    "example": "57e60f90-8c0c-4bd1-87a0-2143759aae1c"
-                  }
-                }
-              },
-              {
-                "type": "object",
-                "required": [
-                  "created",
-                  "modified"
-                ],
-                "properties": {
-                  "created": {
-                    "type": "string",
-                    "format": "date-time",
-                    "example": "2019-01-21T17:32:28Z"
-                  },
-                  "modified": {
-                    "type": "string",
-                    "format": "date-time",
-                    "example": "2019-03-04T07:25:58Z"
-                  }
-                }
-              },
-              {
-                "properties": {
-                  "policyCount": {
-                    "type": "integer",
-                    "minimum": 0
-                  },
-                  "accessCount": {
-                    "type": "integer",
-                    "minimum": 0
-                  },
-                  "applications": {
-                    "type": "array",
-                    "items": {
-                      "type": "string",
-                      "example": "catalog"
-                    }
-                  },
-                  "system": {
-                    "type": "boolean",
-                    "default": false
-                  },
-                  "platform_default": {
-                    "type": "boolean",
-                    "default": false
-                  },
-                  "admin_default": {
-                    "type": "boolean",
-                    "default": false
-                  },
-                  "external_role_id": {
-                    "type": "string",
-                    "example": "ExternalRoleId"
-                  },
-                  "external_tenant": {
-                    "type": "string",
-                    "example": "ExternalTenant"
-                  }
-                }
-              }
-            ]
-          }
-        }
-      }
-    }
-  ]
-}
-
-```
-{% /jsonsnippet %}
-
 ### Properties
 
 allOf
@@ -12027,190 +9402,6 @@ and
 {% span #tocSrolepaginationdynamic /%}
 {% span #tocsrolepaginationdynamic /%}
 
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "allOf": [
-    {
-      "properties": {
-        "meta": {
-          "properties": {
-            "count": {
-              "type": "integer",
-              "format": "int64",
-              "example": 30
-            }
-          }
-        },
-        "links": {
-          "properties": {
-            "first": {
-              "type": "string",
-              "format": "uri",
-              "example": "/api/v1/(resources)/?offset=0&limit=10"
-            },
-            "previous": {
-              "type": "string",
-              "format": "uri",
-              "example": "/api/v1/(resources)/?offset=20&limit=10"
-            },
-            "next": {
-              "type": "string",
-              "format": "uri",
-              "example": "/api/v1/(resources)/?offset=40&limit=10"
-            },
-            "last": {
-              "type": "string",
-              "format": "uri",
-              "example": "/api/v1/(resources)/?offset=90&limit=10"
-            }
-          }
-        }
-      }
-    },
-    {
-      "type": "object",
-      "required": [
-        "data"
-      ],
-      "properties": {
-        "data": {
-          "type": "array",
-          "items": {
-            "allOf": [
-              {
-                "required": [
-                  "name"
-                ],
-                "properties": {
-                  "name": {
-                    "type": "string",
-                    "example": "RoleA"
-                  },
-                  "display_name": {
-                    "type": "string",
-                    "example": "ARoleName"
-                  },
-                  "description": {
-                    "type": "string",
-                    "example": "A description of RoleA"
-                  }
-                }
-              },
-              {
-                "type": "object",
-                "required": [
-                  "uuid"
-                ],
-                "properties": {
-                  "uuid": {
-                    "type": "string",
-                    "format": "uuid",
-                    "example": "57e60f90-8c0c-4bd1-87a0-2143759aae1c"
-                  }
-                }
-              },
-              {
-                "type": "object",
-                "required": [
-                  "created",
-                  "modified"
-                ],
-                "properties": {
-                  "created": {
-                    "type": "string",
-                    "format": "date-time",
-                    "example": "2019-01-21T17:32:28Z"
-                  },
-                  "modified": {
-                    "type": "string",
-                    "format": "date-time",
-                    "example": "2019-03-04T07:25:58Z"
-                  }
-                }
-              },
-              {
-                "type": "object",
-                "required": [
-                  "policyCount",
-                  "accessCount",
-                  "applications",
-                  "system",
-                  "platform_default",
-                  "admin_default"
-                ],
-                "properties": {
-                  "policyCount": {
-                    "type": "integer",
-                    "minimum": 0
-                  },
-                  "accessCount": {
-                    "type": "integer",
-                    "minimum": 0
-                  },
-                  "applications": {
-                    "type": "array",
-                    "items": {
-                      "type": "string",
-                      "example": "catalog"
-                    }
-                  },
-                  "system": {
-                    "type": "boolean",
-                    "default": false
-                  },
-                  "platform_default": {
-                    "type": "boolean",
-                    "default": false
-                  },
-                  "admin_default": {
-                    "type": "boolean",
-                    "default": false
-                  },
-                  "groups_in_count": {
-                    "type": "integer",
-                    "minimum": 0
-                  },
-                  "groups_in": {
-                    "type": "array",
-                    "items": {
-                      "properties": {
-                        "name": {
-                          "type": "string",
-                          "example": "GroupA"
-                        },
-                        "description": {
-                          "type": "string",
-                          "example": "GroupA Description"
-                        },
-                        "uuid": {
-                          "type": "string",
-                          "example": "234df936-abb4-4238-a1c9-d91fc540c702"
-                        }
-                      }
-                    }
-                  },
-                  "external_role_id": {
-                    "type": "string",
-                    "example": "ExternalRoleId"
-                  },
-                  "external_tenant": {
-                    "type": "string",
-                    "example": "ExternalTenant"
-                  }
-                }
-              }
-            ]
-          }
-        }
-      }
-    }
-  ]
-}
-
-```
-{% /jsonsnippet %}
-
 ### Properties
 
 allOf
@@ -12232,106 +9423,6 @@ and
 {% span #schema_RoleOut /%}
 {% span #tocSroleout /%}
 {% span #tocsroleout /%}
-
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "allOf": [
-    {
-      "required": [
-        "name"
-      ],
-      "properties": {
-        "name": {
-          "type": "string",
-          "example": "RoleA"
-        },
-        "display_name": {
-          "type": "string",
-          "example": "ARoleName"
-        },
-        "description": {
-          "type": "string",
-          "example": "A description of RoleA"
-        }
-      }
-    },
-    {
-      "type": "object",
-      "required": [
-        "uuid"
-      ],
-      "properties": {
-        "uuid": {
-          "type": "string",
-          "format": "uuid",
-          "example": "57e60f90-8c0c-4bd1-87a0-2143759aae1c"
-        }
-      }
-    },
-    {
-      "type": "object",
-      "required": [
-        "created",
-        "modified"
-      ],
-      "properties": {
-        "created": {
-          "type": "string",
-          "format": "date-time",
-          "example": "2019-01-21T17:32:28Z"
-        },
-        "modified": {
-          "type": "string",
-          "format": "date-time",
-          "example": "2019-03-04T07:25:58Z"
-        }
-      }
-    },
-    {
-      "properties": {
-        "policyCount": {
-          "type": "integer",
-          "minimum": 0
-        },
-        "accessCount": {
-          "type": "integer",
-          "minimum": 0
-        },
-        "applications": {
-          "type": "array",
-          "items": {
-            "type": "string",
-            "example": "catalog"
-          }
-        },
-        "system": {
-          "type": "boolean",
-          "default": false
-        },
-        "platform_default": {
-          "type": "boolean",
-          "default": false
-        },
-        "admin_default": {
-          "type": "boolean",
-          "default": false
-        },
-        "external_role_id": {
-          "type": "string",
-          "example": "ExternalRoleId"
-        },
-        "external_tenant": {
-          "type": "string",
-          "example": "ExternalTenant"
-        }
-      }
-    }
-  ]
-}
-
-```
-{% /jsonsnippet %}
 
 ### Properties
 
@@ -12373,138 +9464,6 @@ and
 {% span #schema_RoleOutDynamic /%}
 {% span #tocSroleoutdynamic /%}
 {% span #tocsroleoutdynamic /%}
-
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "allOf": [
-    {
-      "required": [
-        "name"
-      ],
-      "properties": {
-        "name": {
-          "type": "string",
-          "example": "RoleA"
-        },
-        "display_name": {
-          "type": "string",
-          "example": "ARoleName"
-        },
-        "description": {
-          "type": "string",
-          "example": "A description of RoleA"
-        }
-      }
-    },
-    {
-      "type": "object",
-      "required": [
-        "uuid"
-      ],
-      "properties": {
-        "uuid": {
-          "type": "string",
-          "format": "uuid",
-          "example": "57e60f90-8c0c-4bd1-87a0-2143759aae1c"
-        }
-      }
-    },
-    {
-      "type": "object",
-      "required": [
-        "created",
-        "modified"
-      ],
-      "properties": {
-        "created": {
-          "type": "string",
-          "format": "date-time",
-          "example": "2019-01-21T17:32:28Z"
-        },
-        "modified": {
-          "type": "string",
-          "format": "date-time",
-          "example": "2019-03-04T07:25:58Z"
-        }
-      }
-    },
-    {
-      "type": "object",
-      "required": [
-        "policyCount",
-        "accessCount",
-        "applications",
-        "system",
-        "platform_default",
-        "admin_default"
-      ],
-      "properties": {
-        "policyCount": {
-          "type": "integer",
-          "minimum": 0
-        },
-        "accessCount": {
-          "type": "integer",
-          "minimum": 0
-        },
-        "applications": {
-          "type": "array",
-          "items": {
-            "type": "string",
-            "example": "catalog"
-          }
-        },
-        "system": {
-          "type": "boolean",
-          "default": false
-        },
-        "platform_default": {
-          "type": "boolean",
-          "default": false
-        },
-        "admin_default": {
-          "type": "boolean",
-          "default": false
-        },
-        "groups_in_count": {
-          "type": "integer",
-          "minimum": 0
-        },
-        "groups_in": {
-          "type": "array",
-          "items": {
-            "properties": {
-              "name": {
-                "type": "string",
-                "example": "GroupA"
-              },
-              "description": {
-                "type": "string",
-                "example": "GroupA Description"
-              },
-              "uuid": {
-                "type": "string",
-                "example": "234df936-abb4-4238-a1c9-d91fc540c702"
-              }
-            }
-          }
-        },
-        "external_role_id": {
-          "type": "string",
-          "example": "ExternalRoleId"
-        },
-        "external_tenant": {
-          "type": "string",
-          "example": "ExternalTenant"
-        }
-      }
-    }
-  ]
-}
-
-```
-{% /jsonsnippet %}
 
 ### Properties
 
@@ -12549,28 +9508,6 @@ and
 {% span #tocSrolepatch /%}
 {% span #tocsrolepatch /%}
 
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "properties": {
-    "name": {
-      "type": "string",
-      "example": "RoleA"
-    },
-    "display_name": {
-      "type": "string",
-      "example": "ARoleName"
-    },
-    "description": {
-      "type": "string",
-      "example": "A description of RoleA"
-    }
-  }
-}
-
-```
-{% /jsonsnippet %}
-
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
@@ -12585,167 +9522,6 @@ and
 {% span #schema_RoleWithAccess /%}
 {% span #tocSrolewithaccess /%}
 {% span #tocsrolewithaccess /%}
-
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "allOf": [
-    {
-      "allOf": [
-        {
-          "required": [
-            "name"
-          ],
-          "properties": {
-            "name": {
-              "type": "string",
-              "example": "RoleA"
-            },
-            "display_name": {
-              "type": "string",
-              "example": "ARoleName"
-            },
-            "description": {
-              "type": "string",
-              "example": "A description of RoleA"
-            }
-          }
-        },
-        {
-          "type": "object",
-          "required": [
-            "uuid"
-          ],
-          "properties": {
-            "uuid": {
-              "type": "string",
-              "format": "uuid",
-              "example": "57e60f90-8c0c-4bd1-87a0-2143759aae1c"
-            }
-          }
-        },
-        {
-          "type": "object",
-          "required": [
-            "created",
-            "modified"
-          ],
-          "properties": {
-            "created": {
-              "type": "string",
-              "format": "date-time",
-              "example": "2019-01-21T17:32:28Z"
-            },
-            "modified": {
-              "type": "string",
-              "format": "date-time",
-              "example": "2019-03-04T07:25:58Z"
-            }
-          }
-        },
-        {
-          "properties": {
-            "policyCount": {
-              "type": "integer",
-              "minimum": 0
-            },
-            "accessCount": {
-              "type": "integer",
-              "minimum": 0
-            },
-            "applications": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "example": "catalog"
-              }
-            },
-            "system": {
-              "type": "boolean",
-              "default": false
-            },
-            "platform_default": {
-              "type": "boolean",
-              "default": false
-            },
-            "admin_default": {
-              "type": "boolean",
-              "default": false
-            },
-            "external_role_id": {
-              "type": "string",
-              "example": "ExternalRoleId"
-            },
-            "external_tenant": {
-              "type": "string",
-              "example": "ExternalTenant"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "type": "object",
-      "required": [
-        "access"
-      ],
-      "properties": {
-        "access": {
-          "type": "array",
-          "items": {
-            "required": [
-              "permission",
-              "resourceDefinitions"
-            ],
-            "properties": {
-              "permission": {
-                "type": "string",
-                "example": "cost-management:*:read"
-              },
-              "resourceDefinitions": {
-                "type": "array",
-                "items": {
-                  "required": [
-                    "attributeFilter"
-                  ],
-                  "properties": {
-                    "attributeFilter": {
-                      "required": [
-                        "key",
-                        "operation",
-                        "value"
-                      ],
-                      "properties": {
-                        "key": {
-                          "type": "string",
-                          "example": "cost-management.aws.account"
-                        },
-                        "operation": {
-                          "type": "string",
-                          "enum": [
-                            "equal",
-                            "in"
-                          ]
-                        },
-                        "value": {
-                          "type": "string",
-                          "example": "123456"
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  ]
-}
-
-```
-{% /jsonsnippet %}
 
 ### Properties
 
@@ -12769,27 +9545,6 @@ and
 {% span #tocSpolicy /%}
 {% span #tocspolicy /%}
 
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "required": [
-    "name"
-  ],
-  "properties": {
-    "name": {
-      "type": "string",
-      "example": "PolicyA"
-    },
-    "description": {
-      "type": "string",
-      "example": "A description of PolicyA"
-    }
-  }
-}
-
-```
-{% /jsonsnippet %}
-
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
@@ -12803,53 +9558,6 @@ and
 {% span #schema_PolicyIn /%}
 {% span #tocSpolicyin /%}
 {% span #tocspolicyin /%}
-
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "allOf": [
-    {
-      "required": [
-        "name"
-      ],
-      "properties": {
-        "name": {
-          "type": "string",
-          "example": "PolicyA"
-        },
-        "description": {
-          "type": "string",
-          "example": "A description of PolicyA"
-        }
-      }
-    },
-    {
-      "type": "object",
-      "required": [
-        "group",
-        "roles"
-      ],
-      "properties": {
-        "group": {
-          "type": "string",
-          "format": "uuid",
-          "example": "83ee048e-3c1d-43ef-b945-108225ae52f4"
-        },
-        "roles": {
-          "type": "array",
-          "items": {
-            "type": "string",
-            "format": "uuid",
-            "example": "94846f2f-cced-474f-b7f3-47e2ec51dd11"
-          }
-        }
-      }
-    }
-  ]
-}
-
-```
-{% /jsonsnippet %}
 
 ### Properties
 
@@ -12873,244 +9581,6 @@ and
 {% span #schema_PolicyExtended /%}
 {% span #tocSpolicyextended /%}
 {% span #tocspolicyextended /%}
-
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "allOf": [
-    {
-      "required": [
-        "name"
-      ],
-      "properties": {
-        "name": {
-          "type": "string",
-          "example": "PolicyA"
-        },
-        "description": {
-          "type": "string",
-          "example": "A description of PolicyA"
-        }
-      }
-    },
-    {
-      "type": "object",
-      "required": [
-        "uuid"
-      ],
-      "properties": {
-        "uuid": {
-          "type": "string",
-          "format": "uuid",
-          "example": "57e60f90-8c0c-4bd1-87a0-2143759aae1c"
-        }
-      }
-    },
-    {
-      "type": "object",
-      "required": [
-        "created",
-        "modified"
-      ],
-      "properties": {
-        "created": {
-          "type": "string",
-          "format": "date-time",
-          "example": "2019-01-21T17:32:28Z"
-        },
-        "modified": {
-          "type": "string",
-          "format": "date-time",
-          "example": "2019-03-04T07:25:58Z"
-        }
-      }
-    },
-    {
-      "type": "object",
-      "required": [
-        "group",
-        "roles"
-      ],
-      "properties": {
-        "group": {
-          "allOf": [
-            {
-              "required": [
-                "name"
-              ],
-              "properties": {
-                "name": {
-                  "type": "string",
-                  "example": "GroupA"
-                },
-                "description": {
-                  "type": "string",
-                  "example": "A description of GroupA"
-                }
-              }
-            },
-            {
-              "type": "object",
-              "required": [
-                "uuid"
-              ],
-              "properties": {
-                "uuid": {
-                  "type": "string",
-                  "format": "uuid",
-                  "example": "57e60f90-8c0c-4bd1-87a0-2143759aae1c"
-                }
-              }
-            },
-            {
-              "type": "object",
-              "required": [
-                "created",
-                "modified"
-              ],
-              "properties": {
-                "created": {
-                  "type": "string",
-                  "format": "date-time",
-                  "example": "2019-01-21T17:32:28Z"
-                },
-                "modified": {
-                  "type": "string",
-                  "format": "date-time",
-                  "example": "2019-03-04T07:25:58Z"
-                }
-              }
-            },
-            {
-              "properties": {
-                "principalCount": {
-                  "type": "integer",
-                  "minimum": 0
-                },
-                "roleCount": {
-                  "type": "integer",
-                  "minimum": 0
-                },
-                "system": {
-                  "type": "boolean",
-                  "default": false
-                },
-                "platform_default": {
-                  "type": "boolean",
-                  "default": false
-                },
-                "admin_default": {
-                  "type": "boolean",
-                  "default": false
-                }
-              }
-            }
-          ]
-        },
-        "roles": {
-          "type": "array",
-          "items": {
-            "allOf": [
-              {
-                "required": [
-                  "name"
-                ],
-                "properties": {
-                  "name": {
-                    "type": "string",
-                    "example": "RoleA"
-                  },
-                  "display_name": {
-                    "type": "string",
-                    "example": "ARoleName"
-                  },
-                  "description": {
-                    "type": "string",
-                    "example": "A description of RoleA"
-                  }
-                }
-              },
-              {
-                "type": "object",
-                "required": [
-                  "uuid"
-                ],
-                "properties": {
-                  "uuid": {
-                    "type": "string",
-                    "format": "uuid",
-                    "example": "57e60f90-8c0c-4bd1-87a0-2143759aae1c"
-                  }
-                }
-              },
-              {
-                "type": "object",
-                "required": [
-                  "created",
-                  "modified"
-                ],
-                "properties": {
-                  "created": {
-                    "type": "string",
-                    "format": "date-time",
-                    "example": "2019-01-21T17:32:28Z"
-                  },
-                  "modified": {
-                    "type": "string",
-                    "format": "date-time",
-                    "example": "2019-03-04T07:25:58Z"
-                  }
-                }
-              },
-              {
-                "properties": {
-                  "policyCount": {
-                    "type": "integer",
-                    "minimum": 0
-                  },
-                  "accessCount": {
-                    "type": "integer",
-                    "minimum": 0
-                  },
-                  "applications": {
-                    "type": "array",
-                    "items": {
-                      "type": "string",
-                      "example": "catalog"
-                    }
-                  },
-                  "system": {
-                    "type": "boolean",
-                    "default": false
-                  },
-                  "platform_default": {
-                    "type": "boolean",
-                    "default": false
-                  },
-                  "admin_default": {
-                    "type": "boolean",
-                    "default": false
-                  },
-                  "external_role_id": {
-                    "type": "string",
-                    "example": "ExternalRoleId"
-                  },
-                  "external_tenant": {
-                    "type": "string",
-                    "example": "ExternalTenant"
-                  }
-                }
-              }
-            ]
-          }
-        }
-      }
-    }
-  ]
-}
-
-```
-{% /jsonsnippet %}
 
 ### Properties
 
@@ -13147,296 +9617,6 @@ and
 {% span #tocSpolicypagination /%}
 {% span #tocspolicypagination /%}
 
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "allOf": [
-    {
-      "properties": {
-        "meta": {
-          "properties": {
-            "count": {
-              "type": "integer",
-              "format": "int64",
-              "example": 30
-            }
-          }
-        },
-        "links": {
-          "properties": {
-            "first": {
-              "type": "string",
-              "format": "uri",
-              "example": "/api/v1/(resources)/?offset=0&limit=10"
-            },
-            "previous": {
-              "type": "string",
-              "format": "uri",
-              "example": "/api/v1/(resources)/?offset=20&limit=10"
-            },
-            "next": {
-              "type": "string",
-              "format": "uri",
-              "example": "/api/v1/(resources)/?offset=40&limit=10"
-            },
-            "last": {
-              "type": "string",
-              "format": "uri",
-              "example": "/api/v1/(resources)/?offset=90&limit=10"
-            }
-          }
-        }
-      }
-    },
-    {
-      "type": "object",
-      "required": [
-        "data"
-      ],
-      "properties": {
-        "data": {
-          "type": "array",
-          "items": {
-            "allOf": [
-              {
-                "required": [
-                  "name"
-                ],
-                "properties": {
-                  "name": {
-                    "type": "string",
-                    "example": "PolicyA"
-                  },
-                  "description": {
-                    "type": "string",
-                    "example": "A description of PolicyA"
-                  }
-                }
-              },
-              {
-                "type": "object",
-                "required": [
-                  "uuid"
-                ],
-                "properties": {
-                  "uuid": {
-                    "type": "string",
-                    "format": "uuid",
-                    "example": "57e60f90-8c0c-4bd1-87a0-2143759aae1c"
-                  }
-                }
-              },
-              {
-                "type": "object",
-                "required": [
-                  "created",
-                  "modified"
-                ],
-                "properties": {
-                  "created": {
-                    "type": "string",
-                    "format": "date-time",
-                    "example": "2019-01-21T17:32:28Z"
-                  },
-                  "modified": {
-                    "type": "string",
-                    "format": "date-time",
-                    "example": "2019-03-04T07:25:58Z"
-                  }
-                }
-              },
-              {
-                "type": "object",
-                "required": [
-                  "group",
-                  "roles"
-                ],
-                "properties": {
-                  "group": {
-                    "allOf": [
-                      {
-                        "required": [
-                          "name"
-                        ],
-                        "properties": {
-                          "name": {
-                            "type": "string",
-                            "example": "GroupA"
-                          },
-                          "description": {
-                            "type": "string",
-                            "example": "A description of GroupA"
-                          }
-                        }
-                      },
-                      {
-                        "type": "object",
-                        "required": [
-                          "uuid"
-                        ],
-                        "properties": {
-                          "uuid": {
-                            "type": "string",
-                            "format": "uuid",
-                            "example": "57e60f90-8c0c-4bd1-87a0-2143759aae1c"
-                          }
-                        }
-                      },
-                      {
-                        "type": "object",
-                        "required": [
-                          "created",
-                          "modified"
-                        ],
-                        "properties": {
-                          "created": {
-                            "type": "string",
-                            "format": "date-time",
-                            "example": "2019-01-21T17:32:28Z"
-                          },
-                          "modified": {
-                            "type": "string",
-                            "format": "date-time",
-                            "example": "2019-03-04T07:25:58Z"
-                          }
-                        }
-                      },
-                      {
-                        "properties": {
-                          "principalCount": {
-                            "type": "integer",
-                            "minimum": 0
-                          },
-                          "roleCount": {
-                            "type": "integer",
-                            "minimum": 0
-                          },
-                          "system": {
-                            "type": "boolean",
-                            "default": false
-                          },
-                          "platform_default": {
-                            "type": "boolean",
-                            "default": false
-                          },
-                          "admin_default": {
-                            "type": "boolean",
-                            "default": false
-                          }
-                        }
-                      }
-                    ]
-                  },
-                  "roles": {
-                    "type": "array",
-                    "items": {
-                      "allOf": [
-                        {
-                          "required": [
-                            "name"
-                          ],
-                          "properties": {
-                            "name": {
-                              "type": "string",
-                              "example": "RoleA"
-                            },
-                            "display_name": {
-                              "type": "string",
-                              "example": "ARoleName"
-                            },
-                            "description": {
-                              "type": "string",
-                              "example": "A description of RoleA"
-                            }
-                          }
-                        },
-                        {
-                          "type": "object",
-                          "required": [
-                            "uuid"
-                          ],
-                          "properties": {
-                            "uuid": {
-                              "type": "string",
-                              "format": "uuid",
-                              "example": "57e60f90-8c0c-4bd1-87a0-2143759aae1c"
-                            }
-                          }
-                        },
-                        {
-                          "type": "object",
-                          "required": [
-                            "created",
-                            "modified"
-                          ],
-                          "properties": {
-                            "created": {
-                              "type": "string",
-                              "format": "date-time",
-                              "example": "2019-01-21T17:32:28Z"
-                            },
-                            "modified": {
-                              "type": "string",
-                              "format": "date-time",
-                              "example": "2019-03-04T07:25:58Z"
-                            }
-                          }
-                        },
-                        {
-                          "properties": {
-                            "policyCount": {
-                              "type": "integer",
-                              "minimum": 0
-                            },
-                            "accessCount": {
-                              "type": "integer",
-                              "minimum": 0
-                            },
-                            "applications": {
-                              "type": "array",
-                              "items": {
-                                "type": "string",
-                                "example": "catalog"
-                              }
-                            },
-                            "system": {
-                              "type": "boolean",
-                              "default": false
-                            },
-                            "platform_default": {
-                              "type": "boolean",
-                              "default": false
-                            },
-                            "admin_default": {
-                              "type": "boolean",
-                              "default": false
-                            },
-                            "external_role_id": {
-                              "type": "string",
-                              "example": "ExternalRoleId"
-                            },
-                            "external_tenant": {
-                              "type": "string",
-                              "example": "ExternalTenant"
-                            }
-                          }
-                        }
-                      ]
-                    }
-                  }
-                }
-              }
-            ]
-          }
-        }
-      }
-    }
-  ]
-}
-
-```
-{% /jsonsnippet %}
-
 ### Properties
 
 allOf
@@ -13458,110 +9638,6 @@ and
 {% span #schema_AccessPagination /%}
 {% span #tocSaccesspagination /%}
 {% span #tocsaccesspagination /%}
-
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "allOf": [
-    {
-      "properties": {
-        "meta": {
-          "properties": {
-            "count": {
-              "type": "integer",
-              "format": "int64",
-              "example": 30
-            }
-          }
-        },
-        "links": {
-          "properties": {
-            "first": {
-              "type": "string",
-              "format": "uri",
-              "example": "/api/v1/(resources)/?offset=0&limit=10"
-            },
-            "previous": {
-              "type": "string",
-              "format": "uri",
-              "example": "/api/v1/(resources)/?offset=20&limit=10"
-            },
-            "next": {
-              "type": "string",
-              "format": "uri",
-              "example": "/api/v1/(resources)/?offset=40&limit=10"
-            },
-            "last": {
-              "type": "string",
-              "format": "uri",
-              "example": "/api/v1/(resources)/?offset=90&limit=10"
-            }
-          }
-        }
-      }
-    },
-    {
-      "type": "object",
-      "required": [
-        "data"
-      ],
-      "properties": {
-        "data": {
-          "type": "array",
-          "items": {
-            "required": [
-              "permission",
-              "resourceDefinitions"
-            ],
-            "properties": {
-              "permission": {
-                "type": "string",
-                "example": "cost-management:*:read"
-              },
-              "resourceDefinitions": {
-                "type": "array",
-                "items": {
-                  "required": [
-                    "attributeFilter"
-                  ],
-                  "properties": {
-                    "attributeFilter": {
-                      "required": [
-                        "key",
-                        "operation",
-                        "value"
-                      ],
-                      "properties": {
-                        "key": {
-                          "type": "string",
-                          "example": "cost-management.aws.account"
-                        },
-                        "operation": {
-                          "type": "string",
-                          "enum": [
-                            "equal",
-                            "in"
-                          ]
-                        },
-                        "value": {
-                          "type": "string",
-                          "example": "123456"
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  ]
-}
-
-```
-{% /jsonsnippet %}
 
 ### Properties
 
@@ -13585,28 +9661,6 @@ and
 {% span #tocSstatus /%}
 {% span #tocsstatus /%}
 
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "required": [
-    "api_version"
-  ],
-  "properties": {
-    "api_version": {
-      "type": "integer",
-      "format": "int64",
-      "example": 1
-    },
-    "commit": {
-      "type": "string",
-      "example": "178d2ea"
-    }
-  }
-}
-
-```
-{% /jsonsnippet %}
-
 ### Properties
 
 |Name|Type|Required|Restrictions|Description|
@@ -13620,36 +9674,6 @@ and
 {% span #schema_Permission /%}
 {% span #tocSpermission /%}
 {% span #tocspermission /%}
-
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "properties": {
-    "application": {
-      "type": "string",
-      "example": "rbac"
-    },
-    "resource_type": {
-      "type": "string",
-      "example": "group"
-    },
-    "verb": {
-      "type": "string",
-      "example": "read"
-    },
-    "permission": {
-      "type": "string",
-      "example": "rbac:group:read"
-    },
-    "description": {
-      "type": "string",
-      "example": "Describe the usage of permission."
-    }
-  }
-}
-
-```
-{% /jsonsnippet %}
 
 ### Properties
 
@@ -13667,88 +9691,6 @@ and
 {% span #schema_PermissionPagination /%}
 {% span #tocSpermissionpagination /%}
 {% span #tocspermissionpagination /%}
-
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "allOf": [
-    {
-      "properties": {
-        "meta": {
-          "properties": {
-            "count": {
-              "type": "integer",
-              "format": "int64",
-              "example": 30
-            }
-          }
-        },
-        "links": {
-          "properties": {
-            "first": {
-              "type": "string",
-              "format": "uri",
-              "example": "/api/v1/(resources)/?offset=0&limit=10"
-            },
-            "previous": {
-              "type": "string",
-              "format": "uri",
-              "example": "/api/v1/(resources)/?offset=20&limit=10"
-            },
-            "next": {
-              "type": "string",
-              "format": "uri",
-              "example": "/api/v1/(resources)/?offset=40&limit=10"
-            },
-            "last": {
-              "type": "string",
-              "format": "uri",
-              "example": "/api/v1/(resources)/?offset=90&limit=10"
-            }
-          }
-        }
-      }
-    },
-    {
-      "type": "object",
-      "required": [
-        "data"
-      ],
-      "properties": {
-        "data": {
-          "type": "array",
-          "items": {
-            "properties": {
-              "application": {
-                "type": "string",
-                "example": "rbac"
-              },
-              "resource_type": {
-                "type": "string",
-                "example": "group"
-              },
-              "verb": {
-                "type": "string",
-                "example": "read"
-              },
-              "permission": {
-                "type": "string",
-                "example": "rbac:group:read"
-              },
-              "description": {
-                "type": "string",
-                "example": "Describe the usage of permission."
-              }
-            }
-          }
-        }
-      }
-    }
-  ]
-}
-
-```
-{% /jsonsnippet %}
 
 ### Properties
 
@@ -13771,67 +9713,6 @@ and
 {% span #schema_PermissionOptionsPagination /%}
 {% span #tocSpermissionoptionspagination /%}
 {% span #tocspermissionoptionspagination /%}
-
-{% jsonsnippet title="Sample" %}
-```json
-{
-  "allOf": [
-    {
-      "properties": {
-        "meta": {
-          "properties": {
-            "count": {
-              "type": "integer",
-              "format": "int64",
-              "example": 30
-            }
-          }
-        },
-        "links": {
-          "properties": {
-            "first": {
-              "type": "string",
-              "format": "uri",
-              "example": "/api/v1/(resources)/?offset=0&limit=10"
-            },
-            "previous": {
-              "type": "string",
-              "format": "uri",
-              "example": "/api/v1/(resources)/?offset=20&limit=10"
-            },
-            "next": {
-              "type": "string",
-              "format": "uri",
-              "example": "/api/v1/(resources)/?offset=40&limit=10"
-            },
-            "last": {
-              "type": "string",
-              "format": "uri",
-              "example": "/api/v1/(resources)/?offset=90&limit=10"
-            }
-          }
-        }
-      }
-    },
-    {
-      "type": "object",
-      "required": [
-        "data"
-      ],
-      "properties": {
-        "data": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      }
-    }
-  ]
-}
-
-```
-{% /jsonsnippet %}
 
 ### Properties
 
